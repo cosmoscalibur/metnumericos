@@ -1,11 +1,9 @@
 # Métodos Numéricos  
 
-Este repositorio contiene material de apoyo para el desarrollo del curso de métodos numéricos que imparto en la Universidad de Medellín.  
-Para la consulta interactiva de los notebooks directamente en el navegador, use este [enlace](http://mybinder.org/repo/cosmoscalibur/metodos_numericos).  
+Repositorio asociado al [curso de métodos numéricos (código 3716)](http://uvirtual.udem.edu.co/course/view.php?id=3716 "Moodle del curso.") que imparto en la [Universidad de Medellín](http://www.udem.edu.co/ "Página oficial de la Universidad de Medellín.") para los programas de ingeniería.  
 
-El material asociado contiene:  
-+ Códigos python para pruebas de los métodos vistos en clase.  
-+ Notebooks python para la interacción con soluciones de ejemplificación y demostraciones.  
-+ Notas de clase (en formato markdown, LaTeX, notebook o PDF según el caso).  
+Si usted es estudiante, diríjase a la información de la [inducción del curso](Presentaciones/Inducción.md) para ser orientado sobre la información general del curso.  
+
+Si usted es docente, no solo la información accesible para los estudiantes será de su interés (en esta encontrará una posible base para la organización de su material reglamentario, evaluaciones y notas de clase del curso) sino también el contenido disponible en el directorio [Moodle](Moodle) que contiene algunas anotaciones respecto a configuración de la plataforma, forma de calcular el promedio y el backup de plataforma que puede usar como base para el suyo.  
 
 El código incluido en este repositorio se encuentra bajo [licencia MIT](LICENSE) y el contenido textual se encuentra bajo [CCBY40](https://creativecommons.org/licenses/by/4.0/).  
