@@ -14,6 +14,7 @@ Si requiere de revisión de su respuesta, no solo marque la pregunta sino que ad
 
 ## Escritas
 
+Las actividades escritas son los quices, parcial, final y taller 2. Todas estas comparten las siguientes normas de presentación.
 
 ### Marcación
 
@@ -73,3 +74,15 @@ Formas erradas de producto:
 Es necesario tener en cuenta el uso adecuado de $=$, $\rightarrow$ y :. El símbolo igual establece una relación de igualdad o asignación entre cantidades (uso exclusivo en expresiones matemáticas), el símbolo de la flecha es la relación lógica de implicación o una relación de orden y el símbolo de dos puntos se usa para asociar significados.  
 
 Si usa negrilla (o texto reteñido a mano) en los símbolos es equivalente al uso de la flecha sobre la letra sin negrilla ($\vec{v}$), y representa vectores.  
+
+## Software requerido
+
+Software requerido para el desarrollo del taller 2.
+
++   Interprete o compilador de lenguaje de programación:  
+    +   Python 3 (implementación oficial, CPython): Instalación recomendada con [Anaconda](https://www.continuum.io/downloads) o [miniconda](http://conda.pydata.org/miniconda.html) (en caso de equipos de bajas capacidades). Se recomienda como editor Spyder, Ninja, Atom o Jupyterlab.  
+    +   Lenguaje M: Su código debe funcionar en [Octave 4](https://www.gnu.org/software/octave/download.html), que es un clon libre de Matlab.  
+    +   Java (implementación estandar [OpenJDK](http://openjdk.java.net/)) versión 8.  
++   Software de procesamiento de texto (Microsoft Word, [LibreOffice Writer](https://es.libreoffice.org/ "Software libre de procesamiento de texto multiplataforma."), LaTeX -[Compilador](https://miktex.org/download "Compilador libre de LaTeX para windows.") y [Editor](http://www.xm1math.net/texmaker/download.html "Editor libre y multiplataforma de LaTeX.")-).  
++   Jupyter Notebook: Opcional, para aspirar a bonificación en los talleres. Si instalo python con ayuda de Anaconda, este ya estará instalado. De lo contrario, siga las [instrucciones](http://jupyter.readthedocs.io/en/latest/install.html).  
++   [7zip](http://www.7-zip.org/download.html) (recomendado para comprimir zip).  
