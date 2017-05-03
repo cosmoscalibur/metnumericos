@@ -1,0 +1,108 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{../imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
+
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+      \node at (4,1.1) {X};
+      \node[right] at (10,.5) {8};
+      \node[right] at (10,1.) {24 de mayo de 2017}; 
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen, y tendrá como apoyo una hoja de formulas al final.
+Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, con separador decimal consistente y unidades si lo requiere.
+En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.
+
+\[\begin{array}{cc}
+e_a = \vert p - p^* \vert \qquad & \qquad e_r = e_a/\vert p \vert \\
+e_r \leq 0.5 \cdot 10^{-n+1} \qquad & \qquad
+L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \\
+P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x)  \qquad & \qquad f^\prime(x_i) = \frac{f(x_i + h) - f(x_i - h)}{2h}\\
+f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+R^\prime(x_i) = -\frac{h}{2}f^{\prime\prime}(\xi(x_i)) \\
+R^\prime(x_i) = -\frac{h^2}{6}f^{(3)}(\xi(x_i)) &
+%x_{i+1} = g(x_i) \qquad & \qquad |g^\prime(x_i)| < 1 \\
+%x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)} \qquad & \qquad x_{i+1} = x_i - \frac{P(x_i)}{Q(x_i)} \\
+%x_{i+1} = x_i - \frac{f(x_i) \Delta x}{f(x_i + \Delta x) - f(x_i)} \qquad & \qquad x_{i+2} = x_{i+1} - \frac{f(x_{i+1}) (x_{i+1}-x_i)}{f(x_{i+1}) - f(x_i)} \\
+%b_n = a_n \qquad & \qquad
+%b_k = b_{k+1}x_0 + a_k \\
+%L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \qquad & \qquad
+%P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x) \\
+%f\left[x_i, x_{i+1}\right] = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \qquad & \qquad
+%f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] = \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i} \\
+%z_{2i} = z_{2i+1} = x_i \qquad & \qquad
+%H_{2n+1} = f(x_0) + \sum\limits_{k=1}^{2n+1} f\left[x_0, \ldots, x_k\right] \prod\limits_{i = 0}^{k-1}(x-x_i) \\
+%f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
+%I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+%f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+%I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+%\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+%W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+%k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+%k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+% W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6} & \\
+%\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
+%\vec{x}^TA\vec{x} > 0 & \rho(T) < 1 \\
+%A = A^T & A = D - L - U\\
+%|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
+%T_J = D^{-1}(L+U) & p(\lambda) = \det(A-\lambda \I) = 0\\
+%\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
+%T_G = (D-L)^{-1}U & \vec{c}_G = (D-L)^{-1}\vec{b}
+\end{array}\]
+
+\end{document}

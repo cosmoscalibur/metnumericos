@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{../imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+
+
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+
+       \node at (4, .4) {X}; % Quiz
+
+
+      \node[right] at (10,.5) {8}; % Número de grupo
+      \node[right] at (10,1.) {13 de mayo de 2017}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+\section{Condiciones}
+
+Para el desarrollo del segundo taller-quiz (5\%) debe usar un lenguaje de programación que posea un interprete o compilador de implementación gratuita y multiplataforma (debe funcionar mínimamente en linux). Algunas recomendaciones son lenguaje M con el interprete de Octave 4 (clon de matlab pero gratuito), Python 3 con la distribución Anaconda (para facilidad de instalación y con la IDE de spyder) y Java 8 con la implementación de OpenJDK. Si desea usar otro lenguaje o implementación consulte primero con el docente.
+
+Todos los cálculos deben realizarse preservando las cifras significativas de la máquina (no redondear al interior del código) pero al reportarse en la redacción del documento deben estar acordes a la teoría de errores (indicación de incertidumbre/error estimado o cota, número de cifras significativas acorde al error y redondeo simétrico) y con sus respectivas unidades si lo requiere. El documento debe tener consistencia con el separador decimal (todo el documento con el mismo separador decimal independiente del separador que escoja).
+
+La entrega de este taller se realiza a tráves de UVirtual en el espacio asignado para el taller 2 a más tardar, a las 23:59 del sábado 23 de mayo de 2017 (día siguiente del quiz 4). Este taller se presenta en equipos de mínimo 4 personas (consulte con el docente en caso de no cumplir esta condición).
+
+\subsection{Archivos}
+
+Debe anexar a tráves de UVirtual y con cáracter obligatorio (si no se cumplen el taller es anulado):
+
+\begin{itemize}
+\item Comprimido en formato \verb-zip- con los archivos mencionados a continuación.
+\item Archivo o archivos de código con su respectiva extensión. La ejecución no puede ser interactiva (datos ingresados manualmente en cada ejecución) sino usando como único argumento de la función principal la ruta del archivo de entrada que contiene los datos.
+\item Archivo o archivos de texto plano (block de notas) con los datos de entrada que serán leídos por el código.
+\item Archivo o archivos de texto plano con los datos de salida generados por el código.
+\item Archivo en formato \verb-pdf- del documento principal con estilo articulo en el cual se presentan los resultados del taller. Dos posibles esquemas para el estilo articulo: \href{http://www.sciencedirect.com/science/article/pii/S0010465516301254}{Enfoque en el código} o \href{https://arxiv.org/pdf/1205.3445.pdf}{Enfoque en el caso de aplicación}. Este documento puede ser reemplazado por un \textit{notebook Jupyter} y en ese caso obtener la bonificación de \(0.5\) en el taller si es usado correctamente (incluyendo la ejecución de los casos como celdas de código). Consulte con el docente sobre el caso de bonificación para estar seguro si cumple con un uso adecuado. Las ecuaciones deben ser digitadas adecuadamente (editor de ecuaciones o LaTeX según corresponda).
+\end{itemize}
+
+\subsection{Temas}
+
+El taller debe basarse en la aplicación de los siguientes casos de métodos numéricos a sus áreas de formación.
+
+\begin{itemize}
+\item Raíces no lineales en dos dimensiones o más con métodos cerrados o abiertos.
+\item Raíces de polinomios con el método de Newton-Horner requiriendo más de una raíz.
+\item Interpolación de Lagrange o Hermite para uso posterior en reconstrucción de curvas o para posterior diferenciación o integración (también numérica).
+\item Diferenciación numérica en determinación de gradientes, curvas de contorno, optimización y solución de ecuaciones diferenciales por diferencias finitas.
+\item Integración impropia 1D con trapecio o Simpson.
+\item Integración propia 2D con integración sobre elementos finitos.
+\item Solución de sistemas de ecuaciones diferenciales ordinarios.
+\item Solución de sistemas de ecuaciones lineales por métodos iterados.
+\end{itemize}
+\section{Calificación}
+  \begin{enumerate}[leftmargin=*,widest=9]
+    \item (\(0.5\)) Seleccione un problema aplicado asociado al área de formación de uno de los integrantes del equipo en el cual se aprecie la utilidad de los métodos numéricos para la solución de problemas en los cuales las herramientas análiticas no se pueden usar (no existen soluciones exactas o el proceso es muy largo). Contextualice el problema en una sección de descripción del problema, marco teórico o equivalente. Debe tener un caso de prueba en el cual se pueda comparar su solución con un resultado previo reportado en la literatura (una solución exacta o una solución numérica reportada en textos).
+		\item (\(1.5\)) Describa el método o métodos numéricos y su uso para la solución del problema aplicado. Puede ayudarse de diagramas de flujo y UML si lo considera necesario de elaboración propia. Este texto se ubica en una sección de método o marco teórico según el enfoque del artículo.
+		\item (\(2.0\)) Obtenga resultados de aplicar sus códigos y muestre su uso (como se ejecuta) sobre el caso de prueba. Reporte estos en una sección de resultados o de uso según el enfoque del articulo. Debe contener al menos un gráfico que se genere usando el código desarrollado.
+		\item (\(0.5\)) Realice una sección de discusión y/o conclusiones a partir de los resultados obtenidos y la comparación de la forma analítica con los métodos numéricos que implemento.
+		\item (\(0.5\)) Realice secciones de resúmen, introducción y bibliografía (se debe hacer citación en el documento) al artículo.
+\end{enumerate}
+
+\end{document}

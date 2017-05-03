@@ -1,0 +1,251 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+
+
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\usepackage{hyperref}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+
+      \node at (4, .4) {X}; % Quiz
+
+
+      \node[right] at (10,.5) {4 - 6 - 8}; % Número de grupo
+      \node[right] at (10,1.) {31 de octubre de 2015}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+
+
+
+
+Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{4 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
+
+Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero}, y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
+
+
+  \begin{enumerate}[leftmargin=*,widest=9]
+
+    \item Dado el problema de valor inicial:
+    \begin{eqnarray*}
+    \diff{y}{t}{} = \sqrt{t+y^2} \\
+    0 \leq t \leq 1\\
+    y(0) = 5
+\end{eqnarray*}
+
+    \begin{enumerate}[label=\alph*]
+    \item (\(1.0\)) Determine si es un problema de valor inicial con única solución asegurada.
+
+
+   Verificaremos la continuidad de \(f(t,y)\). Las raíces pares están definidas para argumentos reales mayores o iguales que cero. De manera que basta probar que el argumento es positivo o cero.
+
+   \begin{equation}
+   \begin{matrix}
+   0 & \leq t \leq & \infty\\
+   0 & \leq y^2 \leq & \infty\\
+   \hline
+   0 & \leq t + y^2 \leq & \infty
+   \end{matrix}
+   \end{equation}
+
+   De esta manera la función es continua. Ahora se verificará la condición de Lipschitz, y dado que el dominio es convexo es posible usar la definicion con derivada.
+
+   Método 1:
+
+   \begin{eqnarray*}
+   \abs{\pdiff{f(t, y)}{y}{}} & = & \abs{\frac{1}{2}\frac{2y}{\sqrt{t+y^2}}} \\
+   & = & \abs{\frac{y}{\sqrt{t+y^2}}} \\
+   & \leq & \abs{\frac{y}{\sqrt{y^2}}} = 1 \text{  Solo si $y \neq 0$}
+   \end{eqnarray*}
+
+   Método 2:
+
+   También se verificara por la definición no convexa.
+
+   \begin{eqnarray*}
+   t & \geq & 0\\
+   y_1 & > & y_0\\
+   \abs{\sqrt{t+y_1^2} - \sqrt{t+y_0^2}} &=& \sqrt{t+y_1^2} - \sqrt{t+y_0^2}\\
+   & = & \frac{(t+y_1^2)-(t+y_0^2)}{\sqrt{t+y_1^2}+\sqrt{t+y_0^2}}\\
+   & = & \frac{(y_1^2-y_0^2}{\sqrt{t+y_1^2}+\sqrt{t+y_0^2}}\\
+   & \leq & \frac{(y_1^2-y_0^2}{y_1^2+y_0} = \frac{(y_1+y_0)(y_1-y_0)}{y_1+y_0} = \\
+   & & \qquad y_1 - y_0 = \abs{y_1 - y_0} \text{  Solo si \(y_1 \neq -y_0\)}
+   \end{eqnarray*}
+
+    Por ambos métodos se encuentra una constante de Lipschitz pero dependiente de restricciones en el dominio. De manera que la función no cumple la condición de Lipschitz. De manera que el problema no posee solución única asegurada.
+
+    \textit{Evaluación: Con solo observar que Lipschitz no cumple e indicar que no hay solución única, se obtiene el punto completo. Si afirmaron que cumplía con solo verificar la continuidad, se obtiene la mitad del punto.}
+
+    \item (\(1.0\)) Solucione el problema de valor inicial con \(h=0.5\) con el método de Taylor orden 2.
+
+Dado a que la función \(f(t, y)\) no cumple con asegurar poseer solución única, no se procede con la iteración.
+
+    \textit{Evaluación: Acorde a las condiciones del examen, este punto no debe realizarse si en el literal anterior se contesto que no cumplía. De esta forma se obtiene el punto completo. Si en el literal anterior se indico que si cumplía, la correcta realización de la iteración de este punto da máximo medio punto. Si la derivada interna no se considero, no suma.}
+
+
+    \begin{eqnarray*}
+    \pdiff{f(t, y)}{t}{2} & = & \frac{2y\sqrt{t+y^2}+1}{2\sqrt{t+y^2}} \text{  Considerar derivada interna de \(y(t)\) respecto a \(t\).}\\
+    y_{i+1} & = & y_i + h\sqrt{t_i+ y_i^2} + \frac{(2y_i\sqrt{t_i+y_i^2}+1)h^2}{4\sqrt{t_i+y_i^2}}
+    \end{eqnarray*}
+
+    \[
+    \begin{array}{|c|c|}
+    \hline
+    t_i & W_i\\
+    \hline
+    0.0 & 5.000\\
+    0.5 & 8.138\\
+    1.0 & 13.25\\
+    \hline
+    \end{array}
+    \]
+
+    \end{enumerate}
+
+
+    \item Dado el problema de valor inicial:
+    \begin{eqnarray*}
+    \diff{y}{t}{} = y\exp(t) \\
+    2 \leq t \leq 3\\
+    y(2) = 1
+\end{eqnarray*}
+
+    \begin{enumerate}[label=\alph*]
+    \item (\(1.0\)) Determine si es un problema de valor inicial con única solución asegurada.
+
+    Primero se verifica la continuidad de la función \(f(t, y)\). El producto de funciones es continuo si sus factores son continuos. En este caso la función exponencial y la función lineal \(y\), las cuales son continuas en todos los reales, luego \(f(t, y)\) es continua.
+
+    Se debe verificar también el criterio de Lipschitz. Para ello se observa que el dominio es convexo, y por ende se puede aplicar la definición con la derivada.
+
+    \begin{eqnarray*}
+    \abs{\pdiff{f(t,y)}{y}{}} & = & \abs{\exp(t)} \\
+    & = & \exp(t) \leq \exp(3) = 20.09 = L
+    \end{eqnarray*}
+
+    De donde cumple con la condición de Lipschitz ademas de ser continua, por lo que se asegura que posea solución única.
+
+    \textit{Evaluación: Con solo observar que Lipschitz cumple no basta para afirmar que el problema asegure solución única. Si afirmaron una sola de las condiciones obtienen la mitad del punto.}
+
+
+
+    \item (\(1.0\)) Solucione el problema de valor inicial con \(h=0.5\) con el método RK4.
+
+
+
+   \begin{eqnarray*}
+   k_1 & = & h W_i \exp(t_i) \\
+   k_2 & = & h (W_i + k_1/2) \exp(t_i + h/2)\\
+   k_3 & = & h (W_i + k_2/2) \exp(t_i + h/2)\\
+   k_4 & = & h (W_i + k_3) \exp(t_{i+1})\\
+   W_{i+1} & = & W_i + \frac{k_1+2k_2+2k_3+k_4}{6}
+   \end{eqnarray*}
+
+   \[
+   \begin{array}{|c|c|c|c|c|c|}
+   \hline
+   t_i & k_1 & k_2 & k_3 & k_4 & W_i\\
+   \hline
+   2.0 & &&&& 1.0 \\
+   2.5 & 3.695 & 13.51 & 36.78 & 230.1 & 56.73\\
+   3.0 & 0.3456 \cdot 10^3 & 0.1795 \cdot 10^4 & 0.7463 \cdot 10^4 & 0.7552 \cdot 10^5 & 0.1579 \cdot 10^5 \\
+   \hline
+   \end{array}
+   \]
+
+   \item (\(1.0\)) Si la solución exacta es \( y(t) = \exp(\exp(t)-\exp(2))\), justifique sin solucionar numéricamente, si con el mismo paso el método de Euler puede obtener resultados comparables a RK4.
+
+   \textit{Evaluación: Esta es una pregunta abierta que busca observar el análisis del estudiante. Se debía responder sin hacer uso de los valores numéricos de usar las iteraciones de Euler para el problema. Usar la solución numérica anulará el punto, ya que el enunciado es claro en que no se debe usar. Esta pregunta puede tener otras soluciones, las cuales se evaluarán.}
+
+   Se observa que la constante de Lipschitz es alta, lo cual conduce a fuertes cambios en la función y por ende bastante factible que el error en los métodos de solución sea alto. Al comparar los valores obtenidos por el método de RK4 con la solución exacta se encuentran errores significativos, aún cuando el método es de orden 4 (corresponde a una aproximación tipo polinomio de cuarto grado por tramos), que permitiría ajustarse mejor a los grandes cambios. Si aún con esta condición el error es alto, un método orden 1 como Euler no podrá ajustarse rapidamente a los cambios de la función solución con la misma cantidad de subintervalos, perdiendo gran cantidad de información sobre la curva solución.
+
+   Dado también que la solución es una exponencial de una exponencial, un polinomio de grado 4 no puede ajustar el cambio en intervalos del tamaño usado. De la misma forma, con el rápido crecimiento que presenta una exponencial de una exponencial, una aproximación lineal como lo considera Euler comete un error bastante alto, ya que la exponencial por si sola con argumento numérico se aleja rápidamente de una linea recta \footnote{Esta explicación no requiere conocer los valores numéricos de la solución.}
+
+    \end{enumerate}
+
+  \end{enumerate}
+
+\clearpage
+\begin{center}
+\textbf{Hoja de fórmulas}
+\end{center}
+{\large
+\[
+\begin{array}{cc}
+h = \frac{b - a}{n} \qquad & \qquad
+x_{i+2} = \frac{f(x_{i+1}){x_i}-f(x_{i}){x_{i+1}}}{f(x_{i+1}) - f(x_i)} \\
+L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \qquad & \qquad
+P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x) \\
+f\left[x_i, x_{i+1}\right] = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \qquad & \qquad
+f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] = \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i} \\
+z_{2i} = z_{2i+1} = x_i \qquad & \qquad
+H_{2n+1} = f(x_0) + \sum\limits_{k=1}^{2n+1} f\left[x_0, \ldots, x_k\right] \prod\limits_{i = 0}^{k-1}(x-x_i)  \\
+f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
+I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+W_{i+1} = y_i + W f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+ & W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6}
+\end{array}
+\]
+}
+\end{document}

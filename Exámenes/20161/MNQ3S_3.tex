@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+%\spanishdecimal{.}
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+% \DeclareMathOperator{\sen}{sen}
+% \renewcommand{\sin}{\sen}
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\usepackage{hyperref}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+      % \node at (4,1.1) {X}; % Parcial
+       \node at (4, .4) {X}; % Quiz
+      % \node at (7.6, 1.1) {X}; % Final
+      % \node at (7.6, .4) {X}; % Habilitacion
+      \node[right] at (10,.5) {3}; % Número de grupo
+      \node[right] at (10,1.) {14 de abril de 2016}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+  
+%Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final no supletorio}
+Para el desarrollo de los cálculos puede usar \textbf{exclusivamente calculadora} (no se permite el uso de portátil o celulares en el examen), y % {presencial}
+puede disponer de sus apuntes de clase. % {Quiz}
+%Para el desarrollo del taller-quiz puede usar calculadora o portátil en los cálculos, trabajando con la precisión de la maquina. La modalidad de taller-quiz se realiza con el fin de evaluar un punto que incluya explícitamente la programación de un método. % {Taller}
+%al final del examen, encontrará una \textbf{hoja de formulas} para su ayuda. %{Parcial - Final}
+%, y
+Todo valor reportado debe aproximarse a \textbf{5 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} (no es necesario en enteros y valores dados en enunciado)% {Todos}
+%tanto en el documento escrito como en el archivo de salida, y conserve en memoria los valores con la precisión de la maquina.% {código}
+. Recuerde el uso del separador decimal acorde a la \textbf{NTC} % {Todos}
+%(en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje). % {código}
+.
+
+Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta % {Todos}
+en \textbf{lapicero} (requisito en caso de reclamación) % {presencial}
+, y \textbf{justifique todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. % {Todos}
+%Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) % {parcial - final}
+}.
+
+% El contenido mínimo del comprimido ZIP que debe adjuntarse al correo evillegas@udem.edu.co acorde al documento de parámetros dado inicialmente, y los requisitos especificos aqui mencionados. % {virtual}
+
+% Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
+
+% Si el equipo de trabajo no posee integrantes de la carrera que corresponde el ejercicio, se anula la nota del último literal. Al indicar los integrantes, debe figurar además de lo indicado en el documento de parámetros, la carrera de cada integrante. Si no figura la carrera del integrante, se anula la nota del último literal.% {aplicado}
+
+%\begin{enumerate}[leftmargin=*,widest=9]
+% \begin{enumerate}[label=\alph*]
+
+%\textbf{Nota: Solo los valores dados en los enunciados se permitirá un uso diferente a las 5 cifras significativas.}
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+  
+     \item \(2.0\) Dada la función \(\exp(-(x-2)^2)\sin(x-2+\pi/2)\), aproxime \(f^\prime (2)\) con \(h=0.2\).
+     
+     %\vspace{2cm}
+         \textbf{R/} Al ser una función analítica y continua alrededor del punto de interés (de hecho en todos los reales), podemos usar puntos adelante y atrás del solicitado, y así aplicar un esquema central de 3 puntos para la primera derivada.
+    
+    \[
+    f^\prime(2) = \frac{f(2.2000) - f(1.8000)}{2(0.2)} = \frac{0.94164 - 0.94164}{0.40000} = 0
+    \]
+     
+    \item \(2.0\) Dados los puntos que representan una función continua
+    
+    \[
+    \begin{array}{lr}
+    x & f(x)\\
+    4 & 8\\
+    6 & 9\\
+    8 & 9\\
+    10 & 10\\
+    12 & 8    
+    \end{array}
+    \]
+    
+    Determine el valor de la integral \( \int^{12}_4 f(x)dx\), usando criterio de mayor precisión con el mismo método.
+    
+    %\vspace{2cm}
+\textbf{R/} Primero, nótese que la separación entre los puntos es la misma, por lo cual aplican los métodos para puntos equidistantes (\(h=2\)). La mayor precisión siempre corresponde al uso de la aproximación de mayor grado. En este caso, al tratarse del uso de una forma con repetición del mismo método se debe seleccionar aquel de mayor grado que cumpla con la restricción del número de intervalos. En este caso, observamos 4 intervalos, por lo que el método de mayor precisión con repetición corresponde a Simpson \(1/3\), por ser múltiplo de 2 pero no de 3 (para \(3/8\) se requiere intervalos múltiplos de 3).
+
+\[
+\int^{12}_4 f(x)dx = \frac{2}{3}\left(f(4) + f(12) + 2 f(8) + 4(f(6) + f(10) \right) = \frac{2}{3}\left(8 + 8 + 2 (9) + 4((9) + (10) \right) = 73.333
+\]
+        
+   \item (\(1.0\)) ¿Es posible usar solo octágonos para mallar un dominio bidimensional para integración sobre elementos finitos? Justifique.
+   
+  %\vspace{5cm}
+  \textbf{R/} No es posible usar solo octágonos. Para los mallados en problemas de integración sobre elementos finitos se usan triángulos (generalmente), cuadriláteros y hexágonos (este último poco común) por su propiedad de ser formas teselables, que corresponde que simétricamente llenan con facilidad un dominio arbitrario y a que llevan a formas con propiedades idóneas en las funciones interpolantes.
+  \end{enumerate}
+
+%\clearpage
+% {include formulas.tex Parcial - Final}
+%\begin{center}
+%\textbf{Hoja de fórmulas}
+%\end{center}
+%{\large
+%\[
+%\begin{array}{cc}
+%x_{i+1} = g(x_i) \qquad & \qquad |g^\prime(x_i)| < 1 \\
+%x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)} \qquad & \qquad x_{i+1} = x_i - \frac{P(x_i)}{Q(x_i)} \\
+%x_{i+1} = x_i - \frac{f(x_i) \Delta x}{f(x_i + \Delta x) - f(x_i)} \qquad & \qquad x_{i+2} = x_{i+1} - \frac{f(x_{i+1}) (x_{i+1}-x_i)}{f(x_{i+1}) - f(x_i)} \\ 
+%b_n = a_n \qquad & \qquad
+%b_k = b_{k+1}x_0 + a_k \\
+%L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \qquad & \qquad
+%P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x) \\
+%f\left[x_i, x_{i+1}\right] = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \qquad & \qquad
+%f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] = \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i} \\
+%z_{2i} = z_{2i+1} = x_i \qquad & \qquad
+%H_{2n+1} = f(x_0) + \sum\limits_{k=1}^{2n+1} f\left[x_0, \ldots, x_k\right] \prod\limits_{i = 0}^{k-1}(x-x_i) % \\
+%%f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
+%%I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+%%f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+%%I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+%%\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+%%W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+%%k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+%%k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+%%\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
+%%\vec{x}^TA\vec{x} > 0 & W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6}\\
+%%A = A^T & A = D - L - U\\
+%%|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
+%%T_J = D^{-1}(L+U) & p(\lambda) = \det(A-\lambda \I) = 0\\
+%%\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
+%%T_G = (D-L)^{-1}U & \vec{c}_G = (D-L)^{-1}\vec{b}
+%\end{array}
+%\]
+%}
+\end{document}

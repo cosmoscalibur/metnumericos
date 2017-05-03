@@ -1,0 +1,298 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{../imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+%\spanishdecimal{.}
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+% \DeclareMathOperator{\sen}{sen}
+% \renewcommand{\sin}{\sen}
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\usepackage{hyperref}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+      \node at (4,1.1) {X}; % Parcial
+      % \node at (4, .4) {X}; % Quiz
+      % \node at (7.6, 1.1) {X}; % Final
+      % \node at (7.6, .4) {X}; % Habilitacion
+      \node[right] at (10,.5) {8}; % Número de grupo
+      \node[right] at (10,1.) {15 de septiembre de 2016}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+{\scriptsize  
+%Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final no supletorio}
+Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen%{presencial}
+%, y puede disponer de sus apuntes de clase. % {Quiz}
+, y dispondrá de una hoja de formulas al final. % {parcial-final}
+No se permite hablar ni prestar elementos durante el examen. % {presencial}
+%Para el desarrollo del taller trabajar con la precisión de la maquina. % {Taller}
+Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, y con coma decimal% {Todos}
+% (en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje)% {código}
+. 
+Valide siempre las condiciones suficientes o necesarias según corresponda a cada método antes de aplicarlo, salvo que se indique lo contrario. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Todo procedimiento debe explicarse e indicarse su respuesta final de forma acorde al enunciado. % {Todos}
+En caso de reclamación solo cuenta lo que este en lapicero. % {presencial}
+Si necesita espacio adicional % {presencial}
+use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) y resuelva los puntos en orden. % {impreso}
+%anexe las hojas extra que requiera en el orden dado por los puntos. % {manual}
+
+% Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
+}
+
+%\begin{enumerate}[leftmargin=*,widest=9]
+% \begin{enumerate}[label=\alph*]
+
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+  
+%% Punto 1
+    \item {\small Se desea encontrar una aproximación a la densidad poblacional de un cultivo bacterial transcurrido un tiempo de observación de \(0.435\) s, para el caso representado en el cuadro de datos. Siga las indicaciones y use las variables y unidades adecuadas.
+
+\vspace*{-.7cm}
+\[
+\begin{array}{|c|c|}
+\hline
+t\, (s) & P\, \left(mm^{-2}\right) \\
+\hline
+0.0 & 1.000 \\
+0.5 & 2.718 \\
+1.0 & 7.389 \\
+1.5 & 20.09 \\
+\hline
+\end{array}
+\]
+\vspace{-.9cm}    
+    
+    }
+    
+   \begin{enumerate}[label=\alph*]
+    \item (\(1.0\)) Detalle la obtención de los polinomios de Lagrange o diferencias divididas requeridas para hallar la interpolación (según corresponda al método que escoja).
+    %\vspace{5cm}
+    
+    \textbf{R/} Primero se observa que los datos conocidos incluyen solamente a la evaluación de la función en los puntos más no su derivada, por lo cual debe aplicarse los polinomios interpolantes de Lagrange y no los interpolantes de Hermite (que recurren a las diferencias divididas).
+    De esta forma, obtendremos los polinomios de Lagrange asociados a los puntos son (recordar la distinción entre polinomios de Lagrange y polinomios interpolantes de Lagrange):
+    \begin{eqnarray*}
+    L_{3,0}(t) & = & \left(\frac{t-0.5}{0.0-0.5} \right) \left(\frac{t-1.0}{0.0-1.0} \right) \left(\frac{t-1.5}{0.0-1.5} \right) =  -1.3333(t-0.5)(t-1.0)(t-1.5) \\
+    L_{3,1}(t) & = & \left(\frac{t-0.0}{0.5-0.0} \right) \left(\frac{t-1.0}{0.5-1.0} \right) \left(\frac{t-1.5}{0.5-1.5} \right) = 4t(t-1.0)(t-1.5) \\
+    L_{3,2}(t) & = & \left(\frac{t-0.0}{1.0-0.0} \right) \left(\frac{t-0.5}{1.0-0.5} \right) \left(\frac{t-1.5}{1.0-1.5} \right) = -4t(t-0.5)(t-1.5) \\
+    L_{3,3}(t) & = & \left(\frac{t-0.0}{1.5-0.0} \right) \left(\frac{t-0.5}{1.5-0.5} \right) \left(\frac{t-1.0}{1.5-1.0} \right) = 1.3333t(t-0.5)(t-1.0) \\
+    \end{eqnarray*}
+    \item (\(0.6\)) Determine el polinomio interpolante por la técnica que escogió usando el resultado del literal anterior.
+    %\vspace{2cm}
+    
+    \textbf{R/} La construcción del polinomio interpolante de Lagrange se logra al multiplicar los polinomios de Lagrange con las evaluaciones de la función en los puntos respectivos, y sumar estos resultados.
+    
+    \begin{eqnarray*}
+    P(t)& = & (1.000)(-1.3333)(t-0.5)(t-1.0)(t-1.5)+(2.718)(4)t(t-1.0)(t-1.5) \\
+    && +(7.389)(-4)t(t-0.5)(t-1.5)+(20.09)(1.3333)t(t-0.5)(t-1.0) \\
+    & = & -1.3333(t-0.5)(t-1.0)(t-1.5) + 10.872t(t-1.0)(t-1.5) \\
+    && - 29.556t(t-0.5)(t-1.5) + 26.786t(t-0.5)(t-1.0)
+    \end{eqnarray*}
+    \item (\(0.4\)) Aproxime con ayuda del polinomio interpolante la densidad de población correspondiente a un tiempo de \(0.43\) s.
+    %\vspace{1cm}
+    
+    \textbf{R/} Para esta aproximación, se requiere reemplazar el valor de la variable independiente solicitada en el polinomio interpolante encontrado. \[ P(0.43\,s) = 2.4158\,mm^{-2}.\]
+    \end{enumerate}
+    
+%% Punto 2
+    \item Teorema de unicidad de polinomios:
+    
+    \begin{enumerate}[label=\alph*]
+    \item (\(0.4\)) Sabiendo que la posición en la caída libre es descrita por una función cuadrática en el tiempo y omitiendo la presencia de error experimental y numérico ¿Debe coincidir la función teórica con el polinomio interpolante si el conjunto de datos uso 3 puntos? Justifique.
+    %\vspace{2cm}
+    
+    \textbf{R/} Por definición, los polinomios interpolantes deben pasar por los puntos usados para su creación y ademas su grado depende del número de puntos menos \(1\). De aquí, si el polinomio interpolante uso 3 puntos su grado debe ser \(2\), el mismo grado que la función teórica. Ahora, se sabe que dos polinomios son iguales, si la evaluación de \(n+1\) coincide, por lo cual ambos polinomios (teórico e interpolante) serán los mismos si su evaluación coincide al menos en 3 puntos. Dado que no conocemos los polinomios, es imposible la evaluación numérica, pero si sabemos que para construir el polinomio interpolante se debio conocer la evaluación de la función original (medición o teórico, dado a que se desprecia el error acorde al enunciado) en justo 3 puntos, que son puntos que deben existir en el interpolado con el mismo valor debido a la característica de polinomio interpolante. Por ende, tanto el interpolante como el teórico son los mismos polinomios.
+
+    \item (\(0.4\)) Sin expandir el polinomio interpolante, determine si el polinomio \(h(t) = 25 - 5 t^2\) es igual al polinomio \(H(t) = (5 - 5t)(5 - t)\). Detalle el proceso.
+%\vspace{2cm}
+
+\textbf{R/} El criterio de unicidad establece que dos polinomios de grado \(n\) son iguales si coinciden al menos \(n+1\) evaluaciones. Bastará una evaluación en la que difiera para notar que son diferentes.
+
+Si seleccionamos \(t=0\) notamos que \(H(0) = h(0) = 25\). Si seleccionamos \(t=1\) notamos que \(h(1)= 20,\,H(1)=0\). En la segunda evaluación se encuentra una diferencia entre ellas, por lo cual los polinomios son diferentes. La selección de estos puntos es arbitraria, y los ilustrados son solo por su facilidad de evaluarlos rápidamente.
+
+\end{enumerate} 
+        % Punto 3
+   \item {\small Durante un encuentro de béisbol, una pelota es bateada siguiendo la trayectoria dada por \[y=\tan(\theta_{0})x-\frac{g}{2v_{0}^{2}\cos^{2}\theta_{0}}x^{2}+y_{0},\] donde la velocidad inicial $v_{0}= 20 m/s$, la distancia $x$ al \textit{catcher} es de $35 m$ y la aceleración debida a la gravedad \(9.8 \frac{m}{s^2}\). La pelota sale de la mano del lanzador con una elevación $y_{0} = 2 m$, y el \textit{catcher} la recibe a \(y=1 m\). Se desea conocer una aproximación del angulo inicial \(\theta_0\). \textbf{Considere para el calculo de raíces el método de Müller}, el cual se expresa al interior de la estructura cíclica del \textbf{pseudocódigo} siguiente. En el pseudocódigo la variable \(x\) se corresponde con la variable sobre la cual se desea encontrar la raíz, en este caso \(\theta_0\).}
+   
+{\scriptsize
+\textbf{Entradas:} \(x_0, x_1, x_2, n, f\)\\
+\textbf{Salidas:} \(x_3\)\\
+\(cont = 1\)\\
+\textbf{Mientras} \(cont < n\)\\
+\(c = f(x_2)\)\\
+\(f_{12} = f(x_1) - c\)\\
+\(f_{02} = f(x_0) - c\)\\
+\(x_{02} = x_0 - x_2\)\\
+\(x_{12} = x_1 - x_2\)\\
+\(d = x_{02} \cdot x_{12} \cdot (x_0 - x_1)\)\\
+\(b = (x_{02}^2 \cdot f_{12} - x_{12}^2 \cdot f_{02}) / d\)\\
+\(a = (x_{12} \cdot f_{02} - x_{01} \cdot f_{12}) / d\)\\
+\(s = b / abs(b)\)\\
+\(x_3 = x_2 - 2 c / (b + s \cdot sqrt(b^2 - 4 a c))\)\\
+\(x_0 = x_1\)\\
+\(x_1 = x_2\)\\
+\(x_2 \leftarrow x_3\)\\
+Fin \textbf{Mientras}\\
+\textbf{Retorne} \(x_3\)\\
+}
+\vspace{-.8cm}
+
+\begin{enumerate}[label=\alph*]
+\item (\(0.5\)) Obtenga la función para búsqueda de raíces asociada al enunciado, acorde a la función teórica mencionada y el punto en el cual se desea estimar el tiempo.
+%\vspace{1cm}
+
+\textbf{R/} Una función adecuada para el problema de búsqueda de raíces es una función que explícitamente se encuentra igualada a cero y persiste la variable desconocida. Reemplazando los valores y dejando a un lado el valor nulo tenemos:
+
+\begin{eqnarray*}
+0&=&35\tan(\theta_{0}) - \frac{9.8}{2(20)^{2}\cos^{2}\theta_{0}}(35)^{2}+2 - 1 \\
+0&=&35\tan(\theta_{0}) - \frac{15.006}{\cos^{2}(\theta_{0})} + 1 = f(\theta_0)
+\end{eqnarray*}
+
+donde no estan presentes las unidades ya que al simplificar y factorizar, toda la expresión queda en metros y estos se anulan al pasarlos al lado del cero. La función para búsqueda de raices es \(f(\theta_0)\).
+
+\item (\(0.8\)) Obtenga la primera iteración del método de Müller para el problema de búsqueda de raíces, tomando como puntos iniciales: \(\theta_{00}=0,\, \theta_{01}=1,\, \theta_{02}=1.5\) (en radianes). Detalle las variables intermedias del pseudocódigo.
+%\vspace{3.5cm}
+
+\textbf{R/} Aunque para el comportamiento completo del pseudocódigo se requiere saber del valor de \(n\), explícitamente se solicito realizar la primera iteración por lo cual daremos que la condición de \(cont<n\) se cumple al menos una vez. Detallando las variables tenemos:
+\begin{eqnarray*}
+x_0 &=& 0\\
+x_1 &=& 1\\
+x_2 &=& 1.5\\
+f &=& 35\tan(\theta_{0}) - \frac{15.006}{\cos^{2}(\theta_{0})} + 1\\
+cont &=& 1\\
+c &=& -2504.4\\
+f_{12} &=& 2508.5\\
+f_{02} &=& 2490.4\\
+x_{02} &=& -1.5000\\
+x_{12} &=& -0.50000\\
+d &=& -0.75000\\
+b &=& -6695.4\\
+a &=& -3320.5\\
+s &=& -1.0000\\
+x_3 &=& 1.0039\\
+x_0 &=& 1\\
+x_1 &=& 1.5\\
+x_2 &=& 1.0039.
+\end{eqnarray*}
+
+Así la primera iteración genera como aproximación de la raíz a \(\theta_0 = 1.0039\) radianes.
+
+\item (\(0.5\)) Sabiendo que una buena aproximación de la raíz corresponde a \(0.47401\) radianes, determine el número de cifras significativas de su aproximación.
+%\vspace{3cm}
+
+\textbf{R/} Partiendo del valor obtenido como aproximado y del dado como verdadero, calculamos el error relativo.
+
+\[\epsilon_r = \left|\frac{1.0039-0.47401}{0.47401}\right| = 1.1179.\]
+
+Luego usando la relación del error relativo con cifras significativas
+
+\[ 1.1179 = 0.11179 \cdot 10^1 < 0.5 \cdot 10^{-n+1},\]
+
+de donde \(1 = -n + 1\), que lleva a \(n=0\), que significa que la cantidad aún no posee cifras significativas.
+
+\item (\(0.4\)) ¿Cuantas veces se ejecuta el ciclo ilustrado en el pseudocódigo? Justifique.
+%\vspace{1.1cm}
+
+\textbf{R/} Aunque el ciclo posee como criterio de parada \(cont<n\), la variable \(cont\) no se modifica su valor dentro del ciclo, de manera que se presentan 2 escenarios:
+
+\begin{itemize}
+\item Ninguna: Si \(n \leq 1\), el ciclo no se ejecuta.
+\item Infinitas: Si \(n > 1\) el ciclo se repite indefinidamente. 
+\end{itemize}
+
+\end{enumerate}
+
+\end{enumerate}
+%\clearpage
+% {include formulas.tex Parcial - Final}
+\begin{center}
+\textbf{Hoja de fórmulas}
+\vspace{-.5cm}
+\end{center}
+{\large
+\[
+\begin{array}{cc}
+x_{i+1} = g(x_i) \qquad & \qquad |g^\prime(x_i)| \leq k < 1 \\
+x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)} \qquad & \qquad x_{i+1} = x_i - \frac{P(x_i)}{Q(x_i)} \\
+x_{i+1} = x_i - \frac{f(x_i) \Delta x}{f(x_i + \Delta x) - f(x_i)} \qquad & \qquad x_{i+2} = x_{i+1} - \frac{f(x_{i+1}) (x_{i+1}-x_i)}{f(x_{i+1}) - f(x_i)} \\ 
+b_n = a_n \qquad & \qquad
+b_k = b_{k+1}x_0 + a_k \\
+L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \qquad & \qquad
+P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x) \\
+f\left[x_i, x_{i+1}\right] = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \qquad & \qquad
+f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] = \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i} \\
+z_{2i} = z_{2i+1} = x_i \qquad & \qquad
+H_{2n+1}(x) = \sum\limits_{k=0}^{2n+1} f\left[z_0, \ldots, z_k\right] \prod\limits_{i = 0}^{k-1}(x-z_i) % \\
+%f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
+%I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+%f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+%I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+%\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+%W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+%k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+%k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+% W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6} & \\
+%\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
+%\vec{x}^TA\vec{x} > 0 & \rho(T) < 1 \\
+%A = A^T & A = D - L - U\\
+%|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
+%T_J = D^{-1}(L+U) & p(\lambda) = \det(A-\lambda \I) = 0\\
+%\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
+%T_G = (D-L)^{-1}U & \vec{c}_G = (D-L)^{-1}\vec{b}
+\end{array}
+\]
+}
+\end{document}

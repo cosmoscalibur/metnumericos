@@ -1,0 +1,313 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{../imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+%\spanishdecimal{.}
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+% \DeclareMathOperator{\sen}{sen}
+% \renewcommand{\sin}{\sen}
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\diffl}[3]{\frac{d^{#3}}{d#2^{#3}}#1}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\usepackage{hyperref}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+      % \node at (4,1.1) {X}; % Parcial
+      % \node at (4, .4) {X}; % Quiz
+       \node at (7.6, 1.1) {X}; % Final
+      % \node at (7.6, .4) {X}; % Habilitacion
+      \node[right] at (10,.5) {8}; % Número de grupo
+      \node[right] at (10,1.) {17 de noviembre de 2016}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+{\scriptsize
+%Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final no supletorio}
+Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen%{presencial}
+, y puede disponer de sus apuntes de clase. % {Quiz}
+%, y dispondrá de una hoja de formulas al final. % {parcial-final}
+No se permite hablar ni prestar elementos durante el examen. % {presencial}
+%Para el desarrollo del taller trabajar con la precisión de la maquina. % {Taller}
+Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, y con coma decimal% {Todos}
+% (en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje)% {código}
+.
+Valide siempre las condiciones suficientes o necesarias según corresponda a cada método antes de aplicarlo, salvo que se indique lo contrario. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Todo procedimiento debe explicarse e indicarse su respuesta final de forma acorde al enunciado. % {Todos}
+En caso de reclamación solo cuenta lo que este en lapicero. % {presencial}
+Si necesita espacio adicional % {presencial}
+use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) y resuelva los puntos en orden. % {impreso}
+%anexe las hojas extra que requiera en el orden dado por los puntos. % {manual}
+
+% Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
+}
+
+%\begin{enumerate}[leftmargin=*,widest=9]
+% \begin{enumerate}[label=\alph*]
+
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+
+%% Punto 1
+
+    \item (\(1.0\)) Dado el criterio de mayor precisión (mínima cota del error), siempre y cuando sea consistente la aplicación del método (simple o compuesto) con los datos dados, determine el valor aproximado de \(\int_{-2}^4 f(x)dx\).
+    
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$x_i$ & $-2$ & $0$ & $2$ & $4$ & $6$\\ \hline
+$f(x_i)$ & $-75$ & $-10$ & $5$ & $6$ & $5$\\
+\hline
+\end{tabular}
+\end{center}
+
+Considere que las cotas de las derivadas son 
+\begin{eqnarray*}
+\max_{x\in [-2,6]} |f^{(2)}(x)| &=& 27 \\
+\max_{x\in [-2,6]} |f^{(4)}(x)| &=& \frac{3}{2}
+\end{eqnarray*}
+
+%\vspace{4cm}
+
+\textbf{R/} Para la selección del método debemos considerar primero el número de puntos disponibles. En el intervalo indicado para la integración se poseen 4 puntos equidistantes que equivale a 3 sub-intervalos de igual ancho. Esto significa que considerando una aplicación compuesta podemos usar solamente el método de trapecio con 3 trapecios o considerando una aplicación simple podemos usar el método de Simpson 3/8.
+
+Entre las dos opciones sabemos que al aumentar el grado del polinomio se tiende a disminuir el error en la integración (contrario a lo sucedido en la derivación) por lo cual resulta conveniente el uso del método se Simpson 3/8. Contando con la información de las cotas de las derivadas (partiendo el caso hipotético en el que se puedan conocer como este), las cotas de los métodos mencionados son proporcionales respectivamente a las cotas de las derivadas mencionadas, por lo que esperamos también una cota menor de error para el método de Simpson 3/8.
+
+De esta manera, 
+
+\begin{eqnarray*}
+h & = & 2\\
+\int_{-2}^{4}f(x)dx &=& \frac{3}{8}h\left(f(-2) + 3f(0) + 3f(2) + f(4) \right)\\
+&=& \left(\frac{3}{8}\right)(2)(-75-30+15+6)\\
+&=&-63
+\end{eqnarray*}
+
+%% Punto 2
+
+\item Un modelo matemático adimensional de un cierto circuito eléctrico RLC (resistencia, condensador e inductancia) es $$Q^{''}(t)+20Q^{'}(t)+125Q(t)=9\sen(3t) $$ con $Q(0)=0$ y $Q^{'}(0)=0$. Se desea conocer \(Q(2)\).
+
+    \begin{enumerate}[label=\alph*]
+    \item (\(0.9\)) Halle el problema de valor inicial en forma del sistema de ecuaciones diferenciales de orden uno equivalente.
+    
+%\vspace{5cm}
+
+\textbf{R/} Iniciamos considerando el cambio de variable \(Q(t)=q_0(t)\), a partir del cual
+
+\begin{eqnarray*}
+Q^{'} &=& \diff{q_0(t)}{t}{} = q_1(t)\\
+Q^{''} &=& \diff{q_1(t)}{t}{} = 9\sen(3t) - 20q_1(t) - 125 q_0(t)\\
+Q(0) &=& q_0(0) = 0\\
+Q^{'}(0) &=& q_1(0) = 0\\
+&& 0 \leq t \leq 2
+\end{eqnarray*}
+
+El sistema de ecuaciones diferenciales orden uno equivalente es la parte derecha de las ecuaciones anteriores (omitiendo solo la parte inicial que depende de \(Q\)).
+
+    
+    \item (\(0.6\)) Asuma que el sistema de ecuaciones diferenciales cumple con solución única asegurada y resuelva usando un solo paso en \(t\). Use el método de su preferencia.
+    
+
+%\vspace{6cm}
+\textbf{R/} Ya que se solicita solucionar en un solo paso, tenemos que el paso es de \(\Delta t = 2\). Luego:
+
+\begin{eqnarray*}
+t_0 & = & 0\\
+\begin{pmatrix}
+q_0(0) \\ q_1(0)
+\end{pmatrix} &=& \begin{pmatrix}
+0 \\ 0
+\end{pmatrix} \\
+t_1 & = & t_0 + \Delta t = 2\\
+	\begin{pmatrix}
+		q_0(2) \\ q_1(2)
+	\end{pmatrix} &=& \begin{pmatrix}
+						0\\0
+					\end{pmatrix} + 2 \begin{pmatrix}
+											0\\ 9\sen(3(0)) - 20(0) - 125(0)
+										\end{pmatrix} = \begin{pmatrix}
+															0 \\ 0
+														\end{pmatrix}
+\end{eqnarray*}
+
+    \end{enumerate}
+
+%% Punto 3
+    \item Dado el sistema de ecuaciones lineales:
+
+\begin{align*}
+    x + 3y-z =& 1 \\
+    2x + 3y + 6z =& 0 \\
+    7x + 3y + 3z =& 4
+    \end{align*}
+
+    \begin{enumerate}[label=\alph*]
+
+    \item (\(1.2\)) Determine la matriz \(T\) y el vector \(\vec{c}\) del método iterativo matricial de su preferencia.
+    %\vspace{6cm}
+    
+    \textbf{R/} Primero es necesario construir el sistema matricial equivalente de la forma \(A\vec{x}=\vec{b}\).
+    
+    \[ 
+    \begin{pmatrix}
+    1 & 3 & -1\\
+    2 & 3 & 6 \\
+    7 & 3 & 3
+    \end{pmatrix} \begin{pmatrix}
+    x\\ y\\ z
+    \end{pmatrix} = \begin{pmatrix}
+    1\\ 0\\ 4
+    \end{pmatrix}
+    \]
+
+Por simplicidad usaremos el método de Jacobi, donde \(T_J = D^{-1}(L+U)\) y \(\vec{c}_J = D^{-1}\vec{b}\).
+
+Extraemos las matrices necesarias.
+
+\begin{eqnarray*}
+D &=& \begin{pmatrix}
+1 & 0 & 0\\
+0 & 3 & 0\\
+0 & 0 & 3
+\end{pmatrix} \\
+L+U &=& \begin{pmatrix}
+0 & -3 & 1\\
+-2 & 0 & -6\\
+-7 & -3 & 0
+\end{pmatrix} \\
+D^{-1} &=& \begin{pmatrix}
+1 & 0 & 0\\
+0 & 0.33333 & 0\\
+0 & 0 & 0.33333
+\end{pmatrix}\\
+T_J &=& \begin{pmatrix}
+0 & -3 & 1\\
+-0.66666 & 0 & -2\\
+-2.3333 & -0.99999 & 0
+\end{pmatrix}\\
+\vec{c}_J &=& \begin{pmatrix}
+1\\0\\1.3333
+\end{pmatrix}
+\end{eqnarray*}
+
+    \item (\(0.8\)) ¿Convergería la sucesión de la forma iterativa a la solución única? Justifique.
+    %\vspace{5.5cm}
+    
+    \textbf{R/} Se observa rápidamente que la matriz de coeficientes del sistema no es estrictamente diagonal dominante por lo cual es necesario validar la convergencia por medio del radio espectral de la matriz \(T\) del método.
+    
+\begin{eqnarray*}
+p_{T_J}(\lambda) &=& \det(T_J - \I\lambda) \\
+&=& \begin{vmatrix}
+\begin{pmatrix}
+-\lambda & -3 & 1\\
+-0.66666 & -\lambda & -2\\
+-2.3333 & -0.99999 & -\lambda
+\end{pmatrix}
+\end{vmatrix}\\
+&=& -\lambda^3 +1.6666\lambda - 13.333 = 0\\
+\lambda_0 &=& -2.6048\\
+\lambda_1 &=& 1.3024 + 1.8499\imath\\
+\lambda_2 &=& 1.3024 - 1.8499\imath\\
+\rho(T_J) &=& 2.6048 \geq 1
+\end{eqnarray*}
+
+Al ser su radio espectral mayor que uno, se concluye que no converge el método.
+
+    \item (\(0.5\)) Solucione, de ser posible, con una iteración. De lo contrario justifique porque no es posible solucionar.
+  %\vspace{5.5cm}
+  
+  \textbf{R/} Dado que el radio de convergencia de la matriz es mayor que uno, el método no convergerá y no es posible solucionar.
+  \end{enumerate}
+
+
+\end{enumerate}
+%\clearpage
+% {include formulas.tex Parcial - Final}
+\begin{center}
+\textbf{Hoja de fórmulas}
+\vspace{-.5cm}
+\end{center}
+%{\large
+\[
+\begin{array}{cc}
+%x_{i+1} = g(x_i) \qquad & \qquad |g^\prime(x_i)| \leq k < 1 \\
+%x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)} \qquad & \qquad x_{i+1} = x_i - \frac{P(x_i)}{Q(x_i)} \\
+%x_{i+1} = x_i - \frac{f(x_i) \Delta x}{f(x_i + \Delta x) - f(x_i)} \qquad & \qquad x_{i+2} = x_{i+1} - \frac{f(x_{i+1}) (x_{i+1}-x_i)}{f(x_{i+1}) - f(x_i)} \\ 
+%b_n = a_n \qquad & \qquad
+%b_k = b_{k+1}x_0 + a_k \\
+%L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \qquad & \qquad
+%P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x) \\
+%f\left[x_i, x_{i+1}\right] = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \qquad & \qquad
+%f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] = \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i} \\
+%z_{2i} = z_{2i+1} = x_i \qquad & \qquad
+%H_{2n+1}(x) = \sum\limits_{k=0}^{2n+1} f\left[z_0, \ldots, z_k\right] \prod\limits_{i = 0}^{k-1}(x-z_i) % \\
+f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
+I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+ W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6} & I = \frac{3h}{8}\left(f(x_0) + f(x_3) + 3\left(f(x_1) + f(x_2) \right) \right) \\
+\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
+\vec{x}^TA\vec{x} > 0 & \rho(T) < 1 \\
+A = A^T & A = D - L - U\\
+|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
+T_J = D^{-1}(L+U) & p(\lambda) = \det(A-\lambda \I) = 0\\
+\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
+T_G = (D-L)^{-1}U & \vec{c}_G = (D-L)^{-1}\vec{b}
+\end{array}
+\]
+%}
+\end{document} 

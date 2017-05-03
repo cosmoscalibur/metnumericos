@@ -1,0 +1,264 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{../imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+
+
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+
+       \node at (4, .4) {X}; % Quiz
+
+
+      \node[right] at (10,.5) {8}; % Número de grupo
+      \node[right] at (10,1.) {3 de marzo de 2017}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+  Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen, y puede disponer de sus apuntes de clase.
+  Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, con separador decimal consistente y unidades si lo requiere.
+  En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.
+
+
+
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+
+
+    \item Dada la relación recursiva de punto fijo \(x_{n+1} = \sqrt{2x_n + 3}\), se requiere asegurar que el valor inicial seleccionado lleve a la convergencia.
+
+    \begin{enumerate}[label=\alph*]
+    \item (\(0.5\)) Determine cual es el mayor intervalo que cumple con la condición sufiente de existencia del teorema de punto fijo para la relación.\\
+		\textbf{R:} Primero debido al tipo de función que es debemos determinar el dominio de la función. Por ser una raíz par, se debe recordar que el interior debe cumplir con ser mayor igual que cero.
+		\begin{eqnarray*}
+		2x + 3 \geq 0\\
+		2x \geq -3\\
+		x \geq \frac{-3}{2}
+		\end{eqnarray*}
+
+		Tras conocer el dominio procedemos a realizar la optimización de la función. Dado que el criterio de existencia indica que la imagen de la función hace parte del intervalo original, necesitamos asegurar cuales son los extremos del intervalo imagen para ver si son un subintervalo del intervalo del dominio (escogemos este intervalo como candidato por ser el intervalo más grande posible con existencia de la evaluación).
+
+		Buscamos puntos críticos:
+		\begin{eqnarray*}
+		\frac{d}{dx}\sqrt{2x+3} =& \frac{1}{\sqrt{2x+3}}\\
+		\frac{1}{\sqrt{2x+3}} = & 0
+		\end{eqnarray*}
+		Esta última expresión no posee solución, por lo cual no posee puntos críticos. Esto indica que los óptimos se encuentran en los extremos de los intervalos, de manera que los reemplazamos.
+		\begin{eqnarray*}
+		\sqrt{2\left(\frac{-3}{2}\right) + 3} =& 0\\
+		\lim\limits_{x \rightarrow \infty} \sqrt{2x+3} = \infty
+		\end{eqnarray*}
+		Así, \(\min(\sqrt{2x+3}) = 0\) y \(\max(\sqrt{2x+3}) = \infty \), que determina el intervalo dado por \(x \geq 0\) que es subintervalo de \(x\geq \frac{-3}{2}\). Luego, el candidato \(x\geq \frac{-3}{2}\) (o \(\left[\frac{-3}{2}, \infty\right)\)) cumple con el criterio de existencia siendo el mayor intervalo posible.
+
+
+
+    \item (\(0.5\)) Determine cual es el mayor intervalo que cumple con la condición suficiente de unicidad del teorema de punto fijo.\\
+		\textbf{R:} La condición suficiente de unicidad se cumple si además de cumplir con la condición anterior se cumple con que \(\vert g^{\prime}(x) \vert <1\). De esta manera, procedemos:
+		\begin{eqnarray*}
+		\left\vert \frac{1}{\sqrt{2x+3}} \right\vert < & 1\\
+		0 \leq \frac{1}{\sqrt{2x+3}} < & 1\\
+		0 \leq 1 < & \sqrt{2x+3}\\
+		0 \leq 1 < & 2x + 3\\
+		-3 \leq -2 < & 2x\\
+		\frac{-3}{2} \leq -1 < & x
+		\end{eqnarray*}
+
+		Como nunca se hace negativa la expresión del interior del valor absoluto, fue posible retirarlo.
+
+		Justamente \(x>-1\) es subintervalo de \(x\geq -\frac{3}{2}\) por lo cual asegura que cumple también la primera condición. y por ende el mayor intervalo que cumple con la condición suficiente de unicidad es \(x>-1\) (o \((-1, \infty)\)).
+
+
+    \item (\(1.0\)) Determine el valor exacto del punto fijo para esta relación. \\
+		\textbf{R:} Un punto fijo cumple la definición:\\
+		\textit{``\(x_0\) es un punto fijo de \(g(x)\) si \(g(x_0) = x_0\).''} \\
+		Así, basta con omitir la indicación de subindices de la relación recursiva y solucionar la ecuación.\\
+		\begin{eqnarray*}
+		x &= &\sqrt{2x + 3}\\
+		x^2 &= &2x + 3\\
+		x^2 - 2x - 3 &= &0 \\
+		(x - 3)(x + 1) &= &0\\
+		x &= &\left\lbrace \begin{matrix}3 \\ -1 \end{matrix} \right.
+		\end{eqnarray*}
+
+		De esta manera, la relación recursiva posee dos puntos fijos, y sus valores exactos son \(x=3\) y \(x=-1\).
+
+    \end{enumerate}
+
+
+    \item Se desea determinar una aproximación a la raíz del polinomio cúbico \(P_3(x)=x^3+3x^2+1\).
+
+
+    \begin{enumerate}[label=\alph*]
+    \item (\(0.5\)) Evalué usando el algoritmo de Horner \(P_3(-2)\).\\
+		\textbf{R:} Aplicamos el algoritmo de Horner (que debe distinguirse de la \textit{división sintética}), en el cual la evaluación del coeficiente \(b_0\) corresponderá al valor solicitado. Se inicia desde el coeficiente de mayor grado.\\
+		\begin{eqnarray*}
+		b_3 = &1\\
+		b_2 = &1(-2) + 3 = 1\\
+		b_1 = &1(-2) + 0 = -2\\
+		b_0 = &-2(-2) + 1 = 5 = P_3(-2)
+		\end{eqnarray*}
+
+
+
+    \item (\(0.5\)) Evalué usando el algoritmo de Horner \(P^{\prime}_3(-2)\).\\
+		\textbf{R:} Aplicamos el algoritmo de Horner para el polinomio residual \(Q(x)\) formado por los coeficientes \(b_3\) a \(b_1\) de la evaluación del polinomio original. En la nueva evaluación el coeficiente \(b^{\prime}_0\) corresponderá al valor solicitado. Se inicia desde el coeficiente de mayor grado.\\
+		\begin{eqnarray*}
+		Q(x) = &x^2 + x - 2\\
+		b^{\prime}_2 = &1\\
+		b^{\prime}_1 = &1(-2) +1 = -1\\
+		b^{\prime}_0 = &-1(-2) + -2 = 0 = Q(-2) = P^{\prime}_3(-2)
+		\end{eqnarray*}
+
+
+    \item (\(0.5\)) Use el método de Newton-Horner para hacer una aproximación de la raíz real del polinomio con precisión de \(10^{-2}\) en la variable \(x\).\\
+		\textbf{R:} Para el método de Newton-Horner es condición necesaria que \(Q(x_0) \neq 0\) ya que de lo contrario habría una división por cero en la forma iterativa. Geometricamente corresponde a que no existe un intersecto entre la tangente a la curva y el eje X. Por este motivo no es posible comenzar a iterar y debería cambiarse el valor inicial para poder usar el método.
+
+
+
+\end{enumerate}
+
+   \item Se desea aproximar una raíz de \(\tan (x - \pi)\).
+   \begin{enumerate}[label=\alph*]
+   \item (\(1.0\)) Determine una aproximación a la raíz con un método abierto usando como valor inicial \(x_0=3.0\) y 3 iteraciones.\\
+	 \textbf{R:} Dentro de los métodos abiertos y dado que no es un polinomio, es opción usar el método de Newton, el método de la secante o el método de punto fijo. Si usamos el método de punto fijo es requerido encontrar primero una función de punto fijo factible para la búsqueda de raíces. Para el método de la secante se requiere inicialmente de definir un segundo punto cercano al inicial o una separación cercana a cero (el criterio es basado en que el cambio de un punto a otro sea pequeño en comparación al valor original) y para el método de Newton será necesario conocer la derivada de la función.\\
+	 Para efectos de ejemplificar se usará el método de Newton pero cualquiera de los otros métodos con sus respectivas consideraciones será válido. Es necesario tener en cuenta como condiciones necesarias para el método de Newton que debe existir la evaluación de la función, la primera y segunda derivada en el punto inicial.\\
+	 \begin{eqnarray*}
+	 f(x) = & \tan(x-\pi)\\
+	 f^{\prime}(x) = & \sec^2(x - \pi)\\
+	 f^{\prime\prime}(x) = &2\tan(x)\sec^2(x)
+	 \end{eqnarray*}
+	 Podemos observar que en las tres funciones existe la evaluación en el valor inicial, y que además la evaluación de la derivada es distinta de cero (también condición necesaria).
+	 \begin{eqnarray*}
+	 f(3.0) = & \tan(3.0-\pi) =-0.14255 \\
+	 f^{\prime}(3.0) = & \sec^2(3.0 - \pi)=1.0203\\
+	 f^{\prime\prime}(3.0) = &2\tan(3.0)\sec^2(3.0)=-0.14544
+	 \end{eqnarray*}
+
+	 Ya que verificamos las condiciones necesarias, podemos iterar acorde a las indicaciones siguiendo la forma: \[x_{n+1} = x_n - \frac{\tan(x_n - \pi)}{\sec^2(x_n - \pi)}.\]
+\[
+	 \begin{array}{|c|c|c|}
+	 \hline
+	 n & x_n & x_{n+1}\\
+	 \hline
+	 1 & 3.0 & 3.1397\\
+	 2 & 3.1397 & 3.1416\\
+	 3 & 3.1416 & 3.1416\\
+	 \hline
+	 \end{array}
+	 \]
+
+   La aproximación de la raíz a 3 iteraciones es \(3.1416\).
+
+   \item (\(0.5\)) Indique el número de cifras significativas de su aproximación con base al error relativo estimado y reescriba en este literal la aproximación acorde a dicha información.\\
+	 \textbf{R:} Debemos calcular inicialmente el error relativo estimado, que se obtiene a partir de las últimas dos aproximaciones.
+	 \[ e_r = \left\vert \frac{3.1416 - 3.1416}{3.1416} \right\vert = 0. \]
+	 Un error relativo de cero representa la completa ausencia de error y por ende que todas sus cifras son significativas.
+	 Igualmente puede verse desde la expresión que:
+	 \begin{eqnarray*}
+	 0 = &0 \cdot 10^{-\infty} \leq 0.5 \cdot 10^{-n+1}\\
+	 -\infty = &-n + 1\\
+	 n = &\infty
+	 \end{eqnarray*}
+
+	 Dado que cualquier número negativo puede usarse como exponente del cero para cumplir la relación, este deberá ser el más negativo de todos los posibles (siempre es el que haga mayor la parte decimal siendo aún menor que \(0.5\), lo cual se hace haciendo más negativo el exponente).
+
+	 Tener infinitas cifras significativas es equivalente a decir que todas sus cifras son significativas. De esta manera la reescritura de la cantidad es igual al valor original, \(3.1416\).
+   \end{enumerate}
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

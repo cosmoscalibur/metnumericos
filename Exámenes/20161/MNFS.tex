@@ -1,0 +1,307 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+%\spanishdecimal{.}
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+% \DeclareMathOperator{\sen}{sen}
+% \renewcommand{\sin}{\sen}
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\usepackage{hyperref}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+      % \node at (4,1.1) {X}; % Parcial
+      % \node at (4, .4) {X}; % Quiz
+       \node at (7.6, 1.1) {X}; % Final
+      % \node at (7.6, .4) {X}; % Habilitacion
+      \node[right] at (10,.5) {3 - 8 - 9}; % Número de grupo
+      \node[right] at (10,1.) {25 mayo de 2016}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+  
+Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final no supletorio}
+Para el desarrollo de los cálculos puede usar \textbf{exclusivamente calculadora de cualquier tipo} (no se permite el uso de portátil o celulares en el examen) y %{presencial}
+%puede disponer de sus apuntes de clase. % {Quiz}
+al final del examen, encontrará una \textbf{hoja de formulas} para su ayuda. %{Parcial - Final}
+%Para el desarrollo del taller-quiz puede usar calculadora o portátil en los cálculos, trabajando con la precisión de la maquina. La modalidad de taller-quiz se realiza con el fin de evaluar un punto que incluya explícitamente la programación de un método. % {Taller}
+Todo valor reportado debe aproximarse a \textbf{5 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} (no es necesario en enteros y valores dados en enunciado). Recuerde el uso del separador decimal acorde a la \textbf{NTC} % {Todos}
+%(en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje). % {código}
+.
+\vspace{-5mm}
+
+Indique y justifique \textbf{clara y explícitamente} todo procedimiento y respuesta de cada pregunta % {Todos}
+(en caso de reclamación solo cuenta lo que este en lapicero) % {presencial}
+. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. % {Todos}
+%Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras). % {parcial - final}
+Resuelva en orden los puntos. % {Todos}
+
+% El contenido mínimo del comprimido ZIP que debe adjuntarse al correo evillegas@udem.edu.co acorde al documento de parámetros dado inicialmente, y los requisitos especificos aqui mencionados. % {virtual}
+
+% Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
+
+% Si el equipo de trabajo no posee integrantes de la carrera que corresponde el ejercicio, se anula la nota del último literal. Al indicar los integrantes, debe figurar además de lo indicado en el documento de parámetros, la carrera de cada integrante. Si no figura la carrera del integrante, se anula la nota del último literal.% {aplicado}
+
+%\begin{enumerate}[leftmargin=*,widest=9]
+% \begin{enumerate}[label=\alph*]
+
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+  
+     %% Punto 1
+    \item Dado el siguiente problema de valor inicial
+    \[
+    \diff{y}{t}{2} + \frac{y+t}{t-2} = \frac{1}{\exp(t)} \qquad y(1) = 3, \qquad y\prime(1) = 0 \qquad 1 \leq t \leq 5
+    \]     
+    
+    \begin{enumerate}[label=\alph*]
+    \item (\(0.5\)) Determine el PVI de sistema de ecuaciones diferenciales orden 1 equivalente.
+    %\vspace{5cm}
+    
+    \textbf{R/}    Se realiza el cambio de variable
+   \[u_0(t) \equiv y(t) \qquad \qquad u_1(t) \equiv \diff{y(t)}{t}{}, \]
+   que conduce al PVI de sistema de ecuaciones equivalente
+   
+   \begin{eqnarray*}
+   \diff{u_0(t)}{t}{} &=& u_1(t)\\
+   \diff{u_1(t)}{t}{} &=& \frac{1}{\exp(t)}-\frac{u_0(t)+t}{t-2}\\
+   u_0(1) &=& 3 \\
+   u_1(1) &=& 0
+   \end{eqnarray*}
+   
+   De donde
+   \[ \vec{f}(\vec{u}, t) = \begin{pmatrix}
+   u_1(t) \\ \frac{1}{\exp(t)}-\frac{u_0(t)+t}{t-2}
+\end{pmatrix}  .  \]
+
+    \item (\(0.6\)) ¿Es el PVI un problema bien planteado? Justifique.
+    %\vspace{1cm}
+    
+    \textbf{R/} Se observa que \(f_1(\vec{u},t)\) presenta discontinuidad en \(t= 2\), por lo que no cumple el criterio de continuidad en el dominio \(\lbrace 1 \leq t \leq 5, -\infty \leq u_0 \leq \infty, -\infty \leq u_1 \leq \infty \rbrace \), por lo que no es un problema bien planteado.
+    
+    \end{enumerate}
+ % Punto 2
+    \item Desarrollo y y justifique la respuesta a las siguientes preguntas conceptuales y demostrativas.
+    \begin{enumerate}[label=\alph*]
+    \item (\(0.4\)) Dada una matriz de coeficientes \(A\) asociada a un sistema de ecuaciones, cuyos elementos cumplen con 
+\[
+|a_{ii}| \leq \sum\limits_{\substack{j=1\\j\neq i}}^{n} |a_{ij}|
+\]    
+¿Se puede asegurar que siempre el método de Jacobi convergerá?
+% \vspace{1cm}
+
+\textbf{R/} No es posible asegurar la convergencia. La condición de matriz estrictamente diagonal dominante es con la desigualdad estricta pero al revés, es decir, mayor no menor igual.
+
+    \item (\(0.4\)) Dada una matriz estrictamente diagonal dominante \(B\), ¿existe al menos un elemento de la forma \(b_{ii} = 0\)?
+   % \vspace{1cm}
+   
+   \textbf{R/} Dado que por definición el elemento de la diagonal debe ser mayor en valor absoluto que incluso la suma de valores absolutos de los demás elementos de la fila, se asegura que nunca puede ser cero.
+   
+    \item (\(0.5\)) A partir de la descomposición \(A = D -L -U\), obtenga la expresión para el método de Jacobi para solucionar el sistema \(A\vec{x} = \vec{b}\).
+   % \vspace{3cm}
+   
+   \textbf{R/}
+   \begin{eqnarray*}
+   A\vec{x} &=& \vec{b} \\
+   (D -L -U)\vec{x} &=& \vec{b} \\
+   D\vec{x} - (L+U)\vec{x} &=& \vec{b} \\
+   D\vec{x} &=& (L+U)\vec{x} + \vec{b} \\
+   \vec{x}^{(k+1)} &=& D^{-1}(L+U)\vec{x}^{(k)} + D^{-1}\vec{b}
+   \end{eqnarray*}
+   
+    \end{enumerate}
+        
+        % Punto 3
+   \item Dado un sistema de masa-resorte acoplados sujetos al techo de forma vertical que ha llegado a su estado estacionario (\(x_i^{\prime\prime} = 0\)), se cumplen las siguientes ecuaciones algebraicas para describirlo:
+   \begin{eqnarray*}
+   m_1 \diff{x_1}{t}{2} &=& 2k(x_1-x_2)+m_1g -kx_1 \\
+   m_2 \diff{x_2}{t}{2} &=& 2k(x_3-x_2)+m_2g -2k(x_2 - x_1)  \\
+   m_3 \diff{x_3}{t}{2} &=& m_3g -k(x_3-x_2)
+   \end{eqnarray*}
+   
+   Siendo \(x_i\) los valores de desplazamiento respecto al equilibrio sin acción de la gravedad (posición horizontal) y con masas respectivas de los resortes de \(m_1 = 2kg, m_2=3kg, m_3=2.5kg\), con constante elástica común a todos los resortes de \(k= 10kg/m^2\), y valor de la aceleración debida a la gravedad de \(9.78m/s^2\).
+   \begin{enumerate}[label=\alph*]
+    \item (\(0.4\)) Construya el sistema matricial de la forma \(A\vec{x} = \vec{b}\) equivalente.
+    %\vspace{5cm}
+    
+    \textbf{R/} Reemplazando la condición \(x_i^{\prime\prime}\) y reorganizando se obtiene:
+    
+    \begin{eqnarray*}
+    -kx_1 + 2kx_2 & = & m_1 g\\
+    -2kx_1 + 4kx_2 - 2kx_3 & = & m_2 g\\
+    -kx_2 + kx_3 &=& m_3 g 
+    \end{eqnarray*}
+    
+    Sustituyendo los valores particulares del problema (las unidades recordar que no se pierden) y llevando a la forma matricial se obtiene
+    
+    \[
+    \begin{pmatrix}
+    -10 & 20 & 0\\ -20 & 40 & -20\\ 0 & -10 & 10
+    \end{pmatrix} \begin{pmatrix}
+    x_1 \\ x_2 \\ x_3
+    \end{pmatrix} \frac{kg}{m^2} = \begin{pmatrix}
+    19.560 \\ 29.340 \\ 24.450
+    \end{pmatrix} \frac{kgm}{s^2}
+    \]
+    
+    \item (\(0.8\)) Determine la matriz \(T\) y el vector \(\vec{c}\) al método iterativo matricial de su preferencia.
+    %\vspace{4cm}
+    
+    \textbf{R/} Por facilidad del método, el más probable que usaron es el método de Jacobi (gran facilidad si es a mano).
+    \begin{eqnarray*}
+    D &=& \begin{pmatrix}
+    -10 & 0 & 0\\ 0 & 40 & 0\\ 0 & 0 & 10
+    \end{pmatrix} \\
+    D^{-1} &=& \begin{pmatrix}
+    -0.10000 & 0 & 0\\ 0 & 0.025000 & 0\\ 0 & 0 & 0.10000
+    \end{pmatrix} \\
+    L & = & \begin{pmatrix}
+    0 & 0 & 0\\ 20 & 0 & 0\\ 0 & 10 & 0
+    \end{pmatrix} \\
+    U & = & \begin{pmatrix}
+    0 & -20 & 0\\ 0 & 0 & 20\\ 0 & 0 & 0
+    \end{pmatrix} \\
+    L + U & = & \begin{pmatrix}
+    0 & -20 & 0\\ 20 & 0 & 20\\ 0 & 10 & 0
+    \end{pmatrix} \\
+    T_J = D^{-1}(L+U) & = & \begin{pmatrix}
+    0 & 2 & 0\\ 0.50000 & 0 & 0.50000\\ 0 & 1 & 0
+    \end{pmatrix} \\
+    \vec{c}_J= D^{-1}\vec{b} & = & \begin{pmatrix}
+    -1.9560 \\ 0.73350 \\ 2.4450 
+    \end{pmatrix}
+    \end{eqnarray*}
+    
+    \item (\(0.8\)) ¿Convergería la sucesión de la forma iterativa a la solución única? Justifique.
+    %\vspace{5cm}
+    
+    \textbf{R/} Dado que \(A\) no cumple con ser matriz estrictamente diagonal dominante, se procede a calcular el radio espectral de \(T\) del método que selecciono, que corresponde al mayor en valor absoluto de sus valores propios. Para este caso usaremos la \(T_J\) dado que se escogió el método de Jacobi.
+    
+    \[
+    \rho(T_J) = \max\lbrace |1.2247|, |-1.2247|, |0| \rbrace = 1.2247 \geq 1
+    \]
+    
+    Por medio del radio espectral se deduce que este método no convergerá para el problema dado.
+    
+    Para el método de Gauss-Seidel también da divergente.
+    
+    \item (\(0.6\)) Realice dos iteraciones con el vector inicial igual al vector nulo y determine el error estimado absoluto con la norma infinito.
+  %\vspace{4cm}
+  
+  \textbf{R/} Dado que el radio espectral de la matriz \(T_J\) asociada no converge, no se soluciona.
+  
+  \textit{Dado que en la redacción del enunciado no habla de ``solución'' sino de realizar las iteraciones de forma imperativa, será valido de forma completa la realización de las iteraciones si estas están correctas.}
+  
+  \begin{eqnarray*}
+   \vec{x}^{(0)} & = & \begin{pmatrix}
+    0 \\ 0 \\ 0 
+    \end{pmatrix} \\
+    \vec{x}^{(1)} & = & \begin{pmatrix}
+    -1.9560 \\ 0.73350 \\ 2.4450 
+    \end{pmatrix} \\
+    \epsilon_1 & = & \Vert \vec{x}^{(1)} - \vec{x}^{(0)} \Vert_\infty = 2.4450\\
+    \vec{x}^{(2)} & = & \begin{pmatrix}
+    -0.48900 \\ 0.97800 \\ 3.1785 
+    \end{pmatrix} \\
+    \epsilon_2 & = & \Vert \vec{x}^{(2)} - \vec{x}^{(1)} \Vert_\infty = 1.4670
+  \end{eqnarray*}
+  
+  Observando el error estimado, se valida que el error aumenta con las iteraciones (como es de esperar por ser \(T_J\) divergente).
+  
+  
+  
+\end{enumerate}
+  \end{enumerate}
+
+%\clearpage
+% {include formulas.tex Parcial - Final}
+%\begin{center}
+%\textbf{Hoja de fórmulas}
+%\end{center}
+%{\large
+%\[
+%\begin{array}{cc}
+%%x_{i+1} = g(x_i) \qquad & \qquad |g^\prime(x_i)| < 1 \\
+%%x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)} \qquad & \qquad x_{i+1} = x_i - \frac{P(x_i)}{Q(x_i)} \\
+%%x_{i+1} = x_i - \frac{f(x_i) \Delta x}{f(x_i + \Delta x) - f(x_i)} \qquad & \qquad x_{i+2} = x_{i+1} - \frac{f(x_{i+1}) (x_{i+1}-x_i)}{f(x_{i+1}) - f(x_i)} \\ 
+%%b_n = a_n \qquad & \qquad
+%%b_k = b_{k+1}x_0 + a_k \\
+%%L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \qquad & \qquad
+%%P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x) \\
+%%f\left[x_i, x_{i+1}\right] = \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \qquad & \qquad
+%%f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] = \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i} \\
+%%z_{2i} = z_{2i+1} = x_i \qquad & \qquad
+%%H_{2n+1} = f(x_0) + \sum\limits_{k=1}^{2n+1} f\left[x_0, \ldots, x_k\right] \prod\limits_{i = 0}^{k-1}(x-x_i) % \\
+%%%f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
+%%%I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+%%%f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+%%%I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+%%%\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+%%%W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+%%%k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+%%%k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+%%% W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6} & \\
+%\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
+%\vec{x}^TA\vec{x} > 0 & \rho(T) < 1 \\
+%A = A^T & A = D - L - U\\
+%|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
+%T_J = D^{-1}(L+U) & p(\lambda) = \det(A-\lambda \I) = 0\\
+%\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
+%T_G = (D-L)^{-1}U & \vec{c}_G = (D-L)^{-1}\vec{b}
+%\end{array}
+%\]
+%}
+\end{document}

@@ -1,0 +1,260 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+
+\graphicspath{{../imagenes/}}
+
+\allowdisplaybreaks
+
+\raggedbottom
+\setlength{\topskip}{0pt plus 2pt}
+
+
+
+\newcommand{\profesor}{Edward Y. Villegas}
+\newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
+
+
+
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\diffl}[3]{\frac{d^{#3}}{d#2^{#3}}#1}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\usepackage{hyperref}
+
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACI\'ON} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
+
+      \node at (4, .4) {X}; % Quiz
+
+
+      \node[right] at (10,.5) {8}; % Número de grupo
+      \node[right] at (10,1.) {4 de noviembre de 2016}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+
+{\scriptsize
+
+Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen%{presencial}
+, y puede disponer de sus apuntes de clase. % {Quiz}
+
+No se permite hablar ni prestar elementos durante el examen. % {presencial}
+
+Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, y con coma decimal% {Todos}
+
+.
+Valide siempre las condiciones suficientes o necesarias según corresponda a cada método antes de aplicarlo, salvo que se indique lo contrario. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Todo procedimiento debe explicarse e indicarse su respuesta final de forma acorde al enunciado. % {Todos}
+En caso de reclamación solo cuenta lo que este en lapicero. % {presencial}
+Si necesita espacio adicional % {presencial}
+use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) y resuelva los puntos en orden. % {impreso}
+
+
+
+}
+
+
+
+
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+
+
+    \item Para determinar la temperatura en función del tiempo de un cuerpo que se enfría en un cuarto a temperatura ambiente menor que su temperatura, se usa la ley de enfriamiento de Newton, que corresponde a la ecuación diferencial:
+
+    \[
+    \diff{T(t)}{t}{} = -k(T(t) - T_{\alpha}),
+    \]
+    donde \(T(t)\) es la temperatura del cuerpo en función del tiempo, \(T_{\alpha}\) es la temperatura ambiente (ambas dadas en Kelvin -\(K\)-) y \(k\) es el inverso de un tiempo característico del sistema dado en el inverso de horas (\(h^{-1}\)).
+    La temperatura normal de un cuerpo humano vivo es de \(310.15\,K\) y comienza a enfriarse tras su muerte, acorde a la ley de Newton de enfriamiento. Considere que la muerte del individuo ocurrió en Medellín donde la temperatura ambiente promedio es \(295.15\,K\) y asuma como tiempo característico del cuerpo \(k= 0.1438h^{-1}\). Deseamos conocer la temperatura que tendrá el cuerpo \(2h\) después de su muerte.
+
+   \begin{enumerate}[label=\alph*]
+    \item (\(0.5\)) Construya el problema de valor inicial asociado al enunciado del problema con los valores respectivos reemplazados adecuadamente (ecuación diferencial, condición inicial y dominio de la variable independiente).
+
+
+
+    \begin{eqnarray*}
+    \frac{dT(t)}{dt} &=& -0.1438 h^{-1} (T(t) - 295.15K)\\
+    T(0h) &=& 310.15K \\
+    0h \leq & t & \leq 2h
+    \end{eqnarray*}
+
+
+
+    \item (\(1.0\)) ¿Cumple el problema de valor inicial con ser un problema bien planteado? Justifique.
+
+
+
+    Se verifica que la función de la tasa de cambio es continua por ser polinomica. Ahora verificamos que cumpla condición de Lipschitz, para lo cual vemos que es diferenciable en $T$ por ser polinomica en una región finita (la temperatura esta acotada entre el valor inicial y la temperatura ambiente). Alternativamente, podemos determinar el valor de la constante de Lipschitz:
+    \begin{equation*}
+    \max \left\vert \frac{\partial f(t, T)}{\partial T} \right\vert = max \vert -0.1438h^{-1}\vert = 0.1438 h^{-1} = L
+    \end{equation*}
+
+    Al ser finito, cumple la condición de Lipschitz. Por cumplir continuidad y Lipschitz es un problema bien planteado.
+
+    \item (\(1.5\)) Aplicando el método de Runge-Kutta, determine (en caso de ser posible asegurar su solución única), la temperatura del cuerpo tras \(2h\) de su muerte usando un total de 3 puntos en la variable independiente.
+
+
+
+    $\Delta t = 1h$
+
+    Para $ t =  0h$
+    \begin{eqnarray*}
+    T(0h) =  310.15K
+	\end{eqnarray*}
+
+    Para $ t = 1 h$
+    \begin{eqnarray*}
+    k_1 &=& (1h)(-0.1438 h^{-1})(310.15-295.15)K \\ &=& -2.1570K \\ k_2 &=& (1h)(-0.1438 h^{-1})\left(\left(310.15- \frac{2.1570}{2} \right) - 295.15 \right) K \\ &=& -2.0019K \\  k_3 &=& (1h)(-0.1438 h^{-1})\left(\left(310.15- \frac{2.0019}{2} \right) - 295.15 \right) K \\ &=& -2.0131K \\  k_4 &=& (1h)(-0.1438 h^{-1})((310.15- 2.0131)-295.15)K \\ &=& -1.8675K \\ T(1h) &=& 310.15 K - \left( \frac{2.1570 + 2(2.0019+2.0131)+1.8675}{6}\right)K \\ &=& 308.14K
+    \end{eqnarray*}
+
+    Para $t = 2h$
+    \begin{eqnarray*}
+    k_1 &=& (1h)(-0.1438 h^{-1})(308.14-295.15)K \\ &=& -1.8680K \\ k_2 &=& (1h)(-0.1438 h^{-1})\left(\left(308.14- \frac{1.8680}{2} \right) - 295.15 \right) K \\ &=& -1.7337K \\  k_3 &=& (1h)(-0.1438 h^{-1})\left(\left(308.4- \frac{1.7337}{2} \right) - 295.15 \right) K \\ &=& -1.7433K \\  k_4 &=& (1h)(-0.1438 h^{-1})((308.14- 1.7433)-295.15)K \\ &=& -1.6173K \\ T(2h) &=& 308.14 K - \left( \frac{1.8680 + 2(1.7337+1.7433)+1.6173}{6}\right)K \\ &=& 306.40K
+    \end{eqnarray*}
+
+    \item (\(0.5\)) Si usará el método de Euler, ¿Cual sería el error local \(\tau\) cometido usando el mismo paso en la variable independiente?
+
+   \begin{eqnarray*}
+   \tau &=& \frac{\Delta tM}{2} = \frac{1h\cdot 0.31018Kh^{-2}}{2} = 0.15509Kh^{-1} \\ \Delta t &=& 1h \\ M &=& \max \left\vert \frac{d^2 y}{dt^2}\right\vert = \max \left\vert \frac{\partial (-k(T-T_{\alpha}))}{\partial t} +\frac{\partial (-k(T-T_{\alpha}))}{\partial T} (-k(T-T_{\alpha}))\right\vert \\  &=& \max \vert  k^2 (T -T_{\alpha} )\vert = k^2 max (T -T_{\alpha}) = k^2 (310.15-295.15)K = 0.31018Kh^{-2}
+   \end{eqnarray*}
+
+
+    \end{enumerate}
+
+
+    \item (\(1.5\)) Dado el siguiente sistema de ecuaciones diferenciales con problema de valor inicial, resuelva usando un solo paso con el método de Euler (asuma que el problema cumple con la condición de solución única asegurada) la solución en el extremo del dominio.
+
+    \begin{eqnarray*}
+    \diffl{
+		\begin{pmatrix}
+			\rho(x) \\ T(x)
+		\end{pmatrix}
+    }{x}{} &=& \begin{pmatrix}
+    5 \\ T(x)\rho(x)
+    \end{pmatrix} \\
+    \begin{pmatrix}
+    \rho(1.5) \\ T(1.5)
+    \end{pmatrix} &=& \begin{pmatrix}
+    0 \\ 2.2
+    \end{pmatrix} \\
+    \\
+    D &:& \lbrace 1.5 \leq x \leq 2.5 \rbrace
+    \end{eqnarray*}
+
+
+    Para $x= 1.5$
+    \begin{eqnarray*}
+    	\begin{pmatrix}
+			\rho(1.5) \\ T(1.5)
+		\end{pmatrix}
+     &=& \begin{pmatrix}
+    0 \\ 2.2
+    \end{pmatrix} \\
+    \end{eqnarray*}
+
+    Para $x= 2.5$
+    \begin{eqnarray*}
+    	\begin{pmatrix}
+			\rho(2.5) \\ T(2.5)
+		\end{pmatrix}
+    &=& \begin{pmatrix}
+    0 \\ 2.2
+    \end{pmatrix} + 1 \begin{pmatrix}
+    5 \\ (2.2)(0)
+    \end{pmatrix} \\
+     &=& \begin{pmatrix}
+    0 \\ 2.2
+    \end{pmatrix} + \begin{pmatrix}
+    5 \\ 0
+    \end{pmatrix} \\
+   	&=& \begin{pmatrix}
+    5 \\ 2.2000
+    \end{pmatrix}
+    \end{eqnarray*}
+
+
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
