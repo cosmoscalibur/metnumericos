@@ -1,6 +1,6 @@
 # Métodos Numéricos  
 
-Repositorio asociado al [curso de métodos numéricos (código 3716)](http://uvirtual.udem.edu.co/course/view.php?id=3716 "Moodle del curso.") que imparto en la [Universidad de Medellín](http://www.udem.edu.co/ "Página oficial de la Universidad de Medellín.") para los programas de ingeniería.  
+Repositorio asociado al [curso de métodos numéricos (código 2296)](http://uvirtual.udem.edu.co/course/view.php?id=3716 "Moodle del curso.") que imparto en la [Universidad de Medellín](http://www.udem.edu.co/ "Página oficial de la Universidad de Medellín.") para los programas de ingeniería.  
 
 Si usted es estudiante, diríjase a la información de la [inducción del curso](Presentaciones/Inducción.md) para ser orientado sobre la información general del curso.  
 
