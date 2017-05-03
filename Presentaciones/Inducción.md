@@ -120,5 +120,4 @@ Para la adecuada comprensión de este curso se recomienda
 
 +   [Actividades](Actividades.md).  
 +   [Recursos](Recursos.md).  
-    +   [Códigos](../src/).  
-    +   [Notebooks](../ipynb/).  
+    +   [Códigos](../code/).  
