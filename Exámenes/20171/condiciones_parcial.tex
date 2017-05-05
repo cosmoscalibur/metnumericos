@@ -23,16 +23,16 @@
 
 \graphicspath{{../imagenes/}}
 
-\allowdisplaybreaks
+\allowdisplaybreaks{}
 
-\raggedbottom
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
 
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 
 \begin{document}
@@ -56,9 +56,10 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      \node at (4,1.1) {X};
+      %\node at (4,1.1) {X}; % parcial
+      \node at (7.6, 1.1) {X}; % Final
       \node[right] at (10,.5) {8};
-      \node[right] at (10,1.) {24 de mayo de 2017}; 
+      \node[right] at (10,1.) {24 de mayo de 2017};
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
@@ -69,13 +70,13 @@ Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo sim
 En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.
 
 \[\begin{array}{cc}
-e_a = \vert p - p^* \vert \qquad & \qquad e_r = e_a/\vert p \vert \\
-e_r \leq 0.5 \cdot 10^{-n+1} \qquad & \qquad
-L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \\
-P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x)  \qquad & \qquad f^\prime(x_i) = \frac{f(x_i + h) - f(x_i - h)}{2h}\\
-f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
-R^\prime(x_i) = -\frac{h}{2}f^{\prime\prime}(\xi(x_i)) \\
-R^\prime(x_i) = -\frac{h^2}{6}f^{(3)}(\xi(x_i)) &
+%e_a = \vert p - p^* \vert \qquad & \qquad e_r = e_a/\vert p \vert \\
+%e_r \leq 0.5 \cdot 10^{-n+1} \qquad & \qquad
+%L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \\
+%P_n(x) = \sum\limits_{i = 0}^n f(x_i)L_{n,i}(x)  \qquad & \qquad f^\prime(x_i) = \frac{f(x_i + h) - f(x_i - h)}{2h}\\
+%f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+%R^\prime(x_i) = -\frac{h}{2}f^{\prime\prime}(\xi(x_i)) \\
+%R^\prime(x_i) = -\frac{h^2}{6}f^{(3)}(\xi(x_i)) &
 %x_{i+1} = g(x_i) \qquad & \qquad |g^\prime(x_i)| < 1 \\
 %x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x_i)} \qquad & \qquad x_{i+1} = x_i - \frac{P(x_i)}{Q(x_i)} \\
 %x_{i+1} = x_i - \frac{f(x_i) \Delta x}{f(x_i + \Delta x) - f(x_i)} \qquad & \qquad x_{i+2} = x_{i+1} - \frac{f(x_{i+1}) (x_{i+1}-x_i)}{f(x_{i+1}) - f(x_i)} \\
@@ -88,21 +89,21 @@ R^\prime(x_i) = -\frac{h^2}{6}f^{(3)}(\xi(x_i)) &
 %z_{2i} = z_{2i+1} = x_i \qquad & \qquad
 %H_{2n+1} = f(x_0) + \sum\limits_{k=1}^{2n+1} f\left[x_0, \ldots, x_k\right] \prod\limits_{i = 0}^{k-1}(x-x_i) \\
 %f^\prime(x_i) \approx \frac{f(x_{i+1}) - f(x_{i-1})}{2h} \qquad & \qquad
-%I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
-%f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
-%I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
-%\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
-%W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
-%k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
-%k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
-% W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6} & \\
-%\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
-%\vec{x}^TA\vec{x} > 0 & \rho(T) < 1 \\
-%A = A^T & A = D - L - U\\
-%|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
-%T_J = D^{-1}(L+U) & p(\lambda) = \det(A-\lambda \I) = 0\\
-%\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
-%T_G = (D-L)^{-1}U & \vec{c}_G = (D-L)^{-1}\vec{b}
+I = \frac{h}{3}\left( f(x_0) + f(x_n) + 2\sum\limits_{i=1}^{n/2-1}f(x_{2i}) + 4\sum\limits_{i=0}^{n/2-1}f(x_{2i+1}) \right) \\
+f^\prime(x_i) = \frac{f(x_{i+1})-f(x_i)}{h} \qquad & \qquad
+I = \frac{h}{2}\left( f(x_0) + f(x_n) + 2\sum\limits_{i = 1}^{n-1}f(x_i)\right) \\
+\abs{\pdiff{f(t,y)}{y}{}} \leq L & \abs{f(t, y_1) -f(t, y_0)} \leq L\abs{y_1 - y_0}\\
+W_{i+1} = W_i + h f(t_i,W_i) & W_{i+1} = W_i + h f(t_i,W_i) + \frac{h^2}{2} \left.\diff{f(t,W)}{t}{} \right|_{t_i, W_i} \\
+k_1  =  h f(t_i,W_i) & k_2  =  h f(t_i+h/2,W_i + k_1/2) \\
+k_4  =  h f(t_{i+1},W_i + k_3) & k_3  =  h f(t_i+h/2,W_i + k_2/2)\\
+ W_{i+1} = W_i + \frac{k_1+2k_2+2k_3+k_4}{6} & \\
+\diff{y}{t}{i} = \diff{u_{i-1}}{t}{} = u_i & \diff{y}{t}{m} = \diff{u_{m-1}}{t}{} = f(t, u_0, u_1, \ldots, u_{m-2}, u_{m-1})\\
+\vec{x}^T A\vec{x} > 0 & \rho(T) < 1 \\
+A = A^T & A = D - L - U\\
+|a_{ii}| > \sum\limits_{\substack{j=0\\j\neq i}}^n |a_{ij}| & \vec{x}^{(k+1)} = T\vec{x}^{(k)} + \vec{c}\\
+T_J = D^{-1}(L+U) & p_A(\lambda) = \det(A-\lambda \I) = 0\\
+\vec{c}_J = D^{-1}\vec{b} & \rho(A) = \max\limits_{1\leq i\leq n}|\lambda_i|\\
+T_G = {(D-L)}^{-1}U & \vec{c}_G ={(D-L)}^{-1}\vec{b}
 \end{array}\]
 
 \end{document}
