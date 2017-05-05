@@ -1,6 +1,16 @@
+# Files to exclude
+## Jupyter / IPython
 .ipynb_checkpoints/
 __pycache__/
-Coordinación
-*odp
+## Binary files and directories with those (shared with dropbox)
+Coordinación/
+Taller/
 *.pdf
-Taller
+*.odt
+## LaTeX (pdflatex, latexmk, atom)
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
