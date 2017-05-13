@@ -79,11 +79,62 @@
 
     \begin{enumerate}[label=\alph*]
     \item (\(1.5\)) Demuestre que el P.V.I. dado cumple con poseer solución única asegurada sin importar cual sea el valor final del intervalo de \(s\).
+
+    \textbf{R/} Validamos la condición de Lipschitz.
+
+    \begin{eqnarray*}
+\max \left\vert \pdiff{s\sqrt{p}}{p}{} \right\vert &= &\max \left\vert -\frac{s}{2\sqrt{p}}\right\vert\\
+& = & \frac{1}{2}\max \vert s\vert \max \left\vert \frac{1}{\sqrt{p}} \right\vert
+    \end{eqnarray*}
+
+    Aunque no se sabe el valor final del intervalo de \(s\), sabemos que posee fin. Por lo cual \(2 \leq s \leq s_f\). Así:
+
+    \[
+\frac{1}{2}\max \vert s\vert \max \left\vert \frac{1}{\sqrt{p}} \right\vert = \frac{s_f}{2}\max\left\vert \frac{1}{\sqrt{p}} \right\vert
+    \]
+Ahora, para terminar la optimización se requiere conocer del intervalo de \(p\). Para esto observamos en el P.V.I. que la condición inicial tanto la variable dependiente como la independiente son positivas, por lo que la tasa de cambio es positiva. Esto implica que \(p\) aumentará (siendo aún positiva) y como \(s\) también avanza (positiva), la tasa de cambio siempre será positiva.
+
+Finalmente, sabemos que \(p(s)\) es una función monótonamente creciente, y por ende el valor mínimo de \(p(s)\) y por ende que maximiza la función para Lipschitz es 1.
+
+\[
+\frac{s_f}{2}\max\left\vert \frac{1}{\sqrt{p}} \right\vert = \frac{s_f}{2}
+\]
+
+Lo cual lleva a que la constante de Lipschitz es finita y por ende posee solución única asegurada.
+
     \item (\(0.8\)) Usando el método de Runge Kutta de orden 4, aproxime la solución de \(s=2.2\) usando un solo paso en \(s\). Parta de que cumple la solución única asegurada acorde al literal anterior.
+
+    \textbf{R/}
+
+    \begin{eqnarray*}
+h &=& \frac{2.2-2}{1} = 0.20000 \\
+p_0 &=& 1\\
+s_0 &=& 2\\
+k_1 & = & 0.20000 (2)\sqrt{1} = 0.40000\\
+k_2 &=& 0.20000 (2 + 0.20000/2)\sqrt{1 + 0.40000/2} = 0.46009\\
+k_3 &=& 0.20000 (2 + 0.20000/2)\sqrt{1 + 0.46009/2} = 0.46581\\
+k_4 &=& 0.20000 (2 + 0.20000)\sqrt{1 + 0.46581} = 0.53271\\
+p_1 &=& 1 + \frac{0.40000 + 2(0.46009+0.46581)+0.53271}{6}=1.4641\\
+s_1 &=& 2+0.20000 = 2.2000
+    \end{eqnarray*}
+
     \item (\(0.7\)) Sabiendo que la solución exacta del P.V.I. es \(p(s)=s^4/16\), determine el número de cifras significativas que posee su aproximación y reescribala acorde a eso.
+
+\textbf{R/}
+
+\begin{eqnarray*}
+p(2.2) &=& \frac{2.2^4}{16} = 1.4641\\
+e_r &=& \frac{1.4641-1.4641}{1.4641}=0\\
+0 \cdot 10^{-\infty} &\leq& 0.5 \cdot 10^{-n+1}\\
+-\infty &=& -n + 1\\
+n &=& \infty
+\end{eqnarray*}
+
+El número de cifras significativas de la expresión es \textit{infinito}, lo cual quiere decir que todas las cifras usadas en la aproximación son significativas. Luego, al reescribir la aproximación será exactamente igual. \(p_1 =1.4641\).
+
     \end{enumerate}
 
-    \item En una región habitan una población de zorros (\(z(t)\)) y una población de conejos (\(c(t)\)). Los leones en esta región solo se alimentan de conejos y los conejos no poseen dificultad para conseguir su alimento.
+    \item En una región habitan una población de zorros (\(z(t)\)) y una población de conejos (\(c(t)\)). Los zorros en esta región solo se alimentan de conejos y los conejos no poseen dificultad para conseguir su alimento.
     Sus poblaciones son modeladas por las ecuaciones de Lotka Volterra dadas a continuación:
     \[
 \diff{c(t)}{t}{} = \frac{0.2}{\text{año}} c(t) - \frac{0.7}{\text{año}} c(t) z(t);\qquad
@@ -92,8 +143,52 @@
     La población inicial de conejos es de 57 individuos y la población inicial de zorros es de 23 individuos.
     \begin{enumerate}[label=\alph*]
     \item (\(0.5\)) Lleve el P.V.I. de sistema de ecuaciones diferenciales dado a la forma de un P.V.I. de una ecuación diferencial vectorial.
+
+\textbf{R/}
+    \begin{eqnarray*}
+    \diff{}{t}{}\begin{pmatrix} c(t) \\ z(t)
+    \end{pmatrix} &=& \begin{pmatrix} \frac{0.2}{\text{año}} c(t) - \frac{0.7}{\text{año}} c(t) z(t) \\ -\frac{0.4}{\text{año}} z(t) + \frac{0.5}{\text{año}} c(t) z(t)
+    \end{pmatrix} \\
+    \begin{pmatrix} c(0 \text{ años}) \\ z(0 \text{ años})
+    \end{pmatrix} &=& \begin{pmatrix} 57 \\ 23 \end{pmatrix}
+    \end{eqnarray*}
+
     \item (\(0.5\)) Valide que el P.V.I. dado posee solución única asegurada.
+
+    \textbf{R/} \textit{Para fines de manipulación numérica, se omitirán las unidades asociadas.}
+
+    Validar la condición de solución única asegurada depende de la condición de Lipschitz para el sistema de ecuaciones diferenciales. Esta se evalua igual que la condición de una sola E.D.O. pero sobre cada componente del vector (uno a uno).
+
+    \begin{eqnarray*}
+    \max \left\vert \pdiff{}{c}{} (0.2 c(t) - 0.7 c(t) z(t)) \right\vert = \max \vert 0.2 - 0.7 z(t)\vert \\
+    \max \left\vert \pdiff{}{z}{} (-0.4 z(t) + 0.5 c(t) z(t)) \right\vert = \max \vert -0.4 + 0.5 c(t) \vert
+    \end{eqnarray*}
+
+    A partir de este punto, es posible concluir que las constantes de Lipschitz serán finitas a partir de dos argumentos.
+
+    \begin{itemize}
+\item La función vectorial que denota la tasa de cambio es diferenciable respecto al vector de variables dependientes (se observa en que sus derivadas son funciones continuas en todo \(\R^2\)).
+\item Sabemos que \(z(t)\) y \(c(t)\) al representar poblaciones no pueden ser infinito si el intervalo temporal es finito.
+    \end{itemize}
+
+    Al mostrar que las constantes de Lipschitz serán finitas, mostramos que se satisface la condición de Lipschitz.
+
     \item (\(1.0\)) Encuentre con un solo paso temporal la aproximación de la población de ambas especies transcurrido medio año. Use el método numérico de su preferencia.
+
+    \textbf{R/}
+Denotando
+\[
+\vec{A} = \begin{pmatrix}c(t)\\z(t)\end{pmatrix}
+\]
+y usando el método de Euler, tenemos que
+\begin{eqnarray*}
+h &=& 0.5\\
+\vec{A}_0 &=& \begin{pmatrix}57\\23\end{pmatrix}\\
+t_0 &=& 0\\
+\vec{A}_1 &=& \begin{pmatrix}57\\23\end{pmatrix} + 0.5\begin{pmatrix}0.2(57) - 0.7(57)(23)\\ -0.4(23)+0.5(57)(23)\end{pmatrix}=\begin{pmatrix}-396.15\\339.35\end{pmatrix}\\
+t_1 &=& 0 + 0.5 = 0.50000
+\end{eqnarray*}
+Luego, la estimación para las poblaciones son \(-396.15\) conejos y \(339.35\) zorros. El valor negativo de conejos puede estar asociado inicialmente a un paso muy grande en el método, siendo recomendable en un sentido práctico una solución con paso mucho menor. Igualmente, podría existir un error inicial (experimental) en los coeficientes del modelo.
     \end{enumerate}
 
 \end{enumerate}
