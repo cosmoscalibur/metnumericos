@@ -80,7 +80,9 @@
     \begin{enumerate}[label=\alph*]
     \item (\(1.5\)) Demuestre que el P.V.I. dado cumple con poseer solución única asegurada sin importar cual sea el valor final del intervalo de \(s\).
 
-    \textbf{R/} Validamos la condición de Lipschitz.
+    \textbf{R/} Inicialmente validamos que la función de la tasa de cambio sea continua en el dominio dado \(\R^2_{s,p}\). Se observa en dicha función una restricción en la continuidad asociada al radical, por la cual \(p\) debería ser mayor o igual que cero para permitir solución única asegurada. Más adelante deberemos mostrar que esto es cierto para dar por verdadero la continuidad de la función en el dominio.
+
+    Validamos la condición de Lipschitz.
 
     \begin{eqnarray*}
 \max \left\vert \pdiff{s\sqrt{p}}{p}{} \right\vert &= &\max \left\vert -\frac{s}{2\sqrt{p}}\right\vert\\
@@ -157,17 +159,17 @@ El número de cifras significativas de la expresión es \textit{infinito}, lo cu
 
     \textbf{R/} \textit{Para fines de manipulación numérica, se omitirán las unidades asociadas.}
 
-    Validar la condición de solución única asegurada depende de la condición de Lipschitz para el sistema de ecuaciones diferenciales. Esta se evalua igual que la condición de una sola E.D.O. pero sobre cada componente del vector (uno a uno).
+    Validar la condición de solución única asegurada depende de la continuidad de la función vectorial de la tasa de cambio y la condición de Lipschitz para el sistema de ecuaciones diferenciales. Esta se evalua igual que la condición de una sola E.D.O. pero sobre cada componente del vector (uno a uno). Para la continuidad notamos que la función vectorial es continua en el dominio \(\R^3_{t,c,z}\) por ser una función vectorial compuesta de funciones polinómicas de varias variables.
 
     \begin{eqnarray*}
-    \max \left\vert \pdiff{}{c}{} (0.2 c(t) - 0.7 c(t) z(t)) \right\vert = \max \vert 0.2 - 0.7 z(t)\vert \\
-    \max \left\vert \pdiff{}{z}{} (-0.4 z(t) + 0.5 c(t) z(t)) \right\vert = \max \vert -0.4 + 0.5 c(t) \vert
+    L_0 = \max \left\vert \pdiff{}{c}{} (0.2 c(t) - 0.7 c(t) z(t)) \right\vert = \max \vert 0.2 - 0.7 z(t)\vert \\
+    L_1 = \max \left\vert \pdiff{}{z}{} (-0.4 z(t) + 0.5 c(t) z(t)) \right\vert = \max \vert -0.4 + 0.5 c(t) \vert
     \end{eqnarray*}
 
     A partir de este punto, es posible concluir que las constantes de Lipschitz serán finitas a partir de dos argumentos.
 
     \begin{itemize}
-\item La función vectorial que denota la tasa de cambio es diferenciable respecto al vector de variables dependientes (se observa en que sus derivadas son funciones continuas en todo \(\R^2\)).
+\item La función vectorial que denota la tasa de cambio es diferenciable respecto al vector de variables dependientes (se observa en que sus derivadas son funciones continuas en todo \(\R^3\)).
 \item Sabemos que \(z(t)\) y \(c(t)\) al representar poblaciones no pueden ser infinito si el intervalo temporal es finito.
     \end{itemize}
 
@@ -185,7 +187,7 @@ y usando el método de Euler, tenemos que
 h &=& 0.5\\
 \vec{A}_0 &=& \begin{pmatrix}57\\23\end{pmatrix}\\
 t_0 &=& 0\\
-\vec{A}_1 &=& \begin{pmatrix}57\\23\end{pmatrix} + 0.5\begin{pmatrix}0.2(57) - 0.7(57)(23)\\ -0.4(23)+0.5(57)(23)\end{pmatrix}=\begin{pmatrix}-396.15\\339.35\end{pmatrix}\\
+\vec{A}_1 &=& \begin{pmatrix}57\\23\end{pmatrix} + 0.5\begin{pmatrix}0.2(57) - 0.7(57)(23)\\ -0.4(23)+0.5(57)(23)\end{pmatrix}=\begin{pmatrix}-396.15\\346.15\end{pmatrix}\\
 t_1 &=& 0 + 0.5 = 0.50000
 \end{eqnarray*}
 Luego, la estimación para las poblaciones son \(-396.15\) conejos y \(339.35\) zorros. El valor negativo de conejos puede estar asociado inicialmente a un paso muy grande en el método, siendo recomendable en un sentido práctico una solución con paso mucho menor. Igualmente, podría existir un error inicial (experimental) en los coeficientes del modelo.
