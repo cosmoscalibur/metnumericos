@@ -1,6 +1,6 @@
 # Presentación
 
-Este documento queda como constancia y recordatorio de las indicaciones y normas pactadas durante la sesión de inducción sobre el curso de práctica de física I (código 2296).  
+Este documento queda como constancia y recordatorio de las indicaciones y normas pactadas durante la sesión de inducción sobre el curso de métodos numéricos (código 2296).  
 
 Bienvenidos a este espacio, y espero que sea un proceso grato y lleno de aprendizaje.  
 
