@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin={1.5cm}]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usepackage{graphicx,enumitem}
+\usepackage{multicol}
+\usepackage{hyperref}
+\setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
+\renewcommand{\sin}{\operatorname{sen}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\C}{\ensuremath{\mathbb{C}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\a\allowdisplaybreaks{}
+\r\raggedbottom{}
+\setlength{\topskip}{0pt plus 2pt}
+\newcommand{\profesor}{Edward Villegas}
+\newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
+\newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\begin{document}
+  \pagestyle{empty}
+  \begin{minipage}{\linewidth}
+    \centering
+    \begin{tikzpicture}[very thick,font=\small]
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
+      \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompañar para exigir};
+      \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS BÁSICAS};
+      \draw (0,0) rectangle (18,3.5);
+      \draw (0,2.5)--(18,2.5) (0,1.5)--(18,1.5) (15,4.2)--(18,4.2) node[below,pos=.5] {CALIFICACIÓN} (15,2.5)--(15,7)--(18,7)--(18,3.5) (8.4,0)--(8.4,1.5) (15,0)--(15,1.5) (10,1.5)--(10,2.5);
+      \node[right] at (0,3.2) {\bf Alumno:}; \node[right] at (15,3.2) {\bf Carn\'e:};
+      \node[right] at (0,2.2) {\bf Asignatura:};
+      \node at (6,1.95) {\asignatura};
+      \node[right] at (10,2.2) {\bf Profesor:};
+      \node at (15,1.95) {\profesor};
+      \node[right] at (0,1.2) {\bf Examen:};
+      \draw (3.8,.9) rectangle (4.4,1.3); \node[left] at (3.8,1.1) {Parcial:};
+      \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
+      \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
+      \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitación:};
+      \node at (7.6, 1.1) {X}; % Final
+      \node[right] at (10,.5) {8}; % Número de grupo
+      \node[right] at (10,1.) {24 de mayo de 2017}; % Fecha de presentación
+      \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
+      \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
+    \end{tikzpicture}
+  \end{minipage}
+{\tiny
+Se permite usar calculadora de cualquier tipo. Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico salvo que se indique lo contrario en el enunciado. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.}
+\vspace{-.5cm}
+  \begin{enumerate}[leftmargin=*,widest=9]
+{\footnotesize
+%% Punto 1
+    \item Es posible encontrar una aproximación al número \(\pi \) a partir de la expresión
+    \[ \pi = \int\limits_0^1 \frac{4}{1+x^2}dx.\]
+    \begin{enumerate}[label=\alph*]
+    \item Obtenga una aproximación de \(\pi \) con una regla compuesta de su preferencia.
+    \textbf{R/} Por facilidad se escoge el método del trapecio con \(n=2\). De esta forma el tamaño de los intervalos será \( \frac{1-0}{2} = 0.50000\).
+    \[ \pi \approx \frac{0.50000}{2}\left(\frac{4}{1+0^2} + \frac{4}{1+1^2} + 2\frac{4}{1+0.5^2}\right) = 3.1000 \]
+    \item Calcule la cota de error máxima para su aproximación de \(\pi \) con la regla compuesta usada.
+\textbf{R/}
+\[
+\epsilon_a = \max\limits_{0 \leq \mu \leq 1} \left\vert -\frac{1-0}{12}0.50000^2\diff{}{\mu}{2}\frac{4}{1+\mu^2} \right\vert = \frac{1}{12}0.50000^2 \max\limits_{0 \leq \mu \leq 1} \left\vert 4\frac{6\mu^2-2}{{(\mu^2+1)}^3} \right\vert = \frac{1}{6} \max\limits_{0 \leq \mu \leq 1} \left\vert \frac{3\mu^2-1}{{(\mu^2+1)}^3} \right\vert
+\]
+Para continuar después de la última expresión obtenida, puede usarse la búsqueda de puntos críticos o usar propiedades.
+Para ambos casos hay que notar que la función presenta una raíz (apreciable a partir del numerador) que pertenece al intervalo, en \(x = 1/\sqrt(3) \approx 0.57735\), de manera que se generán dos intervalos para su estudio.
+Analizando el numerador y el denominador, se observa que en valor absoluto el numerador disminuye en la medida que se acerca a la raíz y que el denominador aumenta en la medida que se acerca a la raíz. Luego, el efecto neto es que en valor absoluto toda la expresión disminuye en la medida que se acerca a la raíz, y por ende el máximo de dicho valor absoluto debe alcanzarse al evaluar los extremos del intervalo.
+\[
+\left\vert \frac{3{(0)}^2-1}{{(0^2+1)}^3} \right\vert = 1; \qquad \left\vert \frac{3{(1)}^2-1}{{(1^2+1)}^3} \right\vert = 0.25000
+\]
+Así, sabemos que (reemplazando en la línea de expresiones inconclusa anteriormente)
+\[
+\epsilon_a = \frac{1}{6} \max\limits_{0 \leq \mu \leq 1} \left\vert \frac{3\mu^2-1}{{(\mu^2+1)}^3} \right\vert = \frac{1}{6}\cdot 1 = 0.16667
+\]
+    \item Determine el número de cifras significativas de su aproximación de \(\pi \) y reescriba dicha aproximación acorde a estas.
+\textbf{R/}
+\begin{eqnarray*}
+\epsilon_r = \frac{0.16667}{3.1000} = 0.053765 \cdot {10}^0 \leq 0.5 \cdot 10^{-N+1}\\
+0 = -N + 1\\
+N = 1
+\end{eqnarray*}
+Así, el número de cifras significativas de la aproximación es 1, y la aproximación de \(\pi \) reescrita sería \(3\).
+    \end{enumerate}
+%% Punto 2
+    \item Un modelo para el crecimiento de la población (\(y(t)\)) en el tiempo (\(t\) en años) es la ecuación de Gompertz, resultante de solucionar la ecuación diferencial (caso particular)
+    \[
+\diff{y(t)}{t}{} = \frac{0.05}{\text{año}}\ln \left( \frac{1000}{y(t)} \right) y(t), \qquad y(0 \text{ año}) = 723.
+    \]
+    \begin{enumerate}[label=\alph*]
+    \item ¿Cumple con la condición de solución única asegurada el problema de valor inicial?
+\textbf{R/} Para esto debemos validar continuidad de la función en el dominio y la condición de Lipschitz. Sin embargo, la función depende de \(y(t)\), de la cual no tenemos un intervalo explicito.
+Sabemos a partir de la propia ecuación diferencial que cuando la población es inferior a 1000 individuos (numerador de la expresión al interior del logaritmo), la población estará en aumento. Y si la población es superior a 1000 individuos, la población disminuirá. Esto asegura que no hay forma de obtener una población nula, y por ende \(y(t) \neq 0\) se satisface acorde a lo requerido en la definición del dominio. Luego, la función es continua para cualquiera de los valores de tiempo, ya que la población no se anulará.
+Para la condición de Lipschitz, observamos que al ser continua la función y corresponder a un dominio convexo (se omiten unidades por facilidad numérica)
+\[
+\left\vert \pdiff{}{y}{} 0.05\ln \left( \frac{1000}{y(t)} \right) y(t) \right\vert = \left\vert 0.05\ln \left( \frac{1}{y} \right) + 0.29539 \right\vert
+\]
+Como se mostró que \(y(t)\) nunca toma el valor nulo, sabemos que la expresión anterior es continua y por ende la función de la tasa de cambio es diferenciable respecto a \(y\), cumpliendo así con la condición de Lipschitz.
+Dado que no se requiere el valor explicíto de la constante, con mostrar la diferenciabilidad (continuidad de la derivada) es suficiente.
+    \item Aproxime con el método de Runge Kutta 4 la población un año después.
+\textbf{R/} Se usará un solo paso para cubrir el tiempo solicitado, por lo cual \(h = 1\).
+\begin{eqnarray*}
+t_0 =& 0\\
+y_0 = &723\\
+t_1 = &0 + h = 1\\
+k_1 = &1 \cdot 0.05\ln \left( \frac{1000}{723} \right) 723 = 11.725\\
+k_2 = &1 \cdot 0.05\ln \left( \frac{1000}{723 + 11.725/2} \right) (723 + 11.725/2) = 11.526\\
+k_3 = &1 \cdot 0.05\ln \left( \frac{1000}{723 + 11.526/2} \right) (723 + 11.526/2) = 11.529\\
+k_4 = &1 \cdot 0.05\ln \left( \frac{1000}{723 + 11.529} \right) (723 + 11.529) = 11.331\\
+y_1 = &723 + \frac{11.725 + 2(11.526+11.529)+11.331}{6} = 734.53
+\end{eqnarray*}
+\end{enumerate}
+        % Punto 3
+   \item Al aplicar las leyes de Kirchhoff para la solución de las corrientes en un circuito, se encuentra el siguiente conjunto de ecuaciones adimensionales.
+   \begin{align*}
+   3I_1 + I_2 - I_3 & = 0 \\
+   I_1 - 4 I_2 + 2I_3 & = -2 \\
+   -2I_1 + 3I_2 -7 I_3 & = 5
+   \end{align*}
+   \begin{enumerate}[label=\alph*]
+   \item Determine la matriz \(T\) y el vector \(\vec{c}\) para el método de su preferencia, para el sistema \(A\vec{x}=\vec{b}\) equivalente al sistema de ecuaciones.
+   \textbf{R/} Por facilidad se escoge el método de Jacobi. Lo primero que es requerido, es llevar el sistema de ecuaciones a solucionar a su forma matricial equivalente.
+   \[
+\begin{pmatrix} 3 & 1 & -1\\ 1 & -4 & 2\\ -2 & 3 & -7 \end{pmatrix}
+\begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} = \begin{pmatrix} 0 \\ -2 \\ 5 \end{pmatrix}
+   \]
+   A partir de la matriz de coeficientes generamos las matrices auxiliares requeridas para el método, acorde a la factorización de la forma dada \(A = D - L - U\).
+   \[
+\begin{pmatrix} 3 & 1 & -1\\ 1 & -4 & 2\\ -2 & 3 & -7 \end{pmatrix} = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix} -
+\begin{pmatrix} 0 & 0 & 0\\ -1 & 0 & 0\\ 2 & -3 & 0 \end{pmatrix} - \begin{pmatrix} 0 & -1 & 1\\ 0 & 0 & -2\\ 0 & 0 & 0 \end{pmatrix}
+   \]
+   A continuación obtenemos la matriz \(T_J\) y el vector \(c_J\).
+   \[
+T_J = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix}^{-1}\begin{pmatrix} 0 & -1 & 1\\ -1 & 0 & -2\\ 2 & -3 & 0 \end{pmatrix} =
+\begin{pmatrix}0 & -0.33333 & 0.33333\\ 0.25000 & 0 & 0.50000\\ -0.28571 & 0 &  0.42857 \end{pmatrix}
+   \]
+   \[
+\vec{c}_J = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix}^{-1}\begin{pmatrix} 0 \\ -2 \\ 5 \end{pmatrix} =
+\begin{pmatrix} 0\\ 0.50000 \\ -0.71429 \end{pmatrix}
+   \]
+   \item Valide que el método seleccionado será convergente a la solución única del problema.
+   \textbf{R/} Se verifica que en la matriz de coeficientes del sistema (\(A\)) los elementos de la diagonal son en valor absoluto mayores que la suma en valor absoluto de los demás elementos de la fila respectiva.
+   \begin{eqnarray*}
+   \vert 3 \vert > \vert 1 \vert + \vert -3 \vert \\
+   \vert -4 \vert > \vert 1 \vert + \vert 2 \vert \\
+   \vert -7 \vert > \vert -2 \vert + \vert 3 \vert
+   \end{eqnarray*}
+   Al cumplir esta condición, la matriz de coeficientes es una matriz estrictamente diagonal dominante, y por ende los métodos de Jacobi y de Gauss-Seidel serán convergentes a la solución única.
+   \item Usando como aproximación inicial el vector \( \begin{pmatrix} -0.15000 & 0.15000 & -0.50000 \end{pmatrix}^T \), muestre la solución aproximada tras una iteración.
+   \textbf{R/}
+   \[
+\vec{I}^{(1)} = \begin{pmatrix}0 & -0.33333 & 0.33333\\ 0.25000 & 0 & 0.50000\\ -0.28571 & 0 &  0.42857 \end{pmatrix}\begin{pmatrix} -0.15000\\ 0.15000\\ -0.50000 \end{pmatrix} + \begin{pmatrix} 0\\ 0.50000 \\ -0.71429 \end{pmatrix} = \begin{pmatrix}-0.21667\\0.21250\\-0.88572\end{pmatrix}
+   \]
+   \item Calcule el error absoluto de la aproximación usando la norma 5 con respecto a la solución exacta. La solución exacta es el vector
+   \( \begin{pmatrix} -0.24324 & 0.14865 & -0.58108 \end{pmatrix}^T \).
+   \textbf{R/}
+   \begin{eqnarray*}
+\left\Vert \begin{pmatrix}-0.21667\\0.21250\\-0.88572\end{pmatrix} - \begin{pmatrix} -0.24324 \\ 0.14865 \\ -0.58108 \end{pmatrix} \right\Vert_{(5)}= \\{\left(\vert -0.21667 - (-0.24324) \vert^5 + \vert 0.21250 - 0.14865 \vert^5 + \vert -0.88572 - (-0.58108) \vert^5\right)}^{1/5} = 0.30467
+   \end{eqnarray*}
+\end{enumerate}
+}
+   \end{enumerate}
+\end{document}
