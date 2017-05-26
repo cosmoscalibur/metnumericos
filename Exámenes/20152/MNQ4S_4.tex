@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,26 +15,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -71,16 +60,10 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-  
 %Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado.
-
 %Al final, encontrará una \textbf{hoja de formulas} para su ayuda o use sus \textbf{notas digitales} (en caso de usar portátil). Para sus cálculos puede usar solo \textbf{o calculadora científica o portátil}.
-
 %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{4 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
-
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero}, y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
-  
-
   \begin{enumerate}[leftmargin=*,widest=9]
     %% Punto 1
     \item Sea
@@ -89,21 +72,14 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     -4 & 4 & 0\\ 2 & 8 & -5\\ 0 & 2 & 5
     \end{pmatrix}
     \]     
-    
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) ¿ Es \(A\) estrictamente diagonal dominante?
-    
     Se observa en la primera fila de \(A\), que el valor absoluto del elemento de la diagonal no es mayor estricto que la suma del valor absoluto de los elementos de la misma fila ( \(|-4| = |4|+|0|\)). Por ende, no es estrictamente diagonal dominante.
    % \vspace{3.5cm}
-
     \item (\(1.0\)) ¿Es \(A\) definida positiva?
-    
 Una de las propiedades de las matrices definidas positivas, es que los elementos de la diagonal son mayores que cero. Se observa que el primer elemento diagonal es negativo (\(-4\)), por ende no es una matriz definida positiva.
-
 \textit{Nota: Recordar que las propiedades o ejemplos numéricos solo sirven para mostrar falsedad, como en este caso.}
-
     \end{enumerate}
-
     %% Punto 2
     \item Sea
     \[
@@ -113,10 +89,8 @@ Una de las propiedades de las matrices definidas positivas, es que los elementos
     1 \\ 1
     \end{pmatrix}
     \] 
-    
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) Calcule \(\rho (B)\).
-    
     \begin{eqnarray*}
     p(\lambda) &=& \det(B - \lambda\I)\\
     & = & \begin{vmatrix}
@@ -129,13 +103,9 @@ Una de las propiedades de las matrices definidas positivas, es que los elementos
     \lambda_1 = 0.06, \qquad \lambda_2 = 0.94\\
     \rho(B) & = & 0.94
     \end{eqnarray*}
-    
     %\vspace{11cm}
-    
     \item (\(1.0\)) ¿Es \( \lim\limits_{k \rightarrow \infty}B^k \vec{v}\) igual o diferente de \(\vec{0}\) (vector nulo)?
-    
     Dado que \(\rho(B) < 1\), sabemos que \(B\) es una matriz convergente. Luego, sus sucesivas potencias tienden a la matriz nula, y al multiplicar por el vector, será el vector nulo.
-    
     \begin{eqnarray*}
     \lim\limits_{k \rightarrow \infty}B^k \vec{v} & = & \lim\limits_{k \rightarrow \infty}\begin{pmatrix}
     0.2 & 1 \\ 0.1 & 0.8
@@ -151,17 +121,12 @@ Una de las propiedades de las matrices definidas positivas, es que los elementos
     0 \\ 0
     \end{pmatrix}
     \end{eqnarray*}
-    
    % \vspace{8cm} 
     \end{enumerate}
-    
   \item (\(1.0\)) Si \(T\) es una matriz convergente, demuestre que \(T^2\) es convergente. (Recordar que \(T^2 = P^T S^2 P\)).
-  
   De la definición de matriz convergente y de radio espectral, tenemos que 
   \[ 0 \leq |\lambda_i| \leq \rho(T) < 1.\]
-  
   Para elevar a una potencia una matriz, usamos las matrices similares, que son matrices diagonales formadas por los autovalores de la matriz de interes. De esta forma
-  
   \begin{eqnarray*}
   T & = & P^T \begin{pmatrix}
   \lambda_1 & 0\\ 0 & \lambda_2
@@ -173,34 +138,26 @@ Una de las propiedades de las matrices definidas positivas, es que los elementos
   \lambda_1^2 & 0\\ 0 & \lambda_2^2
   \end{pmatrix} P
   \end{eqnarray*}
-  
   De la última ecuación vemos que los autovalores de \(T^2\) son los cuadrados de los autovalores de \(T\), de manera que si construimos el cuadrado de la relación inicial
-  
   \begin{eqnarray*}
   0 \leq |\lambda_i| &\leq& \rho(T) < 1 \\
   0^2 \leq |\lambda_i|^2 &\leq& \rho(T)^2 < 1^2\\
   0 \leq |\lambda_i|^2 = |\lambda_i^2| &\leq& \rho(T^2) = \rho(T)^2 < 1
   \end{eqnarray*}
-  
   De esta última relación se observa que si el radio espectral de \(T\) es menor que \(1\), el radio espectral de \(T^2\) lo será también.
-  
   * (\(0.8\)) 
   Si \(A\) es definida positiva, implica que 
   \begin{eqnarray*}
   A &=& A^T\\
   \vec{x}^T A \vec{x} &>& 0
   \end{eqnarray*}
-  
   Ahora, con \(-A\)
   \begin{eqnarray*}
   (-A)^T = -(A^T) = -A  \\
   \vec{x}^T (-A) \vec{x} = -(\vec{x}^T A \vec{x}) < 0
   \end{eqnarray*}
-  
   Luego, \(-A\) no es definida positiva.
-    
   \end{enumerate}
-
 \clearpage
 \begin{center}
 \textbf{Hoja de fórmulas}

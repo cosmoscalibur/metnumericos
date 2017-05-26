@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,20 +16,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}{imagenes/}{./}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\a\allowdisplaybreaks{}
+\r\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
-
-
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -62,34 +53,22 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
   Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen, y puede disponer de sus apuntes de clase.
   Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, con separador decimal consistente y unidades si lo requiere.
   En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.
-
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
-
     \item Se desea realizar la integral de la función \(\ln(x)\) en el intervalo cerrado \(\left[0.1, 1\right]\).
-
     \begin{enumerate}[label=\alph*]
     \item (\(0.6\)) Aproxime el resultado mediante la aplicación de un método con la forma simple.
 \vspace{2cm}
-
     \item (\(1.0\)) Aproxime el resultado mediante la aplicación de la forma compuesta del método anterior con al menos 2 segmentos.
-
 		\vspace{4cm}
-
     \item (\(1.0\)) Calcule la cota de error máxima para su aproximación de la integral con la regla compuesta usada.
-
 		\vspace{3cm}
-
     \item (\(0.8\)) Con base a la cota de error obtenida, reescriba la aproximación de la forma compuesta con las cifras significativas adecuadas.
-
 \vspace{2cm}
-
     \end{enumerate}
-
     \item Dada la superficie descrita por el paraboloide \(z=1- x^2 - y^2\), se desea determinar la aproximación del volumen entre la superficie y el plano \(XY\) en el hemisferio positivo en el dominio dado por el cuadrilátero irregular cuyos vértices son
     \(
     P = \left\lbrace (-0.3, -0.1), (0.35, -0.25), (0.3, 0.2), (-0.27, 0.3)\right\rbrace
@@ -97,15 +76,9 @@
     con el método de integración sobre elementos finitos.
     \begin{enumerate}[label=\alph*]
     \item (\(0.6\)) Especifique una matriz de nodos y una matriz de elementos para la solución de la integral doble usando un mallado de 2 triángulos.
-
 	   \vspace{8cm}
-
     \item (\(1.0\)) Aproxime el valor númerico de la integral con base al mallado del dominio que realizo.
-
 	 \vspace{8cm}
-
     \end{enumerate}
-
 \end{enumerate}
-
 \end{document}

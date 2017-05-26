@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,26 +16,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -84,21 +73,15 @@ Todo valor reportado debe aproximarse a \textbf{5 CIFRAS SIGNIFICATIVAS} con \te
 . Recuerde el uso del separador decimal acorde a la \textbf{NTC} % {Todos}
 %(en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje). % {código}
 .
-
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta % {Todos}
 en \textbf{lapicero} (requisito en caso de reclamación) % {presencial}
 , y \textbf{justifique todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. % {Todos}
 Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras)}. % {presencial}
-
 % El contenido mínimo del comprimido ZIP que debe adjuntarse al correo evillegas@udem.edu.co acorde al documento de parámetros dado inicialmente, y los requisitos especificos aqui mencionados. % {virtual}
-
 % Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
-
 % Si el equipo de trabajo no posee integrantes de la carrera que corresponde el ejercicio, se anula la nota del último literal. Al indicar los integrantes, debe figurar además de lo indicado en el documento de parámetros, la carrera de cada integrante. Si no figura la carrera del integrante, se anula la nota del último literal.% {aplicado}
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
 \textbf{Nota: Solo los valores dados en los enunciados se permitirá un uso diferente a las 5 cifras significativas.}
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
@@ -108,33 +91,24 @@ Si necesita espacio adicional, use el respaldo de las hojas para el procedimient
 a = g + \frac{\frac{1}{2}\mu v^2}{\mu (L-y) + 2L}
 \end{equation*}
 donde \(\mu=5.44\) es la relación de masas de la cadena y el cuerpo lanzado, la longitud de la cadena es \(L = 4.15m\) y la aceleración debida a la gravedad para Medellín es \(g=9.78m/s^2\). Si la velocidad alcanzada en el punto de sensación de ingravidez (\(a=0m/s^2\)) era de \(v=17m/s\), ¿cual debía ser la distancia recorrida en caída \(y\) medida en metros? Aproxime usando \(y=1m\) con un método abierto a 3 iteraciones.
-
 %\vspace{6cm}
 \textbf{R/} Primero, se reemplazarán los valores constantes y unidades en la expresión por comodidad de manipulación, y simplificamos.
 \begin{eqnarray}
 0 m/s^2 & = & \left( 9.78 + \frac{\frac{1}{2}5.44 (17)^2}{5.44 (4.15-y) + 2(4.15)} \right) m/s^2 \nonumber \\
 0 & = & 9.78 + \frac{786.08}{- 5.4400 y + 30.876} \label{ec_bungee}
 \end{eqnarray}
-
 El lado derecho de la ecuación \ref{ec_bungee} es la función a la que deseamos buscar la raíz, cuya indicación de condición inicial es \(y_0=1m\).
-
 Para este punto puede seleccionar cualquier método abierto (formulas al final del parcial): Newton, Secante, Secante modificada y M\"uller.
-
 Para ilustrar, se usará el método de Newton.
-
 \begin{eqnarray}
 \diff{f(y)}{y}{} & = & \diff{ \left(9.78 + \frac{786.08}{- 5.4400 y + 30.876} \right) }{y}{} \nonumber \\
 f^{\prime}(y) & = & \frac{4276.3}{\left(- 5.4400 y + 30.876\right)^{2}} \label{ec_bungee_dif}
 \end{eqnarray}
-
 Reemplazando ec.\ref{ec_bungee_dif} y ec.\ref{ec_bungee} en la formula de Newton, se obtiene la forma recursiva ec.\ref{ec_newton}, donde se observa que para la condición inicial se satisfacen condiciones mínimas para la aplicación del método (existencia de la función y sus primeras dos derivadas, así como primera derivada distinto de cero). Por este motivo, se procede a usar el método, pero aún no se asegura convergencia (es necesario revisar la evolución del error absoluto).
-
 \begin{equation}
 y_{i+1} = y_i - \frac{\left(9.78 + \frac{786.08}{- 5.4400 y + 30.876} \right)}{\left( \frac{4276.3}{\left(- 5.4400 y + 30.876\right)^{2}} \right)} \label{ec_newton}
 \end{equation}
-
 Finalmente aplicando la formula de Newton para el caso especifico obtenemos
-
 \begin{equation*}
 \begin{array}{|c|c|c|c|}
 \hline
@@ -146,12 +120,8 @@ n & x_i & g(x_i) & \epsilon_{ay} \\
 \hline
 \end{array}
 \end{equation*}
-
 Se obtiene como respuesta a tres iteraciones \(y = -112.83\). Se observa que cada iteración produce un valor más distante que el anterior (el error absoluto aumenta), por lo cual el resultado encontrado no sirve como aproximación (el método diverge).
-
 Tambien puede basarse en el criterio del teorema de punto fijo, teniendo en cuenta que \[ g(y) = y - \frac{f(y)}{f^{\prime}(y)}. \]
-
-
     \item Dado el polinomio de tercer grado \(P_3(x) = 2x^3 + 3x - 1 + 4x^2\) 
     
     \begin{enumerate}[label=\alph*]
@@ -161,7 +131,6 @@ Tambien puede basarse en el criterio del teorema de punto fijo, teniendo en cuen
    \textbf{R/} Sabemos que el número de sumas es igual tanto en la forma tradicional como en Horner (número de sumas es \(n-1\)), de forma que esta cantidad no aporta a la diferencia. Respecto a las multiplicaciones, la forma tradicional realiza más multiplicaciones que la forma de Horner, y su diferencia es
    \[ \frac{n(n+1)}{2} - n = \frac{n(n-1)}{2},\]
    en la cual reemplazando \(n= 3\), la diferencia será \(3\).
-
     \item (\(1.0\)) Evalué usando el algoritmo de Horner \(P_3(3)\) y \(P^\prime_3(3)\). \textbf{Recordar:} La evaluación de la derivada debe construirse con el propio algoritmo de Horner y no derivando directamente.
     
     %\vspace{7cm}
@@ -172,16 +141,12 @@ b_2 &= & 2\cdot 3 + 4 = 10\\
 b_1 &= & 10 \cdot 3 + 3 = 33\\
 b_0 &= & 33 \cdot 3 - 1 = 98 = P_3(3)
 \end{eqnarray*}
-
 Ahora se evaluá la derivada con ayuda del polinomio \(Q\) formado por los coeficientes residuales de Horner (distintos de \(b_0\)), \(Q(x) = 2x^2 + 10x +33\).
-
 \begin{eqnarray*}
 b_2 &= & 2\\
 b_1 & = & 2\cdot 3 + 10 = 16\\
 b_0 &= & 16 \cdot 3 + 33 = 81 = P_3^{\prime}(3)
 \end{eqnarray*}
-
-
    \item (\(0.4\)) Realice la primera iteración del método de Newton-Horner con valor inicial \(x_0=3\) para \(P_3(x)\).
    
   % \vspace{4cm}
@@ -218,7 +183,6 @@ b_0 &= & 16 \cdot 3 + 33 = 81 = P_3^{\prime}(3)
    
 %\vspace{10cm}
 \textbf{R/} Se construye para la interpolación de Hermite la tabla auxiliar de diferencias divididas, en la variable \(z\) (transformación de \(x\) en la cual se duplican sus valores al tener información de la evaluación de la función y de la derivada de la misma).
-
 \begin{equation*}
 \begin{array}{|c|c|c|c|c|c|c|}
 \hline
@@ -233,18 +197,14 @@ z_i & f_i & f_{i, i+1} & f_{i, i+1, i+2} & f_{i, i+1, i+2, i+3}& f_{i, i+1, i+2,
 \hline
 \end{array}
 \end{equation*}
-
 Ahora, usando los primeros elementos de las diferencias divididas construimos el polinomio interpolante de Hermite
-
 \[H_5(x) =-1 + 2x -0.75000x^2 + 0.41667x^2(x-2)^2-0.83332 x^2(x-2)^2(x-3). \] 
-
 \item (\(0.4\)) Aproxime el valor correspondiente a la función para \(x=3.001\). 
    %\vspace{4cm}
    
    \textbf{R/} Sabemos del teorema de la aproximación polinomial que para poder acotar el error de la aproximación, el valor de interes debe estar contenido en el intervalo de la interpolación, que para este caso es \(0 \leq x \leq 3\). Como \(x=3.001\) esta por fuera, no se puede usar el polinomio interpolante.
    \end{enumerate}
   \end{enumerate}
-
 %\clearpage
 % {include formulas.tex Parcial - Final}
 \begin{center}

@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,32 +16,21 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
-
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
-
-
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -62,53 +47,26 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-
-
-
-
       \node[right] at (10,.5) {8}; % Número de grupo
       \node[right] at (10,1.) {5 de noviembre de 2016}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
 {\scriptsize
-
-
-
-
-
 Para el desarrollo del taller trabaje con la precisión de la maquina. % {Taller}
 Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, y con coma decimal.% {Todos}
  En el taller, esta regla la deben cumplir los valores numéricos asociados a la redacción más no los valores de entrada y salida (ya sea por consola o por archivo) de su programa.% {Taller}
-
 Valide siempre las condiciones suficientes o necesarias según corresponda a cada método antes de aplicarlo, salvo que se indique lo contrario (problemas de pseudocódigo no lo requieren). Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Todo procedimiento debe explicarse e indicarse su respuesta final de forma acorde al enunciado. % {Todos}
-
-
-
-
-
 Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}.  Tenga presente que hay normas de estricto cumplimiento para que este taller sea calificado.% {virtual}
 }
-
-
-
-
 Una de las posibles aplicaciones de los métodos numéricos es a los problemas de optimización, siendo una de las aproximaciones más simples el concepto básico del calculo de varias variables del uso de la dirección del gradiente como la dirección en la cual se encuentra el máximo de la función de \(n\) variables (dirección contraria si se requiere del mínimo). Este concepto origina métodos como el gradiente descendente, el descenso rápido o el gradiente conjugado, en los cuales partimos necesariamente de poder calcular el gradiente de la función (generalmente de forma numérica).
-
 De una forma general, son métodos de la forma siguiente: \[ \vec{x_1} = \vec{x_0}+\alpha_0\vec{\nabla}f(\vec{x_0}) \]
-
 Lo anterior conduce a una exigencia mínima sobre las funciones que se ha indicado en todo el curso, y es la necesidad de funciones continuas (incluso continuidad en varias de sus derivadas).
-
 El presente taller requiere de la implementación de una función de optimización para problemas de dos dimensiones, la cual deberá aplicarse a un problema de interés asociado al programa académico de alguno de los integrantes del equipo. Este taller parte de una labor de consulta de parte del estudiante, tanto para el problema aplicado como para definir adecuadamente la selección del parámetro \(\alpha_0\).
-
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
-
-
     \item Desarrolle una función que determine la derivada direccional aproximada dado un punto sobre los ejes principales para una función de dos variables. La función debe invocarse como \verb-derivada_1d(f, p, j, d)- y su salida será el valor numérico de la derivada direccional, donde:
-
     \begin{itemize}
         \item \verb-f- es una función de dos variables, \(f(x,y)\), arbitraria de la cual se asegura la continuidad hasta la primera derivada para el punto que se ingrese. Debe ingresar como función evaluable (posibles equivalencias, \verb-inline-, \verb-lambda-, \verb-handle-, \verb-anonymous-, \verb-callable-).
     \item \verb-p- es un punto, \((x_0,y_0)\), perteneciente al dominio de la función de la cual se desea conocer la derivada direccional. El punto debe ingresar como arreglo de flotantes (posibles equivalencias, \verb-array-, \verb-vector-, \verb-list-, \verb-pointer-, \verb-structure-).
@@ -116,35 +74,25 @@ El presente taller requiere de la implementación de una función de optimizaci�
     \item \verb-d- indica la separación de referencia, \(\Delta x\) o \(\Delta y\), para la aproximación de la derivada. La separación debe ingresar como un flotante.
     \item La salida de la función debe ser un flotante (posibles equivalencias, \verb-float-, \verb-single-, \verb-double-, \verb-real-, \verb-number-, \verb-decimal-).
     \end{itemize}
-
 Ilustre el correcto funcionamiento con los siguientes casos de prueba, comparando con los resultados teóricos y teniendo adecuada redacción:
-
    \begin{enumerate}[label=\alph*]
     \item ($0.4$) Derivada en el eje \(x\) en \((4.5, 2)\) de {\large \(\frac{5\exp(-x^2)}{y^2+1}\)}.
     \item ($0.4$) Derivada en el eje \(y\) en \((1, 8.1)\) de \((x+1)^2 + (y-3)^2\).
    \end{enumerate}
-
-
     \item Desarrolle una función que determine el vector gradiente, \(\vec{\nabla} f(x,y)\), aproximado dado un punto para una función de dos variables. La función debe invocarse como \verb-gradiente(f, p, d)- y su salida será el valor aproximado del gradiente, donde:
-
       \begin{itemize}
         \item \verb-f- es una función de dos variables, \(f(x,y)\), arbitraria de la cual se asegura la continuidad hasta la primera derivada para el punto que se ingrese. Debe ingresar como función evaluable (posibles equivalencias, \verb-inline-, \verb-lambda-, \verb-handle-, \verb-anonymous-, \verb-callable-).
     \item \verb-p- es un punto, \((x_0,y_0)\), perteneciente al dominio de la función de la cual se desea conocer la derivada direccional. El punto debe ingresar como arreglo de flotantes (posibles equivalencias, \verb-array-, \verb-vector-, \verb-list-, \verb-pointer-, \verb-structure-).
     \item \verb-d- indica la separación de referencia, \(\Delta x\) o \(\Delta y\), para la aproximación de la derivada. La separación debe ingresar como un flotante.
     \item La salida de la función debe ser arreglo de flotantes (posibles equivalencias, \verb-array-, \verb-vector-, \verb-list-, \verb-pointer-, \verb-structure-).
     \end{itemize}
-
     Ilustre el correcto funcionamiento con los siguientes casos de prueba, comparando con los resultados teóricos y teniendo adecuada redacción:
-
    \begin{enumerate}[label=\alph*]
     \item ($0.4$) Gradiente en \((4.5, 2)\) de {\large \(\frac{5\exp(-x^2)}{y^2+1}\)}.
     \item ($0.4$) Gradiente en \((1, 8.1)\) de \((x+1)^2 + (y-3)^2\).
     \item ($0.5$) Esta función debe hacer llamado de \verb-derivada_1d-. Este punto no requiere redacción sino que se valida con los archivos adjuntos.
    \end{enumerate}
-
-
    \item Desarrolle una función que optimice (máximo o mínimo) una función de dos variables, \(f(x, y)\), en una región rectangular dada, \(x_{inf}\leq x_{sup}\, \wedge\, y_{inf}\leq y_{sup}\). La función debe invocarse como \\ \verb-optimizar(f, r, i, d, n, t, x)- y su salida será el punto aproximado que optimiza la función, donde:
-
          \begin{itemize}
         \item \verb-f- es la función objetivo de dos variables, \(f(x,y)\), arbitraria de la cual se asegura la continuidad hasta la primera derivada en la región rectangular. Debe ingresar como cadena de caracteres (posibles equivalencias, \verb-string-, \verb-char-, \verb-text-).
         \item \verb-r- define los limites en las coordenadas \(x\) y \(y\) del rectángulo en el cual se optimizará la función. Se debe ingresar como arreglo de flotantes, en el orden siguiente: \(x_{inf},\, x_{sup},\, y_{inf},\, y_{sup}\) (posibles equivalencias, \verb-array-, \verb-vector-, \verb-list-, \verb-pointer-, \verb-structure-).
@@ -155,17 +103,13 @@ Ilustre el correcto funcionamiento con los siguientes casos de prueba, comparand
     \item \verb-t- es la tolerancia correspondiente al máximo error permitido en la aproximación. Debe ingresar como un flotante (posibles equivalencias, \verb-float-, \verb-single-, \verb-double-, \verb-real-, \verb-number-, \verb-decimal-).
     \item \verb-x- es la indicación de máximo o mínimo. Debe ingresar como una cadena de caracteres, indicando \verb-'min'- para minimizar o \verb-'max'- para maximizar (posibles equivalencias, \verb-string-, \verb-char-, \verb-text-).
     \end{itemize}
-
     Ilustre el correcto funcionamiento con los siguientes casos de prueba, comparando con los resultados teóricos y teniendo adecuada redacción:
-
    \begin{enumerate}[label=\alph*]
     \item ($0.4$) Maximice la función {\large \(\frac{5\exp(-x^2)}{y^2+1}\)} en la región \(-5\leq x \leq 2 \wedge -1 \leq y \leq 2\).
     \item ($0.4$) Minimice la función \((x+1)^2 + (y-3)^2\) en la región \(-1\leq x \leq 7 \wedge -1.5 \leq y \leq 7.2\).
     \item ($0.5$) Esta función debe hacer llamado de \verb-gradiente-. Este punto no requiere redacción sino que se valida con los archivos adjuntos.
    \end{enumerate}
-
 \item Solucione un problema aplicado acorde a la disciplina de alguno de los integrantes del equipo. Las datos necesarios para el problema aplicado deben disponerse en un archivo de texto plano (alias block de notas), el cual una función \verb-sol_problema(archivo)- se encarga de leer y llamar a la función \verb-optimizar-. \verb-archivo- es una cadena de caracteres que contiene la ruta del archivo con los datos del problema.
-
     \begin{enumerate}[label=\alph*]
     \item ($0.3$) Explique de forma concreta en que consiste el problema aplicado que selecciono y planteelo. Debe ser claro de donde saldrán los valores que usar+a en el archivo de texto.
     \item ($0.3$) Indique el orden y tipo de datos como se ingresan en el archivo de texto plano.
@@ -173,45 +117,5 @@ Ilustre el correcto funcionamiento con los siguientes casos de prueba, comparand
     \item ($0.4$) Encuentre la solución aproximada al problema aplicado y analice el resultado.
     \item ($0.3$) Esta función debe hacer llamado de \verb-optimizar-. Este punto no requiere redacción sino que se valida con los archivos adjuntos.
    \end{enumerate}
-
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \end{document}

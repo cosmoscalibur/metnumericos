@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,25 +15,17 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\a\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
-
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -59,59 +47,35 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
   \begin{enumerate}[leftmargin=*,widest=9]
-
     \item \textbf{Punto fijo} Para la relación recursiva de punto fijo \[x_{n+1} = \frac{1}{2} \left(x_n + \frac{3}{x_n} \right),\]
     \begin{itemize}
     \item[$0.5$] ¿Cumple el criterio de punto fijo para $x_0 = 3$? Justifique.
-
     \vspace{3.5cm}
-
     \item[$1.0$] ¿A que valor converge la relación recursiva?.
-
     \vspace{2cm}
-
     \end{itemize}
-
-
  \item Dados los puntos $P=\lbrace (0, 1), (1, {-2}), (3, {-1}) \rbrace$ extraídos de una función continua en el intervalo $\left[0, 3\right]$.
-
     \begin{itemize}
     \item[$0.5$] \textbf{Interpolación} Determine el polinomio interpolante para el conjunto de puntos $P$.
-
     \vspace{5cm}
-
     \item[$0.5$] \textbf{Diferenciación} Usando diferencia central y con $\Delta x = 0.1$, determine el resultado aproximado de la primera iteración de M\"uller con semilla en $x_0=1$.
     \[
-    x_1 = -\frac{2f(x_0)}{f\prime(x_0)-\sqrt{f^\prime(x_0)^2 - 2f(x_0)f^{\prime\prime}(x_0)}}.
+    x_1 = -\frac{2f(x_0)}{f\prime(x_0)-\sqrt{f^\prime{(x_0)}^2 - 2f(x_0)f^{\prime\prime}(x_0)}}.
     \]
-
     \vspace{4cm}
-
     \item[$0.5$] \textbf{Raíces} Con el polinomio interpolante hallado, encuentre la aproximación de la raíz de la función al interior del intervalo con tolerancia de $0.1$ con el método de su preferencia.
-
     \vspace{5cm}
-
     \end{itemize}
-
-
     \item Dados los puntos de la forma $(x_i, f(x_i), f^\prime (x_i))$ de una función desconocida, $Q=\lbrace (0, 1, 2), (3, 2, 1) \rbrace$.
     \begin{itemize}
     \item[$1.0$] \textbf{Interpolación} Determine el polinomio interpolante de Hermite para la información dada.
-
     \vspace{5cm}
-
     \item[$1.0$] \textbf{Integración} Usando $\Delta x = 0.2$, estime la integral del polinomio interpolante hallado en el intervalo $\left[0.4, 1.0\right]$, $\int_{0.4}^{1.0} H_{3}(x)dx$.
-
     \end{itemize}
-
   \end{enumerate}
-
   \clearpage
-
   \section*{Ecuaciones}
-
 \begin{align*}
   \text{\textbf{Cerrados}: } & f(a)f(b)<0 &  \\
   \begin{array}{c}
@@ -128,44 +92,31 @@
   a = c, f(b)f(c)<0
   \end{array}
 \end{align*}
-
 \begin{align*}
-  \text{\textbf{Abiertos} - \textit{Punto fijo}:}& \qquad \qquad |g^\prime (x)| < 1 & x_{i+1} = g(x_i) \\
+  \text{\textbf{Abiertos} \textit{Punto fijo}:}& \qquad \qquad |g^\prime (x)| < 1 & x_{i+1} = g(x_i) \\
   \text{\textit{Newton}} & & \text{\textit{Secante}} \\
   x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x)} & \qquad \qquad &
     x_{i+1} = x_i - \frac{f(x_i)\Delta x}{f(x_i+\Delta x)-f(x_i)}
 \end{align*}
-
   \textbf{Diferencias divididas:}
   \begin{align*}
   f([x_i, \ldots, x_k]) = \frac{f([x_{i+1}, \ldots, x_k]) - f([x_i, \ldots, x_{k-1}])}{x_k - x_i} & \qquad & f([x_i, x_{i+1}])  =  \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \\
   \frac{d}{dx}f(x_i) \approx \frac{f([x_{i-1}, x_i])+f([x_{i}, x_{i+1}])}{2} & & \text{ \textit{Diferencia central}}
   \end{align*}
-
 \begin{align*}
 \text{\textbf{Interpolación}:} & \qquad n+1 \rightarrow P_n(x) & \\
   \text{\textit{Lagrange}:} \qquad & \qquad & \text{\textit{Newton}:} \qquad \\
   L_n(x) = \sum_{i=0}^n \left(y_i\prod_{\substack{j=0 \\ i \neq j}}^n \frac{x-x_j}{x_i - x_j}\right) & & N_n(x) = \sum_{i=0}^n \left(f([x_0, \ldots, x_i]) \prod_{j=0}^{i-1}(x-x_j)\right)
 \end{align*}
-
 \begin{align*}
 \text{\textit{Hermite:}} &  & n+1 \rightarrow H_{2n+1}(x) \qquad \qquad \\
 z_{2i} = x_i & z_{2i+1} = x_i & H_{2n+1}(x) = \sum_{j=0}^{2n+1}f([z_0, \ldots, z_j])\prod_{k=0}^{j-1}(x - z_k)
 \end{align*}
-
   \textit{Integración:}
   \begin{eqnarray*}
    \Delta x = \frac{b-a}{n}\\
    x_i = a + i \Delta x
   \end{eqnarray*}
-
   \textit{Trapecio:}
   $$\int_a^b f(x)dx \approx \sum_{i=0}^{n-1} \frac{f(x_i) + f(x_{i+1})}{2}\Delta x$$
-
-
-
-
-
-
-
 \end{document}

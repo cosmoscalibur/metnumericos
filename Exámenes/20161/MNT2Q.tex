@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,32 +16,21 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
-
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
-
-
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -62,99 +47,58 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-
        \node at (4, .4) {X}; % Quiz
-
-
       \node[right] at (10,.5) {3 - 8 - 9}; % Número de grupo
       \node[right] at (10,1.) {5 Marzo de 2016}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
-
-
-
-
 Para el desarrollo del taller-quiz puede usar calculadora o portátil en los cálculos, trabajando con la precisión de la maquina. La modalidad de taller-quiz se realiza con el fin de evaluar un punto que incluya explícitamente la programación de un método. % {Taller}
-
-
-
-
 Reporte sus aproximaciones a \textbf{5 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todos los valores reportados (no es necesario en enteros),
 tanto en el documento escrito como en el archivo de salida, % {código}
 y conserve en memoria los valores con la precisión de la maquina. Recuerde el uso del separador decimal acorde a la \textbf{NTC}
 para el documento escrito (en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje). % {código}
-
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta
-
 , y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
-
     El contenido mínimo del comprimido ZIP que debe adjuntarse al correo evillegas@udem.edu.co acorde al documento de parámetros dado inicialmente, a más tardar el sábado 5 de marzo a las 8 P.M., debe ser:
     \begin{itemize}
     \item Documento PDF con la solución del taller.
     \item Archivos de código listados (4) para su ejecución (extensión   \textit{py} o \textit{m} según corresponda).
     \item Archivos de texto plano de entrada y salida (2).
     \end{itemize}
-
 Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
-
 Si el equipo de trabajo no posee integrantes de la carrera que corresponde el ejercicio, se anula la nota del último literal. Al indicar los integrantes, debe figurar además de lo indicado en el documento de parámetros, la carrera de cada integrante. Si no figura la carrera del integrante, se anula la nota del último literal. Algunos problemas no están en forma polinomica de manera inmediata y debe recurrir a la transformación de las variables para que el método polinómico funcione. % {código}
-
-
-
-
 \vspace{1cm}
   \begin{enumerate}[leftmargin=*,widest=9]
-
     \item \textbf{Punto fijo} Dada la forma funcional de punto fijo
-
     \begin{equation*}
     x = \frac{5}{x^2} + 2
     \end{equation*}
-
     \begin{enumerate}[label=\alph*]
     \item (\(0.8\)) Encuentre un intervalo \([a, b]\) en los reales positivos candidato a presentar convergencia a un único punto fijo. \textbf{Sugerencia:} Con ayuda del teorema de unicidad de punto fijo, determine un intervalo en el cual la desigualdad se cumple.
-
    \vspace{7cm}
-
-
-
     \item (\(0.8\)) Para el intervalo anterior, y con ayuda de la validación del teorema de existencia, acote el intervalo donde se asegura la existencia y unicidad del punto fijo. \textbf{Sugerencia:} La aplicación de ambos teoremas generá dos intervalos diferentes, los cuales deben intersectarse para acotar el intervalo.
-
     \vspace{7cm}
-
-
    \item (\(0.8\)) Con la información de los dos literales anteriores, determine la cota máxima del error absoluto para una aproximación inicial ubicada en dicho intervalo.
-
    \vspace{5cm}
-
    \end{enumerate}
-
    \item \textbf{Método de la secante} (\(0.6\)) El método de la secante modificado puede expresarse con las ecuaciones \ref{sec1} y \ref{sec2}.
-
    \begin{eqnarray}
    x_2 = x_1 - \frac{f(x_1)(x_1 - x_0)}{f(x_1) - f(x_0)} \label{sec1}\\
    x_2 = \frac{f(x_1)x_0 - f(x_0)x_1}{f(x_1) - f(x_0)} \label{sec2}
    \end{eqnarray}
-
    Explique por qué en términos generales, la forma \ref{sec2} tiende a ser menos precisa que la forma \ref{sec1}.
-
    \vspace{5cm}
-
    \item \textbf{Newton-Horner / Código}
    En el presente punto, se debe desarrollar un código para la solución de un problema aplicado usando el método de Newton-Horner con las siguientes especificaciones. Todos los valores de variables de entrada se leer del archivo de texto plano correspondiente, y el resultado final vale solo si es convergente y posee sentido en el problema.
-
 Los siguientes literales deben distinguirse claramente como rutinas independientes que puedan llamarse directamente (sin necesidad de llamar el método completo), lo cual para mayor claridad cada rutina será un archivo (no subfunciones ni funciones de un mismo modulo). En las especificaciones el asterisco es equivalente a la extensión del lenguaje que use (\textit{py} o \textit{m}).
-
     \begin{enumerate}[label=\alph*]
     \item (\(0.2\)) Archivo \verb-datos.*-, el cual contiene el código de la función \verb-datos- que recibe como argumento el nombre de un archivo de texto plano que se encuentra en la misma carpeta y devuelve en memoria una lista o vector de los valores numéricos de las variables en el orden que aparecen en el archivo.
     \begin{verbatim}
     >>> datos('variables.txt')
     [10, 100, 0.00001]
     \end{verbatim}
-
     Ejemplo del archivo \verb-variables.txt-.
     \begin{verbatim}
     x0 10
@@ -162,18 +106,14 @@ Los siguientes literales deben distinguirse claramente como rutinas independient
     tol 0.00001
     \end{verbatim}
 Los archivos de texto plano los debe ajustar siguiendo el lineamiento anterior y con las variables requeridas según el enunciado que le corresponda.
-
     \item (\(0.6\)) Archivo \verb-horner.*-, el cual contiene la implementación del método de Horner para la evaluación del polinomio y su derivada en un punto. Debe recibir como argumentos el valor de evaluación y la lista/vector de coeficientes del polinomio asociado (coeficientes en orden ascendente), y devuelve en memoria una lista/vector con las evaluaciones del polinomio y su derivada en el punto.
     \begin{verbatim}
     >>> horner(1, [4, 2, 0, 1])
     [7, 5]
     \end{verbatim}
 El ejemplo de prueba mostrado es la evaluación de \(P_3(1)\) y \(P_3^\prime (1)\) con \(P_3(x) = x^3 + 2x +4\).
-
     \item (\(0.2\)) Archivo \verb-resultdado.*-, el cual contiene la función \verb-resultado- que recibe las variables de la raíz aproximada, el número de iteraciones ejecutadas (número de veces que se repite el calculo, equivalente a contador desde 1), error absoluto en variable independiente y dependiente, y genera un archivo de salida \verb-resultado.txt- con dicha información, en la forma que se indica a continuación.
-
     \verb<    >>> resultado(4.3268, 15, 4.3568E-6, 2.6894E-3)<
-
     Archivo \verb-resultado.txt-
     \begin{verbatim}
     El método de Newton-Horner alcanzo la convergencia deseada en 15 iteraciones,
@@ -181,11 +121,8 @@ El ejemplo de prueba mostrado es la evaluación de \(P_3(1)\) y \(P_3^\prime (1)
     El error absoluto en la raíz es de 4.3568E-6 y en la evaluación de la raíz
     es 2.6894E-3.
     \end{verbatim}
-
     \item (\(1.0\)) Archivo \verb-newtonhorner.*-, el cual contiene la aplicación del método de Newton-Horner para la solución del problema aplicado. La función debe hacer llamado a la función \verb-datos- para obtener las variables de entrada del problema (valor inicial, total de iteraciones, tolerancia y demás variables especificas del problema en orden), tras lo cual se construye la lista/vector de coeficientes del polinomio asociado al problema. Para la evaluación del polinomio y su derivada debe llamarse a la función \verb-horner-, a la cual la indicación del polinomio proviene de la lista de coeficientes construida del paso anterior. Al finalizar, se debe llamar la función \verb-resultado- para imprimir el resumen del calculo solo en caso de alcanzar la convergencia.
-
 La tolerancia indicada se aplica para la variable especificada.
-
 La función recibe el nombre de un archivo de texto plano en la misma carpeta y en caso de alcanzar convergencia deseada devuelve en memoria el valor de la aproximación de la raíz e imprime el archivo de salida, o en caso de no alcanzar convergencia deseada devolver un dato nulo. Si en algún momento la derivada se hace cero, el programa debe devolver un dato nulo y mostrar un mensaje de división por cero.
     \begin{verbatim}
     >>> newtonhorner('variables_convergente.txt')
@@ -196,29 +133,24 @@ La función recibe el nombre de un archivo de texto plano en la misma carpeta y 
     Se presento división por cero.
     None
     \end{verbatim}
-
     Reporte en el documento en esta sección el resultado aproximado de la raíz con sus unidades respectivas y los cambios de variable que haya requerido para volver la expresión polinómica (sugerencia: usar los inversos de los denominadores).
     \end{enumerate}
-
     \begin{itemize}
     \item \textbf{Civil:}  Se diseñara un tanque esférico para almacenar agua de un poblado pequeño. El volumen de líquido que puede contener el tanque viene dado por
     \begin{equation*}
     V = \pi h^2 \frac{[3R - h]}{3},
     \end{equation*}
     donde \(V\) es el volumen \([m^3]\), \(h\) es la altura \([m]\) y R es el radio del tanque \([m]\). Si la esfera posee un radio de \(3m\), cual debe ser la profundidad a la que debe llenarse el tanque para que contenga \(28m^3\). Use como valor inicial \(h=4.23m\) y una tolerancia en la misma de \(0.0002m\).
-
     \item \textbf{Ambiental:} La concentración del oxígeno disuelto en el agua dulce se calcula con la ecuación
     \begin{equation*}
     \ln (o_{sf}) = -139.34411 + \frac{1.575701 \cdot 10^5}{T} - \frac{6.642308 \cdot 10^7}{T^2} + \frac{1.243800 \cdot 10^{10}}{T^3} - \frac{8.621949 \cdot 10^{11}}{T^4},
     \end{equation*}
     donde \(T\) es la temperatura absoluta \([K]\) y \(o_{sf}\) la concentración de oxígeno disuelto en agua dulce una atmósfera de presión \([mg/L]\). A que temperatura absoluta se encuentra el agua si la concentración de oxígeno es \(10mg/L\). Use una tolerancia de \(0.05K\) en la temperatura con valor inicial de la misma en \(300K\).
-
     \item \textbf{Financiera:} El calculo de la TIR en un flujo de caja, se corresponde a la raíz de la función del VPN en términos de la tasa de interés.
     \begin{equation*}
     VPN = \sum\limits_{j=0}^N \frac{C_j}{(1+i)^j},
 \end{equation*}
 donde \(N\) es el número total de periodos (sin contar la inversión inicial), \(i\) es la tasa de interés y \(C_j\) es el flujo de caja del periodo \(j\).
-
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
@@ -231,20 +163,12 @@ donde \(N\) es el número total de periodos (sin contar la inversión inicial), 
 \hline
 \end{tabular}
 \end{center}
-
 Use como valor inicial una tasa de interés de 0.1236 y use una tolerancia de \(10^{-5}\).
-
 \item \textbf{Energía}: La ecuación de estado de Van der Waals se puede expresar como una ecuación cubica de la siguiente forma
-
 \begin{equation}
 pV^3-n(RT + bp)V^2 + n^2aV - n^3ab = 0,
 \end{equation}
 Donde \(p\) es la presión \([atm]\), \(V\) es el volumen \([L]\), \(n\) es el número de moles y, \(a\) y \(b\) son parámetros experimentales que dependen del gas. Encuentre el volumen de una mol de gas de oxígeno a una presión de \(10atm\) y use un volumen inicial de \(17.22L\). Para el oxígeno \(a= 1.360L^2 atm / mol^2\) y \(b= 0.003183L/mol\). Use una tolerancia en el volumen de \(10^{-6}L\).
     \end{itemize}
-
-
   \end{enumerate}
-
-
-
 \end{document}

@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,26 +16,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -72,7 +61,6 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
 {\scriptsize  
 %Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final no supletorio}
 Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen%{presencial}
@@ -88,19 +76,15 @@ En caso de reclamación solo cuenta lo que este en lapicero. % {presencial}
 Si necesita espacio adicional % {presencial}
 use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) y resuelva los puntos en orden. % {impreso}
 %anexe las hojas extra que requiera en el orden dado por los puntos. % {manual}
-
 % Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
 }
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
   
 %% Punto 1
     \item {\small Se desea encontrar una aproximación a la densidad poblacional de un cultivo bacterial transcurrido un tiempo de observación de \(0.435\) s, para el caso representado en el cuadro de datos. Siga las indicaciones y use las variables y unidades adecuadas.
-
 \vspace*{-.7cm}
 \[
 \begin{array}{|c|c|}
@@ -155,14 +139,10 @@ t\, (s) & P\, \left(mm^{-2}\right) \\
     %\vspace{2cm}
     
     \textbf{R/} Por definición, los polinomios interpolantes deben pasar por los puntos usados para su creación y ademas su grado depende del número de puntos menos \(1\). De aquí, si el polinomio interpolante uso 3 puntos su grado debe ser \(2\), el mismo grado que la función teórica. Ahora, se sabe que dos polinomios son iguales, si la evaluación de \(n+1\) coincide, por lo cual ambos polinomios (teórico e interpolante) serán los mismos si su evaluación coincide al menos en 3 puntos. Dado que no conocemos los polinomios, es imposible la evaluación numérica, pero si sabemos que para construir el polinomio interpolante se debio conocer la evaluación de la función original (medición o teórico, dado a que se desprecia el error acorde al enunciado) en justo 3 puntos, que son puntos que deben existir en el interpolado con el mismo valor debido a la característica de polinomio interpolante. Por ende, tanto el interpolante como el teórico son los mismos polinomios.
-
     \item (\(0.4\)) Sin expandir el polinomio interpolante, determine si el polinomio \(h(t) = 25 - 5 t^2\) es igual al polinomio \(H(t) = (5 - 5t)(5 - t)\). Detalle el proceso.
 %\vspace{2cm}
-
 \textbf{R/} El criterio de unicidad establece que dos polinomios de grado \(n\) son iguales si coinciden al menos \(n+1\) evaluaciones. Bastará una evaluación en la que difiera para notar que son diferentes.
-
 Si seleccionamos \(t=0\) notamos que \(H(0) = h(0) = 25\). Si seleccionamos \(t=1\) notamos que \(h(1)= 20,\,H(1)=0\). En la segunda evaluación se encuentra una diferencia entre ellas, por lo cual los polinomios son diferentes. La selección de estos puntos es arbitraria, y los ilustrados son solo por su facilidad de evaluarlos rápidamente.
-
 \end{enumerate} 
         % Punto 3
    \item {\small Durante un encuentro de béisbol, una pelota es bateada siguiendo la trayectoria dada por \[y=\tan(\theta_{0})x-\frac{g}{2v_{0}^{2}\cos^{2}\theta_{0}}x^{2}+y_{0},\] donde la velocidad inicial $v_{0}= 20 m/s$, la distancia $x$ al \textit{catcher} es de $35 m$ y la aceleración debida a la gravedad \(9.8 \frac{m}{s^2}\). La pelota sale de la mano del lanzador con una elevación $y_{0} = 2 m$, y el \textit{catcher} la recibe a \(y=1 m\). Se desea conocer una aproximación del angulo inicial \(\theta_0\). \textbf{Considere para el calculo de raíces el método de Müller}, el cual se expresa al interior de la estructura cíclica del \textbf{pseudocódigo} siguiente. En el pseudocódigo la variable \(x\) se corresponde con la variable sobre la cual se desea encontrar la raíz, en este caso \(\theta_0\).}
@@ -189,23 +169,17 @@ Fin \textbf{Mientras}\\
 \textbf{Retorne} \(x_3\)\\
 }
 \vspace{-.8cm}
-
 \begin{enumerate}[label=\alph*]
 \item (\(0.5\)) Obtenga la función para búsqueda de raíces asociada al enunciado, acorde a la función teórica mencionada y el punto en el cual se desea estimar el tiempo.
 %\vspace{1cm}
-
 \textbf{R/} Una función adecuada para el problema de búsqueda de raíces es una función que explícitamente se encuentra igualada a cero y persiste la variable desconocida. Reemplazando los valores y dejando a un lado el valor nulo tenemos:
-
 \begin{eqnarray*}
 0&=&35\tan(\theta_{0}) - \frac{9.8}{2(20)^{2}\cos^{2}\theta_{0}}(35)^{2}+2 - 1 \\
 0&=&35\tan(\theta_{0}) - \frac{15.006}{\cos^{2}(\theta_{0})} + 1 = f(\theta_0)
 \end{eqnarray*}
-
 donde no estan presentes las unidades ya que al simplificar y factorizar, toda la expresión queda en metros y estos se anulan al pasarlos al lado del cero. La función para búsqueda de raices es \(f(\theta_0)\).
-
 \item (\(0.8\)) Obtenga la primera iteración del método de Müller para el problema de búsqueda de raíces, tomando como puntos iniciales: \(\theta_{00}=0,\, \theta_{01}=1,\, \theta_{02}=1.5\) (en radianes). Detalle las variables intermedias del pseudocódigo.
 %\vspace{3.5cm}
-
 \textbf{R/} Aunque para el comportamiento completo del pseudocódigo se requiere saber del valor de \(n\), explícitamente se solicito realizar la primera iteración por lo cual daremos que la condición de \(cont<n\) se cumple al menos una vez. Detallando las variables tenemos:
 \begin{eqnarray*}
 x_0 &=& 0\\
@@ -227,34 +201,22 @@ x_0 &=& 1\\
 x_1 &=& 1.5\\
 x_2 &=& 1.0039.
 \end{eqnarray*}
-
 Así la primera iteración genera como aproximación de la raíz a \(\theta_0 = 1.0039\) radianes.
-
 \item (\(0.5\)) Sabiendo que una buena aproximación de la raíz corresponde a \(0.47401\) radianes, determine el número de cifras significativas de su aproximación.
 %\vspace{3cm}
-
 \textbf{R/} Partiendo del valor obtenido como aproximado y del dado como verdadero, calculamos el error relativo.
-
 \[\epsilon_r = \left|\frac{1.0039-0.47401}{0.47401}\right| = 1.1179.\]
-
 Luego usando la relación del error relativo con cifras significativas
-
 \[ 1.1179 = 0.11179 \cdot 10^1 < 0.5 \cdot 10^{-n+1},\]
-
 de donde \(1 = -n + 1\), que lleva a \(n=0\), que significa que la cantidad aún no posee cifras significativas.
-
 \item (\(0.4\)) ¿Cuantas veces se ejecuta el ciclo ilustrado en el pseudocódigo? Justifique.
 %\vspace{1.1cm}
-
 \textbf{R/} Aunque el ciclo posee como criterio de parada \(cont<n\), la variable \(cont\) no se modifica su valor dentro del ciclo, de manera que se presentan 2 escenarios:
-
 \begin{itemize}
 \item Ninguna: Si \(n \leq 1\), el ciclo no se ejecuta.
 \item Infinitas: Si \(n > 1\) el ciclo se repite indefinidamente. 
 \end{itemize}
-
 \end{enumerate}
-
 \end{enumerate}
 %\clearpage
 % {include formulas.tex Parcial - Final}

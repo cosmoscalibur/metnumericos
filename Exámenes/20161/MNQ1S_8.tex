@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,26 +15,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -73,23 +62,15 @@
   \end{minipage}
   
 % Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final}
-
 Para el desarrollo de los cálculos puede usar exclusivamente calculadora (no se permite el uso de portátil o celulares en el examen), y
 puede disponer de sus apuntes de clase. % {Quiz}
 % al final del examen, encontrará una \textbf{hoja de formulas} para su ayuda. {Parcial - Final}
-
 Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{5 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todos los valores reportados (no es necesario en enteros).
-
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero} (requisito en caso de reclamación), y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
-
   \begin{enumerate}[leftmargin=*,widest=9]
-
     \item \textbf{Aproximación de funciones}
-
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) Determine el polinomio de Taylor \(P_2(x)\) entorno a \(x_0=1\) para \(f(x) = x \ln(x) \). Considere el intervalo \([1, 1.4]\).
     
@@ -107,12 +88,10 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
    \end{eqnarray*}
    
    Sabemos que la función \(x\) existe y es continua para todos los reales, para las funciones de la forma \(x^{-n}\) solo hay problema de existencia en \(0\) y para el logaritmo su existencia y continuidad exige que \(x>0\), por lo que en el intervalo de interés (\([1, 1.4]\)) se puede asegurar que se cumplen las condiciones del teorema de Taylor.
-
 \begin{eqnarray*}
 P_2(x) & = & (1)(0) \frac{(x-1)^0}{0!} + (0 + 1) \frac{(x-1)^1}{1!} + (1) \frac{(x-1)^2}{2!} \\
 & = & (x - 1) + \frac{(x - 1)^2}{2}
 \end{eqnarray*}
-
     \item (\(0.8\)) Aproxime \(1.4 \ln(1.4)\) con ayuda de \(P_2(x)\) y determine el error verdadero relativo.
     
 %    \vspace{4cm}
@@ -136,16 +115,12 @@ P_2(x) & = & (1)(0) \frac{(x-1)^0}{0!} + (0 + 1) \frac{(x-1)^1}{1!} + (1) \frac{
 \textbf{R/} El teorema de Bolzano nos exige dos condiciones para la aplicación de los métodos cerrados. La primera exige la continuidad de la función en el intervalo de interés y la segunda la presencia de cambio de signo entre los extremos del intervalo.
    
 El problema de continuidad es equivalente a determinar si el intervalo de interés pertenece al dominio de la función, que en este caso genera las desigualdades, donde \(m\) es número entero, siguientes
-
 \begin{eqnarray*}
 x & \neq & \left(m + \frac{1}{2} \right) \pi, \\
 \tan(x) & \neq & \left(m + \frac{1}{2} \right) \pi,
 \end{eqnarray*}
-
 donde los valores de \(x\) de la primera desigualdad se verifica que están por fuera del intervalo de interés. Para la segunda desigualdad, sabemos que la función tangente en el intervalo de interés es continua (resultado de la primera desigualdad) y ademas monotonamente creciente. De esta forma, basta evaluar los extremos y verificar que los valores de la desigualdad no se encuentren en medio de la evaluación de los extremos (\([-0.14255, 0.058474]\)).
-
 Se puede verificar que la evaluación en el extremo izquierdo es negativa y en el extremo derecho es positiva, por lo cual hay cambio de signo en la función.
-
 Las dos condiciones anteriores simultaneas nos aseguran la presencia de al menos una raíz en el intervalo, y por ende es posible el uso de un método cerrado.
    
    \item \((0.8)\) Suponga que es posible usar el método de bisección, ¿Cuantas iteraciones se requieren para asegurar un error absoluto en \(x\) menor a \(0.01\) ?
@@ -163,9 +138,7 @@ Las dos condiciones anteriores simultaneas nos aseguran la presencia de al menos
    \end{eqnarray*}
    
    Dado que el número de iteraciones es un valor entero, acorde a la desigualdad el primer valor entero con dicha condición es \(n=5\).
-
    \item \((2.0)\) Usando el método de bisección y el \(n\) anterior, encuentre la raíz aproximada.
-
 \textbf{R/} La raíz aproximada es \(c = 3.1438 \).
  
 \begin{equation*}
@@ -181,11 +154,9 @@ Las dos condiciones anteriores simultaneas nos aseguran la presencia de al menos
    \hline
    \end{array}
 \end{equation*}   
-
     \end{enumerate}
     
   \end{enumerate}
-
 %\clearpage
 % {include formulas.tex Parcial - Final}
 \end{document}

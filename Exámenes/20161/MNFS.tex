@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,26 +16,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -82,22 +71,16 @@ Todo valor reportado debe aproximarse a \textbf{5 CIFRAS SIGNIFICATIVAS} con \te
 %(en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje). % {código}
 .
 \vspace{-5mm}
-
 Indique y justifique \textbf{clara y explícitamente} todo procedimiento y respuesta de cada pregunta % {Todos}
 (en caso de reclamación solo cuenta lo que este en lapicero) % {presencial}
 . Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. % {Todos}
 %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras). % {parcial - final}
 Resuelva en orden los puntos. % {Todos}
-
 % El contenido mínimo del comprimido ZIP que debe adjuntarse al correo evillegas@udem.edu.co acorde al documento de parámetros dado inicialmente, y los requisitos especificos aqui mencionados. % {virtual}
-
 % Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
-
 % Si el equipo de trabajo no posee integrantes de la carrera que corresponde el ejercicio, se anula la nota del último literal. Al indicar los integrantes, debe figurar además de lo indicado en el documento de parámetros, la carrera de cada integrante. Si no figura la carrera del integrante, se anula la nota del último literal.% {aplicado}
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
   
@@ -126,7 +109,6 @@ Resuelva en orden los puntos. % {Todos}
    \[ \vec{f}(\vec{u}, t) = \begin{pmatrix}
    u_1(t) \\ \frac{1}{\exp(t)}-\frac{u_0(t)+t}{t-2}
 \end{pmatrix}  .  \]
-
     \item (\(0.6\)) ¿Es el PVI un problema bien planteado? Justifique.
     %\vspace{1cm}
     
@@ -142,9 +124,7 @@ Resuelva en orden los puntos. % {Todos}
 \]    
 ¿Se puede asegurar que siempre el método de Jacobi convergerá?
 % \vspace{1cm}
-
 \textbf{R/} No es posible asegurar la convergencia. La condición de matriz estrictamente diagonal dominante es con la desigualdad estricta pero al revés, es decir, mayor no menor igual.
-
     \item (\(0.4\)) Dada una matriz estrictamente diagonal dominante \(B\), ¿existe al menos un elemento de la forma \(b_{ii} = 0\)?
    % \vspace{1cm}
    
@@ -265,7 +245,6 @@ Resuelva en orden los puntos. % {Todos}
   
 \end{enumerate}
   \end{enumerate}
-
 %\clearpage
 % {include formulas.tex Parcial - Final}
 %\begin{center}

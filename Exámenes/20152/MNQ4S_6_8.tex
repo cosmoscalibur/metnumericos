@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,26 +15,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -71,16 +60,10 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-  
 %Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado.
-
 %Al final, encontrará una \textbf{hoja de formulas} para su ayuda o use sus \textbf{notas digitales} (en caso de usar portátil). Para sus cálculos puede usar solo \textbf{o calculadora científica o portátil}.
-
 %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{4 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
-
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero}, y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
-  
-
   \begin{enumerate}[leftmargin=*,widest=9]
     %% Punto 1
     \item Sea
@@ -88,13 +71,10 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     A = \begin{pmatrix}
     0.8 & 0.1\\ 0.1 & 1
     \end{pmatrix}
-    \]     
-    
+    \]
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) ¿ Es \(A\) definida positiva?
-    
     Se verifica el primer criterio.
-    
     \[
     A^T = \begin{pmatrix}
     0.8 & 0.1\\ 0.1 & 1
@@ -102,13 +82,9 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     0.8 & 0.1\\ 0.1 & 1
     \end{pmatrix} = A
     \]
-    
     La matriz \(A\) cumple con ser simétrica.
-    
     El segundo criterio, puede validarse de dos formas. Una de ellas por medio de la pre y pos multiplicación por un vector arbitrario, y otra por el criterio de subdeterminantes (determinantes menores).
-    
     Forma 1:
-    
     \begin{eqnarray*}
     \vec{x}^T A \vec{x} & = & (x_1, x_2) \begin{pmatrix}
     0.8 & 0.1\\ 0.1 & 1
@@ -122,66 +98,45 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     & = & 0.8(x_1+0.125x_2)^2+0.9875x_2^2 \quad \text{ Completación de cuadrado} \\
     & \geq & 0 \quad \text{ Por suma de cuadrados}
     \end{eqnarray*}
-    
     Ahora, la única forma de ser cero, es el vector nulo, pero justamente este no se incluye en la definición, por lo que cumple con ser positivo para todo vector arbitrario y por ende es definida positiva.
-    
     Forma 2:
-    
     Se verifican los siguientes determinantes menores:
-    
    \begin{eqnarray*}
    a_{11} &=& 0.8 > 0 \\
    \det(A) = \begin{vmatrix}
     0.8 & 0.1\\ 0.1 & 1
-    \end{vmatrix} & = & 0.8(1) -0.1(0.1) = 0.79 > 0 
+    \end{vmatrix} & = & 0.8(1) -0.1(0.1) = 0.79 > 0
    \end{eqnarray*}
-   
    Como los determinantes menores son mayores que cero, cumple con ser definida positiva.
    % \vspace{3.5cm}
-
     \item (\(1.0\)) ¿Es \(A\) estrictamente diagonal dominante?
-    
 Se verifica que en la primera fila, \(|0.8| > |0.1|\), y en la segunda fila que \(|1| > |0.1|\), por lo que los elementos diagonales en valor absoluto son mayores a las sumas en valor absoluto de los demás elementos de la fila. Por ende, es estrictamente diagonal dominante.
     \end{enumerate}
-
     %% Punto 2
     \item Sea
     \[
     B = \begin{pmatrix}
     -4 & 3 & 0\\ 2 & 8 & -5\\ 0 & 2 & 5
     \end{pmatrix}
-    \] 
-    
+    \]
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) ¿Es singular \(B\)?
-    
     Se observa que la matriz \(B\) es una matriz estrictamente diagonal dominante.
-    
     \begin{eqnarray*}
     |-4| & > & |3|+|0|\\
     |8| & > & |2|+|-5|\\
     |5| & > & |0|+|2|
     \end{eqnarray*}
-    
     Al ser estrictamente diagonal dominante, se asegura que la matriz es no singular (propiedad).
-    
     %\vspace{11cm}
-    
     \item (\(1.0\)) ¿Es \(\lambda = 0\) autovalor de \(B\)? (Recordar que \(\det(A) = \prod\limits_{i=1}^n \lambda_i\))
-    
     Dado que \(B\) es una matriz no singular sabemos que su determinante es distinto de cero. Luego, ya que el determinante es igual a la productoria de los autovalores, bastaría un solo autovalor nulo para volver cero el determinante. Así, si el determinante de \(B\) es distinto de cero, implica que ningun autovalor es cero.
-    
-   % \vspace{8cm} 
+   % \vspace{8cm}
     \end{enumerate}
-    
   \item (\(1.0\)) Demuestre que \( ||\vec{x}||_{\infty} \leq ||\vec{x}||_p\), para \(p \in \N\).
-  
   Sea \(\vec{x} = (x_1, x_2, \ldots, x_n)\).
-  
   Por definición, \( ||\vec{x}||_\infty = \max\limits_{1\leq i\leq n} |x_i|=|x_j|\) con \(j \in [1, n]\).
-  
   Luego, si a este elemento, se suman los demás valores absolutos de los elementos del vector, cada uno elevado a una potencia natural, se obtiene la desigualdad de partida.
-  
   \begin{eqnarray*}
   || \vec{x} ||_\infty &=& |x_j|\\
   || \vec{x} ||_\infty^p &=& |x_j|^p\\
@@ -190,9 +145,7 @@ Se verifica que en la primera fila, \(|0.8| > |0.1|\), y en la segunda fila que 
   (|| \vec{x} ||_\infty^p)^{1/p} & \leq & \left(\sum\limits_{i=0}^n |x_i|^p \right)^{1/p}\\
   || \vec{x} ||_\infty & \leq & || \vec{x} ||_p
   \end{eqnarray*}
-    
   \end{enumerate}
-
 \clearpage
 \begin{center}
 \textbf{Hoja de fórmulas}

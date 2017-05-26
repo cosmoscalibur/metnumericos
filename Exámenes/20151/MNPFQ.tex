@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,22 +15,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -66,13 +55,11 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-  
   Para la realización de este examen, puede usar calculadora científica o portátil.
   Al final, encontrará una hoja de formulas para su ayuda o use sus notas digitales (en caso de usar portátil).
   Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento,
   e \textbf{indique claramente la respuesta final de cada pregunta al lado del enunciado}. No se pueden usar hojas extras.
   Use como mínimo aproximaciones a \textbf{3 DECIMALES} en todas las operaciones.
-
   \begin{enumerate}[leftmargin=*,widest=9]
     %% Punto 1
     \item \textbf{Runge Kutta 4} Dada la ecuación diferencial:
@@ -82,15 +69,11 @@
     \begin{enumerate}[label=\alph*]
     \item ($0.50$) Determine la constante de Lipschitz asociada a la función de la ecuación diferencial. ¿Posee solución única asegurada?
     \vspace{2cm}
-    
     \item ($0.50$) Con tamaño de paso \(h=0.2\), use el método RK4 para aproximar la solución en \(y(0.3)\).
     \vspace{3cm}
-    
     \item ($0.25$) Calcule el error relativo en \(y(0.3)\), si la solución analítica de la ecuación diferencial es \(y(t) = t(t+1.9)\).
     \vspace{2cm}
-    
     \end{enumerate}
-
     %% Punto 2
     \item Dado el sistema matricial
     \[
@@ -103,15 +86,11 @@
     \begin{enumerate}[label=\alph*]
     \item ($0.50$) Determine la matriz \(T_G\) asociada al método de Gauss-Seidel.
     \vspace{2cm}
-    
     \item ($0.25$) Calcule el radio espectral \(\rho(T_G)\).
     \vspace{2cm}
-    
     \item ($0.50$) Para el método de SOR con \(\omega=0.7\), el radio espectral es \(\rho(T_{SOR}) = 0.3\). ¿Cual de los dos métodos converge más rápidamente?
     \vspace{1cm}
-    
     \end{enumerate}
-   
     %% Pregunta 3
     \item \textbf{Método de Jacobi} Dado el sistema de ecuaciones lineales
     \begin{align*}
@@ -119,24 +98,17 @@
     0.1x_1 + 7x_2 - 0.3x_3 & = -19.3 \\
     0.3x_1 - 0.2x_2 + 10x_3 & = 71.4
     \end{align*}
-    
     \begin{enumerate}[label=\alph*]
-
     \item ($0.50$) Determine la matriz \(T_J\) y el vector \(\vec{c}_J\) para el método de Jacobi, para el sistema \(A\vec{x}=\vec{b}\) equivalente al sistema de ecuaciones.
     \vspace{2cm}
-    
     \item ($0.50$) Usando como aproximación inicial el vector nulo, muestre la solución aproximada tras dos iteraciones.
     \vspace{5cm}
-    
-    \item ($0.50$) Calcule el error absoluto de la aproximación usando la norma 3 (\(l_3\)) con respecto a la solución exacta. La solución exacta es el vector 
+    \item ($0.50$) Calcule el error absoluto de la aproximación usando la norma 3 (\(l_3\)) con respecto a la solución exacta. La solución exacta es el vector
     \( \begin{pmatrix} 3 \\ -2.5 \\ 7 \end{pmatrix} \).
     \vspace{4cm}
-    
     \end{enumerate}
-    
     %% Pregunta 4: Falso-Verdadero.
     \item ($1.00$) \textbf{Falso Verdadero} Relacione a continuación de cada afirmación su valor de falso (\textbf{F}) o verdadero (\textbf{V}) según corresponda. Justifique brevemente solo si es falsa.
-    
     \begin{itemize}
     \item La ecuación diferencial \(y^{\prime}(t)= t^2 + 2t\) es soluble exactamente (salvo por error de redondeo) con el método de Taylor orden 3. ( )
     \vspace{1cm}
@@ -147,17 +119,14 @@
     \item La convergencia del método SOR a la solución del sistema matricial es dependiente de la selección del valor del parámetro de relajación. ( )
 %    \vspace{1cm}
     \end{itemize}
-    
   \end{enumerate}
-  
   \textbf{Formulas}
-  
 %  \[\epsilon_r = \left\vert \frac{p - p^*}{p} \right\vert \]
 %  \textit{Ecuaciones diferenciales}
 %  \[
 %  \left\vert \frac{\partial f(t, y)}{\partial y} \right\vert \leq L
 %  \]
-%  
+%
   \begin{eqnarray*}
   \epsilon_r & = & \left\vert \frac{p - p^*}{p} \right\vert \\
   \left\vert \frac{\partial f(t, y)}{\partial y} \right\vert & \leq & L \\
@@ -167,9 +136,9 @@
   K3 & = & hf(t_i + h/2, y_i + K2/2) \\
   K4 & = & hf(t_{i+1}, y_i + K3)\\
 %  \end{eqnarray*}
-%  
+%
 %  \textit{Sistemas matriciales}
-%  
+%
 %  \begin{eqnarray*}
   P_{T}(\lambda) & = & \det(A-\lambda I) = 0 \\
   \rho(T) & = & \max \lbrace \vert \lambda_i \vert \rbrace \\
@@ -178,11 +147,7 @@
   A & = & D - L - U \\
   T_J & = & D^{-1}(L+U) \\
   \vec{c}_J & = & D^{-1}\vec{b} \\
-  T_G & = & (D-L)^{-1}U \\
+  T_G & = & {(D-L)}^{-1}U \\
   \vec{x}^{(k+1)} & = & T\vec{x}^{(k)} + \vec{c}
   \end{eqnarray*}
-  
-  
-  
-
 \end{document}

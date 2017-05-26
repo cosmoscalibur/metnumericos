@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,27 +16,20 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
 \newcommand{\diffl}[3]{\frac{d^{#3}}{d#2^{#3}}#1}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -73,7 +62,6 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
 {\scriptsize
 %Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final no supletorio}
 Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen%{presencial}
@@ -89,18 +77,13 @@ En caso de reclamación solo cuenta lo que este en lapicero. % {presencial}
 Si necesita espacio adicional % {presencial}
 use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) y resuelva los puntos en orden. % {impreso}
 %anexe las hojas extra que requiera en el orden dado por los puntos. % {manual}
-
 % Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
 }
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
-
 %% Punto 1
-
     \item (\(1.0\)) Dado el criterio de mayor precisión (mínima cota del error), siempre y cuando sea consistente la aplicación del método (simple o compuesto) con los datos dados, determine el valor aproximado de \(\int_{-2}^4 f(x)dx\).
     
 \begin{center}
@@ -111,39 +94,28 @@ $f(x_i)$ & $-75$ & $-10$ & $5$ & $6$ & $5$\\
 \hline
 \end{tabular}
 \end{center}
-
 Considere que las cotas de las derivadas son 
 \begin{eqnarray*}
 \max_{x\in [-2,6]} |f^{(2)}(x)| &=& 27 \\
 \max_{x\in [-2,6]} |f^{(4)}(x)| &=& \frac{3}{2}
 \end{eqnarray*}
-
 %\vspace{4cm}
-
 \textbf{R/} Para la selección del método debemos considerar primero el número de puntos disponibles. En el intervalo indicado para la integración se poseen 4 puntos equidistantes que equivale a 3 sub-intervalos de igual ancho. Esto significa que considerando una aplicación compuesta podemos usar solamente el método de trapecio con 3 trapecios o considerando una aplicación simple podemos usar el método de Simpson 3/8.
-
 Entre las dos opciones sabemos que al aumentar el grado del polinomio se tiende a disminuir el error en la integración (contrario a lo sucedido en la derivación) por lo cual resulta conveniente el uso del método se Simpson 3/8. Contando con la información de las cotas de las derivadas (partiendo el caso hipotético en el que se puedan conocer como este), las cotas de los métodos mencionados son proporcionales respectivamente a las cotas de las derivadas mencionadas, por lo que esperamos también una cota menor de error para el método de Simpson 3/8.
-
 De esta manera, 
-
 \begin{eqnarray*}
 h & = & 2\\
 \int_{-2}^{4}f(x)dx &=& \frac{3}{8}h\left(f(-2) + 3f(0) + 3f(2) + f(4) \right)\\
 &=& \left(\frac{3}{8}\right)(2)(-75-30+15+6)\\
 &=&-63
 \end{eqnarray*}
-
 %% Punto 2
-
 \item Un modelo matemático adimensional de un cierto circuito eléctrico RLC (resistencia, condensador e inductancia) es $$Q^{''}(t)+20Q^{'}(t)+125Q(t)=9\sen(3t) $$ con $Q(0)=0$ y $Q^{'}(0)=0$. Se desea conocer \(Q(2)\).
-
     \begin{enumerate}[label=\alph*]
     \item (\(0.9\)) Halle el problema de valor inicial en forma del sistema de ecuaciones diferenciales de orden uno equivalente.
     
 %\vspace{5cm}
-
 \textbf{R/} Iniciamos considerando el cambio de variable \(Q(t)=q_0(t)\), a partir del cual
-
 \begin{eqnarray*}
 Q^{'} &=& \diff{q_0(t)}{t}{} = q_1(t)\\
 Q^{''} &=& \diff{q_1(t)}{t}{} = 9\sen(3t) - 20q_1(t) - 125 q_0(t)\\
@@ -151,16 +123,12 @@ Q(0) &=& q_0(0) = 0\\
 Q^{'}(0) &=& q_1(0) = 0\\
 && 0 \leq t \leq 2
 \end{eqnarray*}
-
 El sistema de ecuaciones diferenciales orden uno equivalente es la parte derecha de las ecuaciones anteriores (omitiendo solo la parte inicial que depende de \(Q\)).
-
     
     \item (\(0.6\)) Asuma que el sistema de ecuaciones diferenciales cumple con solución única asegurada y resuelva usando un solo paso en \(t\). Use el método de su preferencia.
     
-
 %\vspace{6cm}
 \textbf{R/} Ya que se solicita solucionar en un solo paso, tenemos que el paso es de \(\Delta t = 2\). Luego:
-
 \begin{eqnarray*}
 t_0 & = & 0\\
 \begin{pmatrix}
@@ -179,20 +147,15 @@ t_1 & = & t_0 + \Delta t = 2\\
 															0 \\ 0
 														\end{pmatrix}
 \end{eqnarray*}
-
     \end{enumerate}
-
 %% Punto 3
     \item Dado el sistema de ecuaciones lineales:
-
 \begin{align*}
     x + 3y-z =& 1 \\
     2x + 3y + 6z =& 0 \\
     7x + 3y + 3z =& 4
     \end{align*}
-
     \begin{enumerate}[label=\alph*]
-
     \item (\(1.2\)) Determine la matriz \(T\) y el vector \(\vec{c}\) del método iterativo matricial de su preferencia.
     %\vspace{6cm}
     
@@ -209,11 +172,8 @@ t_1 & = & t_0 + \Delta t = 2\\
     1\\ 0\\ 4
     \end{pmatrix}
     \]
-
 Por simplicidad usaremos el método de Jacobi, donde \(T_J = D^{-1}(L+U)\) y \(\vec{c}_J = D^{-1}\vec{b}\).
-
 Extraemos las matrices necesarias.
-
 \begin{eqnarray*}
 D &=& \begin{pmatrix}
 1 & 0 & 0\\
@@ -239,7 +199,6 @@ T_J &=& \begin{pmatrix}
 1\\0\\1.3333
 \end{pmatrix}
 \end{eqnarray*}
-
     \item (\(0.8\)) ¿Convergería la sucesión de la forma iterativa a la solución única? Justifique.
     %\vspace{5.5cm}
     
@@ -260,16 +219,12 @@ p_{T_J}(\lambda) &=& \det(T_J - \I\lambda) \\
 \lambda_2 &=& 1.3024 - 1.8499\imath\\
 \rho(T_J) &=& 2.6048 \geq 1
 \end{eqnarray*}
-
 Al ser su radio espectral mayor que uno, se concluye que no converge el método.
-
     \item (\(0.5\)) Solucione, de ser posible, con una iteración. De lo contrario justifique porque no es posible solucionar.
   %\vspace{5.5cm}
   
   \textbf{R/} Dado que el radio de convergencia de la matriz es mayor que uno, el método no convergerá y no es posible solucionar.
   \end{enumerate}
-
-
 \end{enumerate}
 %\clearpage
 % {include formulas.tex Parcial - Final}

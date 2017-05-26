@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,22 +15,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -66,17 +55,14 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-  
   Para la realización de este examen, puede usar calculadora científica o portátil.
   %Al final, encontrará una hoja de formulas para su ayuda o use sus notas digitales (en caso de usar portátil).
   %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento,
   %e \textbf{indique claramente la respuesta final de cada pregunta al lado del enunciado}. No se pueden usar hojas extras.
   Reporte sus aproximaciones a mínimo \textbf{2 CIFRAS DECIMALES} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
-
   \begin{enumerate}[leftmargin=*,widest=9]
     %% Punto 1
     \item \textbf{Punto fijo} ($1.0$): \(f(x) = 10x^3 - 8.3x^2 + 2.295x - 0.21141\) tiene una raíz en \(x=0.29\). Use como aproximación \(x_0=0.28\) con el método de Newton a máximo 4 iteraciones. Explique que sucede en caso de algo anómalo.
-    
     Aplicando la forma iterativa de Newton \(x_{i+1} = x_i - \frac{f(x_i)}{f^\prime (x_i)} \), se obtiene el siguiente proceso iterativo (donde la derivada es \(30x^2 - 16.6x + 2.295 \)).
     \begin{center}
        \(
@@ -90,21 +76,13 @@
     \end{array}
     \) 
     \end{center}
-
 Para este caso solo son necesarias dos iteraciones para la convergencia. Al seleccionar el punto cercano a la raíz conocida, se espera llegar a esta, sin embargo la presencia de otras raíces cercanas no asegura que el método encuentre la raíz deseada por tratarse de un método abierto, y por eso el comportamiento aparentemente anómalo. En este caso, la derivada de la función es negativa en el punto inicial, por lo cual buscará la otra raíz. Hasta aquí es el análisis esperado para dicho problema (ya que indica porque no se encontró la esperada).
-    
 También se puede observar que la derivada en dicho punto de convergencia también es cero (diferente por efectos numéricos), lo cual indica la presencia de un punto critico y en esos casos, la coincidencia de raíz y punto critico indica que existe otra raíz en el mismo punto. Esto lleva a que la forma del polinomio factorizado es \(f(x) = (x-0.27)^2(x-0.29)\).
-    
-
     %% Punto 2
     \item \textbf{Métodos abiertos}: Dado el polinomio \(P(x) = x^3 - 5x^2 + 17x -13\). 
-    
     \begin{enumerate}[label=\alph*]
-    
     \item ($1.5$) Evalué \(P(1)\).
-    
     Sabemos que en el método de evaluación de Horner al realizar la primera aplicación del método se obtiene la evaluación del polinomio en el coeficiente \(b_0\).
-
 \begin{eqnarray*}
 P(x) & = & x^3 - 5x^2 + 17x -13\\
 b_3 & = & 1 \\
@@ -112,15 +90,10 @@ b_2 & = & (1)(1) - 5 = -4\\
 b_1 & = & (-4)(1) + 17 = 13\\
 b_0 & = & (13)(1) - 13 = 0 = P(1)
 \end{eqnarray*}
-
 \item ($0.5$) ¿ Cuantas operaciones menos usa el método de Horner en comparación al método tradicional?
-
 Sabemos que el número de sumas en los distintos métodos de evaluación polinómica coincide con el grado del polinomio, por lo cual las sumas no aportan a la diferencia de operaciones. En cuanto al producto, sabemos que el numero de multiplicaciones de la forma tradicional es mayor al numero de multiplicaciones de la factorización de Horner por la siguiente cantidad
 \[ \Delta Op = \frac{n(n+1)}{2} - (n) = \frac{3(3+1)}{2} - (3) = 3 \]
     \end{enumerate}
-    
-    
-   
     %% Pregunta 3
     \item \textbf{Interpolación} ($2.0$) : Dados los puntos
     \begin{center}
@@ -136,11 +109,8 @@ Sabemos que el número de sumas en los distintos métodos de evaluación polinó
     \end{array}
     \)
     \end{center}
-    
     Utilice el polinomio interpolante de menor grado único para determinar \(E(32)\).
-    
     La indicación de ``polinomio interpolante de menor grado único'' hace referencia a la condición de unicidad requerida para los polinomios interpolantes en la que siendo \(n+1\) el numero de puntos conocidos el grado del polinomio debe ser \(n\). Esto indica que para los 3 puntos dados, el polinomio debe ser cuadrático.
-    
     \begin{eqnarray*}
     P(t) & = & \sum_{i=0}^2 E(t_i) L_{2, i}(t) \\
     L_{2, i}(t) & = & \prod_{\substack{j=0 \\ j \neq i}}^{2} \frac{t-t_j}{t_i - t_j}\\
@@ -151,11 +121,7 @@ Sabemos que el número de sumas en los distintos métodos de evaluación polinó
     & = & \frac{2}{33}(t-33)(t-40) - \frac{8}{21}(t-18)(t-40) +  \frac{25}{154}(t-18)(t-33)\\
     & = & 0.0606(t-33)(t-40) - 0.381(t-18)(t-40) +  0.1623(t-18)(t-33)
     \end{eqnarray*}
-    
     Usando el polinomio hallado para la evaluación, encontramos
     \[ E(32) = 0.0606(32-33)(32-40) - 0.381(32-18)(32-40) +  0.1623(32-18)(32-33) = 40.8846 \]
-
   \end{enumerate}
-  
-
 \end{document}

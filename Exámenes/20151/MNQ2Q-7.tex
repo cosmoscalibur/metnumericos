@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,22 +15,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 \DeclareMathOperator{\sen}{sen}
 \renewcommand{\sin}{\sen}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -66,48 +55,29 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
   \begin{enumerate}[leftmargin=*,widest=9]
        %% Punto 1
     \item \textbf{Punto fijo} Dado el polinomio $P(x) = x^3 - 2x + 1$ en el dominio $[0, 2]$.
     \begin{itemize}
     \item[$0.5$] ¿Es posible encontrar la integral exacta de $P(x)$ con una forma simple de la regla de Simpson? Indique la forma simple de Simpson que generaría el resultado exacto o más aproximado (en caso de no ser posible la exacta).
-    
     \vspace{1cm}
-    
     \item[$1.0$] Dado el tamaño de paso $h= 0.5$, determine el valor de la integral de $P(x)$ con la forma de Simpson adecuada en el intervalo indicado.
-    
     \vspace{4cm}
-    
-    
     \end{itemize}
-    
     %% Punto 2
  \item Dada la ecuación diferencial $$ \frac{dy}{dt} = f(t, y), \quad y(0)= 2,$$ en el dominio $t \in \left[0, \frac{\pi}{2} \right]$ y $y \in [0, \infty]$ con $f(t, y) = \sin(t) \exp(-y)$.
-    
     \begin{itemize}
     \item[$1.0$] Determine la constante de Lipschitz para $f(t, y)$ en el dominio mencionado.
-    
     \vspace{6cm}
-    
     \item[$0.5$] ¿El problema de valor inicial ilustrado posee solución única?
-    
     \vspace{.5cm}
-    
     \end{itemize}
-    
     %% Punto 3
     \item Dado el problema de valor inicial $$ \frac{dy}{dt} = t\exp(-t),\quad y(0)=1. $$
     \begin{itemize}
     \item[$1.0$] Determine la forma iterativa del método de Taylor de orden 3 para la solución del problema de valor inicial (sustituya las respectivas derivadas de $f(t, y)$) para $y_{i+1}$.
-    
     \vspace{6cm}
-    
     \item[$1.0$] Usando $h=0.2$, encuentre una estimación al valor de $y(2h)$ usando el método de Taylor orden 3.
-    
     \end{itemize}
-    
   \end{enumerate}
-
-  
 \end{document}

@@ -1,17 +1,13 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -19,22 +15,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -66,23 +55,19 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-  
   Para la realización de este examen, puede usar calculadora científica o portátil.
   %Al final, encontrará una hoja de formulas para su ayuda o use sus notas digitales (en caso de usar portátil).
   %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento,
   %e \textbf{indique claramente la respuesta final de cada pregunta al lado del enunciado}. No se pueden usar hojas extras.
   Reporte sus aproximaciones a mínimo \textbf{2 CIFRAS DECIMALES} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
-
   \begin{enumerate}[leftmargin=*,widest=9]
     %% Punto 1
     \item \textbf{Interpolación} ($1.0$) : Sin expandir ni graficar, muestre si los siguientes polinomios son iguales o diferentes entre si.
-    
     \begin{enumerate}[label=\alph*]
     \item \(P_1(x) = x^2\)
     \item \(P_2(x) = 2x(x-1)-x(x-2)\)
     %\vspace{2cm}
     \end{enumerate}
-    
     Los polinomios $P_1(x)$ y $P_2(x)$ son de segundo grado. Acorde a la unicidad del polinomio interpolante de menor grado, sabemos que los polinomios de grado $n$ son determinados de forma única por $n+1$ puntos. De esta forma, basta con la evaluación arbitraria/ al azar de 3 puntos para determinar si son el mismo polinomio.
     \begin{center}
     \(    \begin{array}{|c|c|c|}
@@ -96,15 +81,10 @@
     \end{array} \)
     \end{center}
     Como la evaluación de los 3 puntos coincide, se concluyo que los polinomios son iguales. Una cantidad de puntos inferior es coincidente con un infinito numero de polinomios y una cantidad mayor sin justificación no explica a partir de cuantas evaluaciones se puede considerar igual.
-
-
     %% Punto 2
     \item \textbf{Métodos abiertos} ($2.0$) : Dado el polinomio \(P(x) = x^3 - 5x^2 + 17x -13\). Evalué la primera iteración de \textit{Newton Horner} con \(x_0 = 1.5\) (muestre explícitamente la evaluación de Horner).
-    
     Sabemos que el método de Newton Horner posee la forma iterativa \(x_{i+1} = x_i - \frac{P(x)}{Q(x)}\) donde el numerador de la fracción es la evaluación del polinomio y el denominador es la evaluación de la derivada del polinomio, ambos con el método de Horner.
-
 Así al realizar la primera aplicación del método de Horner se obtiene la evaluación del polinomio y tras la segunda aplicación se obtiene la derivada.
-
 \begin{eqnarray*}
 P(x) & = & x^3 - 5x^2 + 17x -13\\
 b_3 & = & 1 \\
@@ -117,10 +97,8 @@ b^\prime_1 & = & (1)(1.5) - 3.5 = -2\\
 b^\prime_0 & = & (-2)(1.5) + 11.75 = 8.75\\
 x_1 & = & 1.5 - \frac{4.625}{8.75} = 0.97143
 \end{eqnarray*}
-   
     %% Pregunta 3
     \item \textbf{Punto fijo} ($2.0$): Dada la iteración de punto fijo \[ x_{n+1} = \frac{x_n + 1/x_n}{2},\] encuentre los valores sucesivos hasta \(x_4\) partiendo de \(x_0=1.5\).
-    
  \centering   \( \begin{array}{|c|c|c|}
     \hline
     i & x_i & g(x_{i-1})\\
@@ -131,11 +109,5 @@ x_1 & = & 1.5 - \frac{4.625}{8.75} = 0.97143
     4 & 1.0000 & \frac{1.0000 + 1/1.0000}{2} = 1.0000\\
     \hline
     \end{array} \)
-    
-    
-
-    
   \end{enumerate}
-  
-
 \end{document}

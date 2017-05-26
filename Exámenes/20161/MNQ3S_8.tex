@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,26 +16,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{imagenes/}}
-
-\allowdisplaybreaks
-
-\raggedbottom
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
-\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+\newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
 \usepackage{hyperref}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -84,22 +73,16 @@ Todo valor reportado debe aproximarse a \textbf{5 CIFRAS SIGNIFICATIVAS} con \te
 . Recuerde el uso del separador decimal acorde a la \textbf{NTC} % {Todos}
 %(en el archivo de entrada y salida, y la consola, será el separador por defecto del lenguaje). % {código}
 .
-
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta % {Todos}
 en \textbf{lapicero} (requisito en caso de reclamación) % {presencial}
 , y \textbf{justifique todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. % {Todos}
 %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras) % {parcial - final}
 }.
-
 % El contenido mínimo del comprimido ZIP que debe adjuntarse al correo evillegas@udem.edu.co acorde al documento de parámetros dado inicialmente, y los requisitos especificos aqui mencionados. % {virtual}
-
 % Para las demás indicaciones remítase al \href{https://www.dropbox.com/s/noko8eysm8une33/CondicionesEntrega.pdf?dl=0}{documento de parámetros de entrega de documentos digitales}. % {virtual}
-
 % Si el equipo de trabajo no posee integrantes de la carrera que corresponde el ejercicio, se anula la nota del último literal. Al indicar los integrantes, debe figurar además de lo indicado en el documento de parámetros, la carrera de cada integrante. Si no figura la carrera del integrante, se anula la nota del último literal.% {aplicado}
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
 %\textbf{Nota: Solo los valores dados en los enunciados se permitirá un uso diferente a las 5 cifras significativas.}
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
@@ -145,20 +128,17 @@ en \textbf{lapicero} (requisito en caso de reclamación) % {presencial}
     
    %\vspace{2cm}
 \textbf{R/} Primero, nótese que la separación entre los puntos es la misma, por lo cual aplican los métodos para puntos equidistantes (\(h=2\)). La mayor precisión siempre corresponde al uso de la aproximación de mayor grado. En este caso, el número de intervalos es justamente 3, que es el mínimo requerido por Simpson \(3/8\) (3 intervalos).
-
 \begin{eqnarray*}
 \int^{12}_4 f(x)dx  &=& \frac{3}{8}(2)\left(f(4) + f(10) + 3 (f(6) + f(8)) \right)\\
 &=&\frac{3}{8}(2)\left(8 + 10 + 3 (9 + 9) \right) \\
 &=&54
 \end{eqnarray*}
-
         
    \item (\(1.0\)) ¿Es posible usar solo hexágonos para mallar un dominio bidimensional para integración sobre elementos finitos? Justifique.
    
 %  \vspace{5cm}
   \textbf{R/} Si es posible usar solo hexágonos. Para los mallados en problemas de integración sobre elementos finitos se usan triángulos (generalmente), cuadriláteros y hexágonos (este último poco común) por su propiedad de ser formas teselables, que corresponde que simétricamente llenan con facilidad un dominio arbitrario y a que llevan a formas con propiedades idóneas en las funciones interpolantes.
   \end{enumerate}
-
 %\clearpage
 % {include formulas.tex Parcial - Final}
 %\begin{center}

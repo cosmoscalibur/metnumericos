@@ -1,8 +1,6 @@
 \documentclass[12pt]{article}
-
 \usepackage[letterpaper,margin={1.5cm}]{geometry}
 \usepackage{amsmath, amssymb, amsfonts}
-
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[spanish]{babel}
@@ -10,9 +8,7 @@
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
 \usepackage{hyperref}
-
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
-
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
@@ -20,25 +16,18 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-
 \graphicspath{{../imagenes/}}
-
-\allowdisplaybreaks{}
-
-\raggedbottom{}
+\a\allowdisplaybreaks{}
+\r\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-
 %\spanishdecimal{.}
-
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
-
 % \DeclareMathOperator{\sen}{sen}
 % \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -71,20 +60,15 @@
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-
 Se permite usar calculadora de cualquier tipo mas no el uso de portátil o celulares en el examen, y tendrá como apoyo una hoja de formulas al final.
 Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo simétrico (no es necesario en enteros y valores dados en enunciado) salvo que se indique lo contrario en el enunciado, con separador decimal consistente y unidades si lo requiere.
 En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.
-
 %\begin{enumerate}[leftmargin=*,widest=9]
 % \begin{enumerate}[label=\alph*]
-
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
-
 %% Punto 1
     \item A continuación se describe el pseudocódigo para el método \(\Delta^2\) de Aitken para la búsqueda de un punto fijo.
-
     \small{
     \textbf{Entradas:} \(p_0, \ g, \ n\)\\
     \(i \gets 0\)\\
@@ -98,14 +82,11 @@ En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento 
     \textbf{Fin Mientras}\\
     \textbf{Retorne} \(p_0\)
     }
-
     \begin{enumerate}[label=\alph*]
     \item (\(0.5\)) Suponga que se cumplen las condiciones necesarias para la búsqueda del punto fijo para la función \(g(x) = {(10/(x+4))}^{1/2}\)
     con el método \(\Delta^2\) de Aitken usando el valor inicial \(p_0=1.5\). Determine la aproximación del punto fijo (retorno) con \(n=1\).
     %\vspace{2cm}
-
 \textbf{R/} Las variables de entrada toman los valores acorde al enunciado. La primera linea tras las variables de entrada corresponde a \(i=0\) que corresponde a la inicialización del contador del ciclo. Para ingresar al ciclo se evalua si \(i<n\) cumple, y observamos que \(0 < 1\) es verdadero, por lo cual si ingresa al ciclo. Ahora, las asignaciones al interior del primer ciclo son:
-
 \begin{eqnarray*}
 p_1 &=& \sqrt{\frac{10}{1.5 + 4}} = 1.3484 \\
 p_2 &=& \sqrt{\frac{10}{1.3484 + 4}} = 1.3674 \\
@@ -115,26 +96,18 @@ den &=& 1.3674 - 2(1.3484) + 1.5 = 0.1760\\
 p_0 &=& 1.5 - \frac{{(-0.15160)}^2}{0.17060} = 1.3653\\
 i &=& 0 + 1 = 1
 \end{eqnarray*}
-
 A continuación, como \(i\) ya tiene el mismo valor de \(n\) se sale del ciclo y se retorna el valor de %\(2.3886\)
 \(1.3653\)
 como aproximación del punto fijo.
-
     \item (\(0.5\)) Sabiendo que una mejor aproximación para el punto fijo es \(1.365230013\), determine el error absoluto de su aproximación.
     %\vspace{2cm}
-
     \textbf{R/} %\[\vert 1.365230013 -  2.3886 \vert = 1.0234 \]
     \[\vert 1.365230013 -  1.3653 \vert = 6.9987\cdot 10^{-5} \]
-
     \item (\(0.5\)) Respecto a la aproximación indicada en el literal anterior como mejor aproximación, determine el número de cifras significativas de su aproximación y reescriba su aproximación acorde a estas.
-
 \textbf{R/} Se requiere de calcular el error relativo por lo que tenemos:
-
 %\[ \left \vert \frac{1.0234}{1.365230013} \right\vert = 0.74962\]
     \[ \left \vert \frac{6.9987\cdot 10^{-5}}{1.365230013} \right\vert = 5.1264\cdot 10^{-5}\]
-
 Luego, para el número de cifras significativas:
-
 %\begin{eqnarray*}
 %0.74962 &=& 0.074962\cdot 10^1 \leq 0.5 \cdot 10^{-n + 1}\\
 %1 &=& - n + 1\\
@@ -142,17 +115,13 @@ Luego, para el número de cifras significativas:
 %\end{eqnarray*}
 %
 %Que el número de cifras significativas \(n\) sea cero representa una total incertidumbre del valor, y que es equivalente a representar como \(0\) en su reescritura.
-
 \begin{eqnarray*}
 5.1264\cdot 10^{-5} &=& 0.51264\cdot 10^{-4} = 0.051264\cdot 10^{-3} = \leq 0.5 \cdot 10^{-n + 1}\\
 -3 &=& - n + 1\\
 n &=& 4
 \end{eqnarray*}
-
 Así, con 4 cifras significativas, la cantidad queda reescrita como \(1.365\).
-
     \end{enumerate}
-
 %% Punto 2
     \item %Problema aplicado de interpolación.
     Tras una medición de altura sobre el nivel del mar de distintos puntos del Área Metropolitana del Valle de Aburrá, se toman los datos para construir el perfil de altura en línea recta entre el Parque Arví y la Universidad de Medellín.
@@ -167,22 +136,17 @@ Así, con 4 cifras significativas, la cantidad queda reescrita como \(1.365\).
     \hline
     \end{tabular}
     \end{center}
-
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) Suponiendo que el perfil de altura sea una curva suave y continua (incluso en sus derivadas) entre los puntos conocidos, determine un polinomio para aproximar la altura conociendo la distancia a la Universidad de Medellín.
 %\vspace{5cm}
-
 \textbf{R/} Del enunciado se interpreta que la distancia es la variable independiente y la altura es la variable dependiente. Al ser 3 puntos y no conocer sus derivadas, podemos usar los polinomios interpolantes de Lagrange de segundo grado.\\
 Construimos los polinomios de Lagrange asociados a los puntos inicialmente:
-
 \begin{eqnarray*}
 L_{2,0}(x) = & \frac{x-0km}{(12.78 -0)km}\frac{x-3.81km}{(12.78 - 3.81)km} &= 0.0087230x(x-3.81km)km^{-2}\\
 L_{2,1}(x) = & \frac{x-0km}{(3.81 - 0)km}\frac{x-12.78km}{(3.81 - 12.78)km} & = -0.029260x(x-12.78km)km^{-2}\\
 L_{2,2}(x) = & \frac{x-3.81 km}{(0-3.81)km} \frac{x-12.78km}{(0-12.78)km} & = 0.020537(x-3.81km)(x-12.78km)km^{-2}
 \end{eqnarray*}
-
 Finalmente el polinomio interpolante es:
-
 \begin{eqnarray*}
 P_2(x) & = &(2448.4m)(0.0087230x(x-3.81km)km^{-2}) \\
 & &+ (1468.6m)(-0.029260x(x-12.78km)km^{-2})\\
@@ -190,41 +154,26 @@ P_2(x) & = &(2448.4m)(0.0087230x(x-3.81km)km^{-2}) \\
 P_2(x) & =& 21.357x(x-3.81km)\frac{m}{km^2} - 42.971x(x-12.78km)\frac{m}{km^2}\\
 &&+32.229(x-3.81km)(x-12.78km)\frac{m}{km^2}
 \end{eqnarray*}
-
     \item (\(0.5\)) Aproxime la altura que tendría sobre el nivel del mar la Universidad Pontificia Bolivariana que dista \(2.60\) km de la Universidad de Medellín. % 1491.9 m real
 %\vspace{1cm}
-
 \textbf{R/} Como la distancia de UPB a UdeM es \(2.60\) km, valor que esta incluido en el intervalo, es posible usar la interpolación encontrada para aproximar la altura.
-
 \[ \text{Altura UPB: } P_2(2.60km) = 1467.2 m \]
-
     \item (\(0.5\)) Aproxime la altura que tendría el Embalse Piedras Blancas ubicado a \(13.90\) km de la Universidad de Medellín. %2356.8 m real
 %\vspace{3cm}
-
 \textbf{R/} Como la distancia del Embalse a UdeM es \(13.90\) km, valor que esta excluido en el intervalo, no es posible usar la interpolación encontrada para aproximar la altura ya que el teorema de aproximación polinómica establece que los puntos deben estar al interior para tener el error controlado. Este es un caso que corresponde a extrapolación. % Aproximado usando interpolacion suponiendo validez 2690.6 m
-
 \end{enumerate}
         % Punto 3
    \item Use los datos del punto anterior.
-
    \begin{enumerate}[label=\alph*]
    \item (\(1.0\)) Aproxime numéricamente la pendiente de la superficie en el entorno de la Plaza de toros sobre la trayectoria del caso anterior.
-
 \textbf{R/} Usando la información del caso anterior podemos obtener un caso de puntos uniformes con ayuda de la curva interpolada y así usar la aproximación de 3 puntos.
-
 Dado que 3 puntos definen un polinomio cuadrático y estos se obtendrán del polinomio cuadrático de la interpolación, ambos polinomios son el mismo, de manera que el resultado será independiente de la separación de los puntos seleccionados. Para este caso, tomaremos la separación al punto deseado en \(10\) m
-
 \[ \frac{P_2(3.8200 km) - P_2(3.8000 km)}{(2 \cdot 0.010000 km)} = 7.0563 \frac{m}{km}\]
-
 También tendría validez usar la expresión para 3 puntos no equidistantes a partir de los puntos dados deducible a partir de las expresiones de dos puntos o usar las expresiones de dos puntos teniendo menor precisión en este caso.
-
    \item (\(0.5\)) Suponga que la función que describe el perfil de altura es efectivamente el polinomio que hallo en el punto anterior. Determine la cota de error de la aproximación de la pendiente.
-
    \textbf{R/} Dado que se supone como función real la encontrado con la interpolación que corresponde al mismo supuesto de la expresión de diferenciación, la cota de error es nula. Desde la expresión puede verse al aplicar la tercera derivada de un polinomio cuadrático, lo cual dará cero.
-
    Esta cota tiene sentido debido a la suposición planteada en el enunciado, sin embargo como el perfil de altura real no es así la cota real sería diferente.
    \end{enumerate}
-
 \end{enumerate}
 %\clearpage
 %% {include formulas.tex Parcial - Final}
@@ -234,7 +183,6 @@ También tendría validez usar la expresión para 3 puntos no equidistantes a pa
 {\large
 \[
 \begin{array}{cc}
-
 e_a = \vert p - p^* \vert \qquad & \qquad e_r = e_a/\vert p \vert \\
 e_r \leq 0.5 \cdot 10^{-n+1} \qquad & \qquad
 L_{n, i}(x) = \prod\limits_{\substack{j=0\\ i \neq j}}^n \frac{x - x_j}{x_i - x_j} \\
