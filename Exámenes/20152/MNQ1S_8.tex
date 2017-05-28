@@ -15,23 +15,19 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-% \DeclareMathOperator{\sen}{sen}
-% \renewcommand{\sin}{\sen}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
-      \node at (2,6) {\includegraphics[width=3.5cm]{imagenes/logoudem}};
-      \node at (9.5,6) {\includegraphics[width=9cm]{imagenes/cbudem}};
+      \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
+      \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
       \node[fill=white,draw=white,inner sep=1mm] at (7.5,4.2) {\Large\bf DEPARTAMENTO DE CIENCIAS B\'ASICAS};
       \draw (0,0) rectangle (18,3.5);
@@ -46,9 +42,7 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      % \node at (4,1.1) {X}; % Parcial
       \node at (4, .4) {X}; % Quiz
-      % \node at (7.6, 1.1) {X}; % Final
       \node[right] at (10,.5) {8}; % Número de grupo
       \node[right] at (10,1.) {27 de agosto de 2015}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
@@ -56,16 +50,11 @@
     \end{tikzpicture}
   \end{minipage}
   Para la realización de este examen, puede usar calculadora científica o portátil.
-  %Al final, encontrará una hoja de formulas para su ayuda o use sus notas digitales (en caso de usar portátil).
-  %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento,
-  %e \textbf{indique claramente la respuesta final de cada pregunta al lado del enunciado}. No se pueden usar hojas extras.
   Reporte sus aproximaciones a \textbf{3 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
   \begin{enumerate}[leftmargin=*,widest=9]
-    %% Punto 1
     \item \textbf{Series de Taylor} ($1.5$) : Considere las reglas de cifras significativas al operar, iniciando con 3 cifras significativas en los valores dados y evaluaciones de funciones.
     \begin{enumerate}[label=\alph*]
     \item Aproxime a segundo orden $\ln x$ para evaluar $\ln (1.02)$ con $x_0 = 1$. (Serán validas las soluciones de 3 cifras significativas fijas en todo el procedimiento).
-    %\vspace{2cm}
     Desarrollando la serie de Taylor a segundo orden
     \begin{eqnarray*}
     f(x) & \approx & f(x_0) + \left.\frac{df(x)}{dx}\right|_{x=x_0}(x-x_0)+ \left.\frac{d^2f(x)}{dx^2}\right|_{x=x_0}\frac{(x-x_0)^2}{2}\\
@@ -78,20 +67,15 @@
     \ln(1.02) & = & 0.0198\\
     \epsilon_r & = & \left| \frac{0.0198 - 0.02}{0.0198} \right| = \frac{0.00}{0.0198} = 0.00  
     \end{eqnarray*}
-    %\vspace{2cm}
     \end{enumerate}
-    %% Punto 2
     \item \textbf{Métodos cerrados} ($1.5$) :
     \begin{enumerate}[label=\alph*]
     \item ¿Para $\ln (x^2-2)$ en $x \in \left[ 1.07, 2.07 \right]$ se puede aplicar regla falsa?
     No.
-    %\vspace{2cm}
     \item Justifique la anterior respuesta.
     Al reemplazar el extremo izquierdo del intervalo observamos que se obtiene el logaritmo de un valor negativo, el cual no esta definido. Por lo tanto, la función no es continua en el intervalo y no es posible aplicarlo un método cerrado.
    \[ \ln(1.07^2 - 2) = \ln(0.0677 -2 ) = \ln(-1.93) \]
-    %\vspace{2cm}
     \end{enumerate}
-    %% Pregunta 3
     \item \textbf{Bisección} ($2.0$)
     \begin{enumerate}[label=\alph*]
     \item Aproxime la raíz de $\ln (x^2 - 2)$ con $n=4$ en $\left[1.7, 1.8\right]$. Reporte los valores de la tabla a 4 cifras significativas.
@@ -110,7 +94,6 @@
     \end{array}
     \]
     Así, la raíz aproximada es $1.731$.
-    %\vspace{2cm}	
     \item Si $\sqrt{3}$ es raíz exacta, ¿cuantas cifras significativas posee la aproximación?
     Usamos el teorema que relaciona las cifras significativas con el error relativo, y obtenemos
     \begin{eqnarray*}
@@ -120,7 +103,6 @@
     n & = & 3
     \end{eqnarray*}
     De forma que el resultado posee 3 cifras significativas respecto al valor verdadero. Si se realiza con el error tomado directamente de la tabla (que posee mas cifras ya que internamente no se redondeo), se obtienen 5 cifras significativas realizando el mismo procedimiento anterior.
-    %\vspace{5cm}
     \end{enumerate}
   \end{enumerate}
 \end{document}

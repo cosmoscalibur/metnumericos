@@ -15,25 +15,20 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-% \DeclareMathOperator{\sen}{sen}
-% \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-\usepackage{hyperref}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -50,36 +45,24 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      % \node at (4,1.1) {X}; % Parcial
        \node at (4, .4) {X}; % Quiz
-      % \node at (7.6, 1.1) {X}; % Final
-      % \node at (7.6, .4) {X}; % Habilitacion
       \node[right] at (10,.5) {3 - 9}; % Número de grupo
       \node[right] at (10,1.) {11 de febrero de 2016}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-  
-% Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado. % {Parcial - Final}
 Para el desarrollo de los cálculos puede usar exclusivamente calculadora (no se permite el uso de portátil o celulares en el examen), y
 puede disponer de sus apuntes de clase. % {Quiz}
-% al final del examen, encontrará una \textbf{hoja de formulas} para su ayuda. {Parcial - Final}
 Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{5 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todos los valores reportados (no es necesario en enteros).
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero} (requisito en caso de reclamación), y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
-%\begin{enumerate}[leftmargin=*,widest=9]
-% \begin{enumerate}[label=\alph*]
   \begin{enumerate}[leftmargin=*,widest=9]
     \item \textbf{Aproximación de funciones}
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) Determine el polinomio de Maclaurin \(P_3(x)\) para \(f(x) = x \exp(x) \).
-    
-   %\vspace{5cm}
-   
-   \textbf{R/} Recordemos que un polinomio de McLaurin corresponde a un polinomio de Taylor desarrollado entorno a \(x_0=0\). Antes de desarrollar el polinomio es necesario validar que sea posible dicho desarrollo.
-   
+
+\textbf{R/} Recordemos que un polinomio de McLaurin corresponde a un polinomio de Taylor desarrollado entorno a \(x_0=0\). Antes de desarrollar el polinomio es necesario validar que sea posible dicho desarrollo.
    Para este fin el teorema de Taylor indica que deben ser continuas la función y sus primeras \(n\) derivadas (que en este caso es 3) y debe existir su derivada \(n+1\) que en este caso es 4.
-   
    \begin{eqnarray*}
    f^{(0)}(x) &=& x \exp(x) \\
    f^{(1)}(x) &=& \exp(x) + x \exp(x) \\
@@ -87,9 +70,7 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
    f^{(3)}(x) &=& 3\exp(x) + x \exp(x) \\
    f^{(4)}(x) &=& 4\exp(x) + x \exp(x) \\
    \end{eqnarray*}
-   
    Sabemos que las funciones \(x\) y \(exp(x)\) existen para todos los reales y son continuas igualmente en todos los reales, lo cual hace que sus productos y sumas existan y sean continuos en todos los reales, cumpliendo así las condiciones del teorema de Taylor para cualquier intervalo.
-   
 \textit{También es posible considerar el punto \(x = 0.4\) para usar un intervalo fijo con inicio en \(x_0=0\). Ya que es un intervalo perteneciente al conjunto de los reales, lo anterior cumplirá para este.}
 Dado que es un polinomio de McLaurin, se desarrolla como un polinomio de Taylor con \(x_0=0\).
 \begin{eqnarray*}
@@ -98,27 +79,19 @@ P_3(x) & = & (0)(1) \frac{(x-0)^0}{0!} + (1 + (0)(1)) \frac{(x-0)^1}{1!} + (2(1)
 & = & x + x^2 + \frac{x^3}{2}
 \end{eqnarray*}
     \item (\(0.8\)) Aproxime \(0.4 \exp(0.4)\) con ayuda de \(P_3(x)\) y determine el error verdadero absoluto.
-    
-   % \vspace{4cm}
-   \textbf{R/} Usando el polinomio \(P_3(x)\) obtenemos
-   
+
+\textbf{R/} Usando el polinomio \(P_3(x)\) obtenemos
    \begin{eqnarray*}
    P_3(0.40000) & = & 0.59200 \\
    f(0.40000) & = & 0.59673 \\
    \epsilon_a & = & | P_3(0.40000) - f(0.40000) | = 0.47300 \cdot 10^{-2}
 \end{eqnarray*}      
-   
    \end{enumerate}
-   
    \item Sea \(g(x) = \ln(\ln(x)) \) en el intervalo cerrado \( [2.6, 2.8] \).
    \begin{enumerate}[label=\alph*]
-   
    \item \((0.4)\) Valide si es posible aplicar un método cerrado.
-   
-   %\vspace{5cm}
-   
+
 \textbf{R/} El teorema de Bolzano nos exige dos condiciones para la aplicación de los métodos cerrados. La primera exige la continuidad de la función en el intervalo de interés y la segunda la presencia de cambio de signo entre los extremos del intervalo.
-   
 El problema de continuidad es equivalente a determinar si el intervalo de interés pertenece al dominio de la función, que en este caso genera las desigualdades
 \begin{eqnarray*}
 \ln(x) & > & 0, \\
@@ -127,13 +100,9 @@ x & > & 0,
 cuya solución simultanea es \( x > 1 \), condición satisfecha por el intervalo de interés. Luego, la función es continua en el intervalo.
 Se puede verificar que la evaluación en el extremo izquierdo es negativa y en el extremo derecho es positiva, por lo cual hay cambio de signo en la función.
 Las dos condiciones anteriores simultaneas nos aseguran la presencia de al menos una raíz en el intervalo, y por ende es posible el uso de un método cerrado.
-   
    \item \((0.8)\) Suponga que es posible usar el método de bisección, ¿Cuantas iteraciones se requieren para asegurar un error absoluto en \(x\) menor a \(0.02\) ?
-   
-   %\vspace{3cm}
-   
+
 \textbf{R/} Sabemos que la cota de error en el método de bisección en función del numero de iteraciones es dada por 
-   
    \begin{eqnarray*}
    \frac{b - a}{2^n} &<& \epsilon_a \\
    \frac{2.8000 - 2.6000}{2^n} &<& 0.020000 \\
@@ -141,11 +110,10 @@ Las dos condiciones anteriores simultaneas nos aseguran la presencia de al menos
    \frac{\ln(10)}{\ln(2)} &<& n \\
    3.3219 &<& n
    \end{eqnarray*}
-   
    Dado que el número de iteraciones es un valor entero, acorde a la desigualdad el primer valor entero con dicha condición es \(n=4\).
    \item \((2.0)\) Usando el método de bisección y el \(n\) anterior, encuentre la raíz aproximada.
+
 \textbf{R/} La raíz aproximada es \(c = 2.7125 \).
- 
 \begin{equation*}
      \begin{array}{|c|c|c|c|c|}
    \hline
@@ -159,8 +127,5 @@ Las dos condiciones anteriores simultaneas nos aseguran la presencia de al menos
    \end{array}
 \end{equation*}   
     \end{enumerate}
-    
   \end{enumerate}
-%\clearpage
-% {include formulas.tex Parcial - Final}
 \end{document}

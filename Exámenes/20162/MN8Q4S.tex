@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -16,9 +15,9 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
@@ -26,7 +25,6 @@
 \newcommand{\diffl}[3]{\frac{d^{#3}}{d#2^{#3}}#1}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-\usepackage{hyperref}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -84,7 +82,7 @@ use el respaldo de las hojas para el procedimiento (no se permiten hojas extras)
     \item (\(1.0\)) ¿Cumple el problema de valor inicial con ser un problema bien planteado? Justifique.
     Se verifica que la función de la tasa de cambio es continua por ser polinomica. Ahora verificamos que cumpla condición de Lipschitz, para lo cual vemos que es diferenciable en $T$ por ser polinomica en una región finita (la temperatura esta acotada entre el valor inicial y la temperatura ambiente). Alternativamente, podemos determinar el valor de la constante de Lipschitz:
     \begin{equation*}
-    \max \left\vert \frac{\partial f(t, T)}{\partial T} \right\vert = max \vert -0.1438h^{-1}\vert = 0.1438 h^{-1} = L
+    \max \left\vert \frac{\partial f(t, T)}{\partial T} \right\vert = \max \vert -0.1438h^{-1}\vert = 0.1438 h^{-1} = L
     \end{equation*}
     Al ser finito, cumple la condición de Lipschitz. Por cumplir continuidad y Lipschitz es un problema bien planteado.
     \item (\(1.5\)) Aplicando el método de Runge-Kutta, determine (en caso de ser posible asegurar su solución única), la temperatura del cuerpo tras \(2h\) de su muerte usando un total de 3 puntos en la variable independiente.
@@ -101,9 +99,9 @@ use el respaldo de las hojas para el procedimiento (no se permiten hojas extras)
     \begin{eqnarray*}
     k_1 &=& (1h)(-0.1438 h^{-1})(308.14-295.15)K \\ &=& -1.8680K \\ k_2 &=& (1h)(-0.1438 h^{-1})\left(\left(308.14- \frac{1.8680}{2} \right) - 295.15 \right) K \\ &=& -1.7337K \\  k_3 &=& (1h)(-0.1438 h^{-1})\left(\left(308.4- \frac{1.7337}{2} \right) - 295.15 \right) K \\ &=& -1.7433K \\  k_4 &=& (1h)(-0.1438 h^{-1})((308.14- 1.7433)-295.15)K \\ &=& -1.6173K \\ T(2h) &=& 308.14 K - \left( \frac{1.8680 + 2(1.7337+1.7433)+1.6173}{6}\right)K \\ &=& 306.40K
     \end{eqnarray*}
-    \item (\(0.5\)) Si usará el método de Euler, ¿Cual sería el error local \(\tau\) cometido usando el mismo paso en la variable independiente?
+    \item (\(0.5\)) Si usará el método de Euler, ¿Cual sería el error local \(\tau \) cometido usando el mismo paso en la variable independiente?
    \begin{eqnarray*}
-   \tau &=& \frac{\Delta tM}{2} = \frac{1h\cdot 0.31018Kh^{-2}}{2} = 0.15509Kh^{-1} \\ \Delta t &=& 1h \\ M &=& \max \left\vert \frac{d^2 y}{dt^2}\right\vert = \max \left\vert \frac{\partial (-k(T-T_{\alpha}))}{\partial t} +\frac{\partial (-k(T-T_{\alpha}))}{\partial T} (-k(T-T_{\alpha}))\right\vert \\  &=& \max \vert  k^2 (T -T_{\alpha} )\vert = k^2 max (T -T_{\alpha}) = k^2 (310.15-295.15)K = 0.31018Kh^{-2}
+   \tau &=& \frac{\Delta tM}{2} = \frac{1h\cdot 0.31018Kh^{-2}}{2} = 0.15509Kh^{-1} \\ \Delta t &=& 1h \\ M &=& \max \left\vert \frac{d^2 y}{dt^2}\right\vert = \max \left\vert \frac{\partial (-k(T-T_{\alpha}))}{\partial t} +\frac{\partial (-k(T-T_{\alpha}))}{\partial T} (-k(T-T_{\alpha}))\right\vert \\  &=& \max \vert  k^2 (T -T_{\alpha} )\vert = k^2 \max (T -T_{\alpha}) = k^2 (310.15-295.15)K = 0.31018Kh^{-2}
    \end{eqnarray*}
     \end{enumerate}
     \item (\(1.5\)) Dado el siguiente sistema de ecuaciones diferenciales con problema de valor inicial, resuelva usando un solo paso con el método de Euler (asuma que el problema cumple con la condición de solución única asegurada) la solución en el extremo del dominio.

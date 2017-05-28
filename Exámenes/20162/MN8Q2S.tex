@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -16,16 +15,15 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-\usepackage{hyperref}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
@@ -68,7 +66,8 @@ use el respaldo de las hojas para el procedimiento (no se permiten hojas extras)
     \item Dado el polinomio \(P_3(x) = 5x^3 + 4x^2 -2x +1\).
    \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) Use el algoritmo de Horner para evaluar \(P_3(5)\) y \(P_3^\prime(5)\) sin derivar algebraicamente.
-    \textbf{R/}
+
+\textbf{R/}
     Para la evaluación del polinomio:
     \begin{eqnarray*}
     b_3 = 5\\
@@ -83,19 +82,22 @@ use el respaldo de las hojas para el procedimiento (no se permiten hojas extras)
     b^{\prime}_0 = 54(5) + 143 = 413 = P_3^{\prime}(5)
     \end{eqnarray*}
     \item (\(0.6\)) Con la información anterior, realice la primera iteración del método de Newton-Horner para el valor inicial \(x_0=5\).
-    \textbf{R/}
+
+\textbf{R/}
     \begin{eqnarray*}
     x_1 = 5 - \frac{P(5)}{Q(5)}\\
     x_1 = 5 - \frac{716}{413} = 3.2663
     \end{eqnarray*}
     \item (\(0.4\)) Determine el número de operaciones totales para evaluar \(P_3(x)\) por el algoritmo de Horner y por el método tradicional.
-    \textbf{R/} En el algoritmo de Horner tanto el número de multiplicaciones como el número de sumas es igual al grado del polinomio. De esta forma, el total de operaciones es \(3+3=6\).
+
+\textbf{R/} En el algoritmo de Horner tanto el número de multiplicaciones como el número de sumas es igual al grado del polinomio. De esta forma, el total de operaciones es \(3+3=6\).
     En el método tradicional, el número de sumas es igual al grado del polinomio (\(3\)) pero el número de multiplicaciones es la acumulación de tantas multiplicaciones como grado de cada monomio del polinomio (\(0 + 1 + 2 + 3 = 6 \)), que lleva a un total de \(3+6=9\) operaciones.
     \end{enumerate}
     \item Use el mismo polinomio \(P_3(x)\) del punto anterior.
     \begin{enumerate}[label=\alph*]
     \item (\(0.8\)) Use el método de secante con aproximación inicial de \(4\) años para la aproximación del punto de equilibrio. Use como criterios de parada una tolerancia de \(0.2\) y un número máximo de iteraciones de 3.
-    \textbf{R/} Para el desarrollo del método de la secante o de la secante modificada se requiere de un punto extra (dado directamente o como una separación desde el primero). Esta información se encuentra ausente y por ende se debe seleccionar. Se debe tener en cuenta que el método de la secante surge de aproximar la derivada a partir del método de Newton, en donde se justifica que dicha aproximación es válida si los dos puntos son suficientemente cercanos en comparación a las magnitudes de los valores iniciales o si son comparables a la indicación asociada a la tolerancia.
+
+\textbf{R/} Para el desarrollo del método de la secante o de la secante modificada se requiere de un punto extra (dado directamente o como una separación desde el primero). Esta información se encuentra ausente y por ende se debe seleccionar. Se debe tener en cuenta que el método de la secante surge de aproximar la derivada a partir del método de Newton, en donde se justifica que dicha aproximación es válida si los dos puntos son suficientemente cercanos en comparación a las magnitudes de los valores iniciales o si son comparables a la indicación asociada a la tolerancia.
     De esta forma, es posible seleccionar un segundo punto \(x_1\) como un valor cercano a 4 años o una separación \(\Delta x\) cercana a 0 años. Con este criterio puede escoger el segundo dato, en el cual su valor desde que tenga relación con el criterio será adecuado.
     Posibles opciones son usar el método de Newton solo para obtener el segundo punto, y de ahi en adelante ya solo con secante. También es posible tomar la tolerancia y llevarla a un error absoluto si esta en relativo, y esta tolerancia absoluta sería una separación adecuada al segundo punto. Sin embargo, no tiene que ser calculado, solo son sugerencias.
     La tolerancia indicada en el enunciado sabemos que esta asociada al error relativo debido a que no posee unidades. Si fuera absoluto debería indicar \textit{años}.
@@ -116,6 +118,7 @@ use el respaldo de las hojas para el procedimiento (no se permiten hojas extras)
     \]
     De esta forma, la aproximación a la raíz (punto de equilibrio) es \(1.2047\) años.
     \item (\(0.7\)) Con la información del literal anterior, determine el número de cifras significativas de su aproximación de manera formal.
+
 \textbf{R/} Tomando el error relativo del procedimiento, que se lee directamente de la tabla:
 \begin{eqnarray*}
 0.48290 \cdot 10^0 \leq 0.5 \cdot 10^{-n+1}\\
@@ -124,17 +127,19 @@ n = 1
 \end{eqnarray*}
 Siendo \(n=1\) el número de cifras significativas de la aproximación.
     \item (\(0.5\)) Proponga una función de punto fijo para el problema planteado detallando como se obtiene a partir del problema de raíces.
+
 \textbf{R/} Cualquier despeje \textbf{parcial} de \(x\) a partir del polinomio \(P_3(x)\) es válido. Posibles ejemplos son (cada uno debió detallar su despeje):
 \begin{eqnarray}
-x & = & \left(\frac{-4x^2 + 2x - 1}{5} \right)^{1/3} \\
-x & = & \left(\frac{-5x^3 + 2x - 1}{4} \right)^{1/2} \\
+x & = & {\left(\frac{-4x^2 + 2x - 1}{5} \right)}^{1/3} \\
+x & = & {\left(\frac{-5x^3 + 2x - 1}{4} \right)}^{1/2} \\
 x & = & \frac{5x^3 + 4x^2 + 1}{2} \\
-x & = & \left(\frac{2x-1}{5x+4} \right)^{1/2} \\
+x & = & {\left(\frac{2x-1}{5x+4} \right)}^{1/2} \\
 x & = & \frac{2x-1}{5x^2+4x} \\
 x & = & \frac{-1}{5x^2 + 4x -2}
 \end{eqnarray}
 \end{enumerate}
-   \item (\(1.0\)) Siendo \(g(x)\) es la función de punto fijo, muestre que si \(|g^\prime(x)|<1\) para todo \(x \in \R\), donde \(g(x)\) y \(g^\prime(x)\) son continuas en dicho intervalo, el método de punto fijo converge. Tenga como punto de partida el resultado de clase, \(e_{a1} \leq k e_{a0}\).
+   \item (\(1.0\)) Siendo \(g(x)\) es la función de punto fijo, muestre que si \(|g^\prime(x)|<1\) para todo \(x \in \R \), donde \(g(x)\) y \(g^\prime(x)\) son continuas en dicho intervalo, el método de punto fijo converge. Tenga como punto de partida el resultado de clase, \(e_{a1} \leq k e_{a0}\).
+
 \textbf{R/} Para este caso se debe notar que no se conoce un intervalo cerrado en el cual se puedan evaluar las propiedades de los teoremas de existencia y unicidad. Ante la ausencia del intervalo, se procede primero a evaluar las condiciones necesarias, las cuales implican que la función de punto fijo y su derivada sean continuas. Estas se aclaran en el enunciado como propiedades cumplidas.
 Cuando se posee la verificación de las condiciones necesarias, la forma de saber que el método converge es mediante la evaluación del error. La convergencia a partir del error se puede observar cuando el error es siempre menor tras cada iteración. De esta forma es necesario demostrar que el error será menor en cada iteración.
 El punto de partida indicado para relacionar los errores anterior y nuevo depende de \(k\), el cual se define como la cota máxima de \(|g^{\prime}(x)|\), por lo cual si este último siempre es menor que \(1\) entonces \(k<1\) en cualquier intervalo que se seleccione. A partir de esto, multiplicamos por el error de la primera aproximación la desigualdad, obteniendo \(e_{a0}k < e_{a0}\). Notemos que el punto de partida indica una relación para el lado izquierdo de la desigualdad, de donde

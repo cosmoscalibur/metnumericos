@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -16,9 +15,9 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}{imagenes/}{./}}
-\a\allowdisplaybreaks{}
-\r\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
@@ -65,7 +64,8 @@
     \]
     \begin{enumerate}[label=\alph*]
     \item (\(1.5\)) Demuestre que el P.V.I. dado cumple con poseer solución única asegurada sin importar cual sea el valor final del intervalo de \(s\).
-    \textbf{R/} Inicialmente validamos que la función de la tasa de cambio sea continua en el dominio dado \(\R^2_{s,p}\). Se observa en dicha función una restricción en la continuidad asociada al radical, por la cual \(p\) debería ser mayor o igual que cero para permitir solución única asegurada. Más adelante deberemos mostrar que esto es cierto para dar por verdadero la continuidad de la función en el dominio.
+
+\textbf{R/} Inicialmente validamos que la función de la tasa de cambio sea continua en el dominio dado \(\R^2_{s,p}\). Se observa en dicha función una restricción en la continuidad asociada al radical, por la cual \(p\) debería ser mayor o igual que cero para permitir solución única asegurada. Más adelante deberemos mostrar que esto es cierto para dar por verdadero la continuidad de la función en el dominio.
     Validamos la condición de Lipschitz.
     \begin{eqnarray*}
 \max \left\vert \pdiff{s\sqrt{p}}{p}{} \right\vert &= &\max \left\vert -\frac{s}{2\sqrt{p}}\right\vert\\
@@ -82,7 +82,8 @@ Finalmente, sabemos que \(p(s)\) es una función monótonamente creciente, y por
 \]
 Lo cual lleva a que la constante de Lipschitz es finita y por ende posee solución única asegurada.
     \item (\(0.8\)) Usando el método de Runge Kutta de orden 4, aproxime la solución de \(s=2.2\) usando un solo paso en \(s\). Parta de que cumple la solución única asegurada acorde al literal anterior.
-    \textbf{R/}
+
+\textbf{R/}
     \begin{eqnarray*}
 h &=& \frac{2.2-2}{1} = 0.20000 \\
 p_0 &=& 1\\
@@ -95,6 +96,7 @@ p_1 &=& 1 + \frac{0.40000 + 2(0.46009+0.46581)+0.53271}{6}=1.4641\\
 s_1 &=& 2+0.20000 = 2.2000
     \end{eqnarray*}
     \item (\(0.7\)) Sabiendo que la solución exacta del P.V.I. es \(p(s)=s^4/16\), determine el número de cifras significativas que posee su aproximación y reescribala acorde a eso.
+
 \textbf{R/}
 \begin{eqnarray*}
 p(2.2) &=& \frac{2.2^4}{16} = 1.4641\\
@@ -114,6 +116,7 @@ El número de cifras significativas de la expresión es \textit{infinito}, lo cu
     La población inicial de conejos es de 57 individuos y la población inicial de zorros es de 23 individuos.
     \begin{enumerate}[label=\alph*]
     \item (\(0.5\)) Lleve el P.V.I. de sistema de ecuaciones diferenciales dado a la forma de un P.V.I. de una ecuación diferencial vectorial.
+
 \textbf{R/}
     \begin{eqnarray*}
     \diff{}{t}{}\begin{pmatrix} c(t) \\ z(t)
@@ -123,7 +126,8 @@ El número de cifras significativas de la expresión es \textit{infinito}, lo cu
     \end{pmatrix} &=& \begin{pmatrix} 57 \\ 23 \end{pmatrix}
     \end{eqnarray*}
     \item (\(0.5\)) Valide que el P.V.I. dado posee solución única asegurada.
-    \textbf{R/} \textit{Para fines de manipulación numérica, se omitirán las unidades asociadas.}
+
+\textbf{R/} \textit{Para fines de manipulación numérica, se omitirán las unidades asociadas.}
     Validar la condición de solución única asegurada depende de la continuidad de la función vectorial de la tasa de cambio y la condición de Lipschitz para el sistema de ecuaciones diferenciales. Esta se evalua igual que la condición de una sola E.D.O. pero sobre cada componente del vector (uno a uno). Para la continuidad notamos que la función vectorial es continua en el dominio \(\R^3_{t,c,z}\) por ser una función vectorial compuesta de funciones polinómicas de varias variables.
     \begin{eqnarray*}
     L_0 = \max \left\vert \pdiff{}{c}{} (0.2 c(t) - 0.7 c(t) z(t)) \right\vert = \max \vert 0.2 - 0.7 z(t)\vert \\
@@ -136,7 +140,8 @@ El número de cifras significativas de la expresión es \textit{infinito}, lo cu
     \end{itemize}
     Al mostrar que las constantes de Lipschitz serán finitas, mostramos que se satisface la condición de Lipschitz.
     \item (\(1.0\)) Encuentre con un solo paso temporal la aproximación de la población de ambas especies transcurrido medio año. Use el método numérico de su preferencia.
-    \textbf{R/}
+
+\textbf{R/}
 Denotando
 \[
 \vec{A} = \begin{pmatrix}c(t)\\z(t)\end{pmatrix}

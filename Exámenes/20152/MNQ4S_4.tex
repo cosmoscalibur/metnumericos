@@ -15,25 +15,20 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-% \DeclareMathOperator{\sen}{sen}
-% \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3} #1}{d#2^{#3}}}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3} #1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-\usepackage{hyperref}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -50,22 +45,15 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      % \node at (4,1.1) {X}; % Parcial
       \node at (4, .4) {X}; % Quiz
-      % \node at (7.6, 1.1) {X}; % Final
-      %\node at (7.6, .4) {X}; % Habilitacion
       \node[right] at (10,.5) {4}; % Número de grupo
       \node[right] at (10,1.) {13 de noviembre de 2015}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
   \end{minipage}
-%Presente el examen en el \textbf{grupo matriculado}, de lo contrario será anulado.
-%Al final, encontrará una \textbf{hoja de formulas} para su ayuda o use sus \textbf{notas digitales} (en caso de usar portátil). Para sus cálculos puede usar solo \textbf{o calculadora científica o portátil}.
-%Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{4 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero}, y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
   \begin{enumerate}[leftmargin=*,widest=9]
-    %% Punto 1
     \item Sea
     \[
     A = \begin{pmatrix}
@@ -75,12 +63,10 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     \begin{enumerate}[label=\alph*]
     \item (\(1.0\)) ¿ Es \(A\) estrictamente diagonal dominante?
     Se observa en la primera fila de \(A\), que el valor absoluto del elemento de la diagonal no es mayor estricto que la suma del valor absoluto de los elementos de la misma fila ( \(|-4| = |4|+|0|\)). Por ende, no es estrictamente diagonal dominante.
-   % \vspace{3.5cm}
     \item (\(1.0\)) ¿Es \(A\) definida positiva?
 Una de las propiedades de las matrices definidas positivas, es que los elementos de la diagonal son mayores que cero. Se observa que el primer elemento diagonal es negativo (\(-4\)), por ende no es una matriz definida positiva.
 \textit{Nota: Recordar que las propiedades o ejemplos numéricos solo sirven para mostrar falsedad, como en este caso.}
     \end{enumerate}
-    %% Punto 2
     \item Sea
     \[
     B = \begin{pmatrix}
@@ -103,7 +89,6 @@ Una de las propiedades de las matrices definidas positivas, es que los elementos
     \lambda_1 = 0.06, \qquad \lambda_2 = 0.94\\
     \rho(B) & = & 0.94
     \end{eqnarray*}
-    %\vspace{11cm}
     \item (\(1.0\)) ¿Es \( \lim\limits_{k \rightarrow \infty}B^k \vec{v}\) igual o diferente de \(\vec{0}\) (vector nulo)?
     Dado que \(\rho(B) < 1\), sabemos que \(B\) es una matriz convergente. Luego, sus sucesivas potencias tienden a la matriz nula, y al multiplicar por el vector, será el vector nulo.
     \begin{eqnarray*}
@@ -121,7 +106,6 @@ Una de las propiedades de las matrices definidas positivas, es que los elementos
     0 \\ 0
     \end{pmatrix}
     \end{eqnarray*}
-   % \vspace{8cm} 
     \end{enumerate}
   \item (\(1.0\)) Si \(T\) es una matriz convergente, demuestre que \(T^2\) es convergente. (Recordar que \(T^2 = P^T S^2 P\)).
   De la definición de matriz convergente y de radio espectral, tenemos que 

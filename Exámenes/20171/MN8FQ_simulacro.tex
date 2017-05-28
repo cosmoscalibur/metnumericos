@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -17,8 +16,8 @@
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
 \graphicspath{{../imagenes/}{imagenes/}{..}}
-\a\allowdisplaybreaks{}
-\r\raggedbottom{}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 \newcommand{\profesor}{Simulacro}
 \newcommand{\asignatura}{MÉTODOS NUMÉRICOS}
@@ -58,7 +57,6 @@ Todo valor reportado debe aproximarse a 5 cifras significativas con redondeo sim
 En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento solicitado en teoría no puede realizarse, justifique por que no se puede realizar lo solicitado como respuesta. Toda respuesta debe estar adecuadamente justificada y/o con procedimiento, y resuelva las preguntas en orden.
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
-%% Punto 1
     \item Una compañía ajusta el modelo a los datos de ventas mensuales, encontrando la relación
     \( S(t)= \frac{t}{4}+1.8+0.5\sin\left( \frac{\pi t}{6} \right),
     \)
@@ -71,7 +69,6 @@ En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento 
     \item Calcule la cota de error máxima para su aproximación de la integral con la regla compuesta usada.
     \item Determine el número de cifras significativas de la aproximación y reescriba el promedio de venta acorde a esto.
     \end{enumerate}
-%% Punto 2
     \item La biomasa \(b(t)\) (en toneladas) de un ecosistema dado con biomasa inicial de 7 toneladas evoluciona anualmente acorde al modelo siguiente:
     \[
 \diff{b(t)}{t}{} = 3.5 - 0.019b(t).
@@ -80,7 +77,6 @@ En caso de reclamación solo cuenta lo que este en lapicero. Si algún elemento 
     \item ¿Cumple con la condición de solución única asegurada el problema de valor inicial?
     \item Aproxime con el método de Runge Kutta 4 la biomasa trascurrido un año usando dos pasos temporales.
 \end{enumerate}
-        % Punto 3
    \item Dado el sistema de ecuaciones lineales
    \begin{align*}
    3x_1 - 0.1x_2 - 0.2x_3 & = 7.85 \\

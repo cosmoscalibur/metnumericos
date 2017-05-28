@@ -15,25 +15,20 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{imagenes/}}
-\allowdisplaybreaks{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
 \raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-% \DeclareMathOperator{\sen}{sen}
-% \renewcommand{\sin}{\sen}
 \newcommand{\diff}[3]{\frac{d^{#3}#1}{d#2^{#3}}}
 \newcommand{\pdiff}[3]{\frac{\partial^{#3}#1}{\partial#2^{#3}}}
 \newcommand{\abs}[1]{\left| #1 \right|}
-\usepackage{hyperref}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -50,10 +45,7 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      % \node at (4,1.1) {X}; % Parcial
-      % \node at (4, .4) {X}; % Quiz
        \node at (7.6, 1.1) {X}; % Final
-      % \node at (7.6, .4) {X}; % Habilitacion
       \node[right] at (10,.5) {4-6-8}; % Número de grupo
       \node[right] at (10,1.) {25 de noviembre de 2015}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
@@ -65,7 +57,6 @@ Al final, encontrará una \textbf{hoja de formulas} para su ayuda o use sus \tex
 Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{4 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero}, y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
   \begin{enumerate}[leftmargin=*,widest=9]
-    %% Punto 1
     \item Dado el siguiente problema de valor inicial
     \[
     \begin{array}{c}
@@ -76,7 +67,6 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     \]
     \begin{enumerate}[label=\alph*]
     \item (\(0.4\)) Determine el PVI de sistema de ecuaciones diferenciales orden 1 equivalente.
-   %\vspace{3cm}
    Se realiza el cambio de variable
    \[u_0(t) \equiv y(t) \qquad \qquad u_1(t) \equiv \diff{y(t)}{t}{}, \]
    que conduce al PVI de sistema de ecuaciones equivalente
@@ -97,11 +87,9 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
    \end{itemize}
    \textit{Evaluación: Cualquiera de las dos opciones anteriores es válida y suficiente para obtener la totalidad del literal. En caso de evaluar más de una, la nota se divide por igual entre los criterios usados acorde a su correcto desarrollo. De evaluarse Lipschitz, la nota se divide por igual con el desarrollo de esta, acorde a su correcta realización.}
    \item (\( 1.0\)) De aplicar, solucione aplicando el método de Euler con \(h=0.5\).
-   %\vspace{1cm}
    Dado que el problema no es bien planteado y no se asegura su solución, no se procede con las iteraciones.
    \textit{Evaluación: Acorde al criterio establecido en el punto anterior, este punto debe justificarse el por que no realizar el proceso iterativo para tomar el valor del literal. En caso de iterar se pondera la mitad del literal acorde a su correcto desarrollo.}
     \end{enumerate}
-    %% Punto 2
     \item Sea el sistema de ecuaciones representado por
     \[
     \begin{pmatrix}
@@ -114,7 +102,6 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     \]
     \begin{enumerate}[label=\alph*]
     \item (\(0.6\)) Calcule \(T\) y \(\vec{c}\) del método de Jacobi.
-    %\vspace{5cm}
     \begin{eqnarray*}
     D = \begin{pmatrix}
     4 & 0 & 0 \\ 0 & 4 & 0\\ 0 & 0 & 4
@@ -160,7 +147,6 @@ p(\lambda) = \det \begin{pmatrix}
 \lambda_1 = 0 \qquad \lambda_2 = -\frac{\sqrt{7}}{4} \approx -0.6614 \qquad \lambda_3 =\frac{\sqrt{7}}{4} \approx 0.6614\\
 \rho(T_J) = 0.6614 < 1
 \end{eqnarray*}
-%   \vspace{3cm}
    \item (\(0.4\)) Usando el vector \(\vec{x}^{(0)}\) como aproximación inicial, obtenga \(\vec{x}^{(1)}\) y \(\vec{x}^{(2)}\).
    \begin{eqnarray*}
    \vec{x}^{(1)} = \begin{pmatrix}
@@ -182,7 +168,6 @@ p(\lambda) = \det \begin{pmatrix}
     2.094 \\ 0.7813\\ -0.03125
     \end{pmatrix}
    \end{eqnarray*}
-   %\vspace{5cm}
     \end{enumerate}
   \item (\(1.0\)) Dado un sistema de ecuaciones lineales arbitrario, representado por \(A\vec{x} = \vec{b}\), se desea solucionar usando el método de \textit{SOR}. Sea \(A\) definida positiva, ¿ asegura la selección de \(\omega = 0.7\) la convergencia a la solución única del sistema de ecuaciones? ¿Que puede afirmar que sucede con dicha elección?
   La selección de un parámetro de relajación tal que \(0 \leq \omega \leq 2\), solo asegura la convergencia del método de SOR, sin embargo no se asegura que se converja a la solución única. Esto sucede por que la forma iterativa procede de unir una forma iterativa procedente del sistema a solucionar pero con una forma no equivalente al sistema de interés, cuyo objetivo es acelerar la convergencia del método.

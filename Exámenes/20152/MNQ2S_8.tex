@@ -15,21 +15,17 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-% \DeclareMathOperator{\sen}{sen}
-% \renewcommand{\sin}{\sen}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -46,9 +42,7 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      % \node at (4,1.1) {X}; % Parcial
       \node at (4, .4) {X}; % Quiz
-      % \node at (7.6, 1.1) {X}; % Final
       \node[right] at (10,.5) {8}; % Número de grupo
       \node[right] at (10,1.) {17 de septiembre de 2015}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
@@ -56,12 +50,8 @@
     \end{tikzpicture}
   \end{minipage}
   Para la realización de este examen, puede usar calculadora científica o portátil.
-  %Al final, encontrará una hoja de formulas para su ayuda o use sus notas digitales (en caso de usar portátil).
-  %Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento,
-  %e \textbf{indique claramente la respuesta final de cada pregunta al lado del enunciado}. No se pueden usar hojas extras.
   Reporte sus aproximaciones a mínimo \textbf{2 CIFRAS DECIMALES} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
   \begin{enumerate}[leftmargin=*,widest=9]
-    %% Punto 1
     \item \textbf{Punto fijo} ($1.0$): Dada la iteración de punto fijo \[ x_{n+1} = \frac{x_n + 1/x_n}{2},\] encuentre el valor exacto al que converge.
     La definición de punto fijo lleva a que tras infinitas iteraciones, los valores de la variable convergen, y por tanto
     \begin{eqnarray*}
@@ -72,7 +62,6 @@
     x^2 & = & 1\\
     x & = & \sqrt{1} = \pm 1
     \end{eqnarray*}
-    %% Punto 2
     \item \textbf{Métodos abiertos} ($2.0$) : Dado el polinomio \(P(x) = x^3 - 5x^2 + 17x -13\). Si \(x_0 = 1\) es raíz de \(P(x)\), ¿ cual es el polinomio cociente para determinar la siguiente raíz? (muestre explícitamente el método de Horner).
     Sabemos que en el método de evaluación de Horner al realizar la primera aplicación del método se obtiene la evaluación del polinomio en el coeficiente \(b_0\) (no necesaria en este caso) y con los demás coeficientes se forma el polinomio cociente \(Q(x)\), un grado menor, que en el caso de haberse usada una raíz, cumplirá con \(P(x) = (x-r)Q(x) \), y por ende es el polinomio con el cual se sigue la búsqueda de las demás raíces.
 \begin{eqnarray*}
@@ -83,7 +72,6 @@ b_1 & = & (-4)(1) + 17 = 13\\
 b_0 & = & (13)(1) - 13 = 0 \\
 Q(x) & = & x^2 - 4x + 13
 \end{eqnarray*}
-    %% Pregunta 3
     \item \textbf{Interpolación} ($2.0$) : Dados los puntos
     \begin{center}
         \(

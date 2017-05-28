@@ -15,21 +15,17 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{imagenes/}}
-\allowdisplaybreaks{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
 \raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
-% \DeclareMathOperator{\sen}{sen}
-% \renewcommand{\sin}{\sen}
 \begin{document}
   \pagestyle{empty}
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -47,8 +43,6 @@
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
       \node at (4,1.1) {X}; % Parcial
-      % \node at (4, .4) {X}; % Quiz
-      % \node at (7.6, 1.1) {X}; % Final
       \node[right] at (10,.5) {4 - 6 - 8}; % Número de grupo
       \node[right] at (10,1.) {1 de octubre de 2015}; % Fecha de presentación
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
@@ -60,14 +54,11 @@ Al final, encontrará una \textbf{hoja de formulas} para su ayuda o use sus \tex
 Si necesita espacio adicional, use el respaldo de las hojas para el procedimiento (no se permiten hojas extras), y reporte sus aproximaciones a \textbf{4 CIFRAS SIGNIFICATIVAS} con \textbf{REDONDEO SIMÉTRICO} en todas las operaciones y resultados.
 Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en \textbf{lapicero}, y \textbf{justifique} todas sus respuestas y procedimientos. Si algún elemento solicitado, en teoría no puede realizarse, indíquelo y justifique por que no se puede realizar lo solicitado. Respuestas sin justificación no cuentan.
   \begin{enumerate}[leftmargin=*,widest=9]
-    %% Punto 1
     \item \textbf{Conceptuales} ($1.0$):
     \begin{enumerate}[label=\alph*]
     \item Dado el polinomio interpolante de Lagrange \(P_2(x) = 0.256(x-2.5)(x-5.1) - 4(x+1.1)(x-5.1) - 5.5(x+1.1)(x-2.5) \), ¿puede usarse para evaluar \(P_2(-5)\)?
-    %\vspace{3.5cm}
     De la forma de los polinomios de Lagrange, \( L_{n, i}(x) = \prod\limits_{\substack{j = 0\\ j \neq i}}^n \frac{x- x_j}{x_i - x_j}\), sabemos que los términos constantes en los factores, corresponden a los valores de los puntos interpolantes. De donde, los puntos asociados son \(x_i = \lbrace -1.1, 2.5, 5.1 \rbrace \). Los polinomios interpolantes sirven solo al interior de los puntos usados, por lo que el punto \(-5.0\) no puede ser aproximado con el polinomio dado.
     \item Dada la función trascendental \(f(x) = x\tan(x) \) con raíz en \(\pi \). ¿Se puede aplicar el método de regla falsa en el intervalo \( \left[1.6, 3.2\right] \) para hallar la raíz?
-    %\vspace{3.5cm}
     Los métodos cerrados, al que pertenece regla falsa, solo se pueden aplicar en funciones en intervalos donde son continuas y presentan cambio de signo. La función \(f(x)\) solo posee problema de continuidad asociado con \(\tan(x)\), que por propiedades sabemos que coincide con las raíces del coseno, o sea, en \(x = \lbrace \frac{\pi}{2}, \frac{3\pi}{2} \rbrace \approx \lbrace 1.571, 4.712 \rbrace \). Estos dos puntos de discontinuidad se presentan al exterior del intervalo de búsqueda, por lo cual, en dicho intervalo la función es continua.
     Ahora, se validará si la función presenta cambio de signo.
     \begin{eqnarray*}
@@ -76,7 +67,6 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     \end{eqnarray*}
     Como se presenta cambio de signo e el intervalo, y ya se verifico que es continua en el intervalo, el método de regla falsa se puede aplicar.
     \end{enumerate}
-    %% Punto 2
     \item \textbf{Interpolación}:
     \begin{enumerate}[label=\alph*]
     \item ($1.5$) Halle el polinomio interpolante de menor grado único para el siguiente conjunto de datos (indique el polinomio en la forma del polinomio interpolante correspondiente).
@@ -91,12 +81,7 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     \hline
     \end{array}
     \]
-    %\vspace{11cm}
     Con los datos dados de derivada, sabemos que el tipo de polinomio interpolante a usar, es el polinomio interpolante de Hermite. La siguiente tabla se genera con las formulas de recurrencia de las diferencias divididas dadas por
-%    \begin{eqnarray*}
-%    f\left[x_i, x_{i+1}\right] & = & \frac{f(x_{i+1})-f(x_i)}{x_{i+1}-x_i} \\
-%f\left[ x_i, x_{i+1}, \ldots, x_{j-1}, x_j\right] & = & \frac{f\left[x_{i+1}, \ldots, x_{j-1}, x_j\right] - f\left[ x_i, x_{i+1}, \ldots, x_{j-1} \right]}{x_j - x_i}
-%    \end{eqnarray*}
     \[
     \begin{array}{|c|c|c|c|c|c|c|}
     \hline
@@ -116,10 +101,8 @@ Indique \textbf{clara y explícitamente la respuesta final} de cada pregunta en 
     H_5(x) = 0.3333{(x+1)}^2 - 0.2222{(x+1)}^2(x-2) + 0.03395(x+1)^2(x-2)^2 - 3.333\cdot 10^{-6}(x+1)^2(x-2)^2(x-5)
     \]
     \item ($0.5$) Evalúe \(f^\prime(6.2)\) con ayuda del polinomio interpolante hallado.
-    %\vspace{8cm}
 Esta evaluación no puede aplicarse, ya que el punto solicitado esta por fuera del intervalo de valides del polinomio interpolante.
     \end{enumerate}
-    %% Pregunta 3
     \item \textbf{Integración y derivación} ($2.0$): Dado el criterio de mayor precisión y los datos siguientes
     \[
     \begin{array}{|c|c|c|c|c|c|}
@@ -133,13 +116,11 @@ Esta evaluación no puede aplicarse, ya que el punto solicitado esta por fuera d
     Nótese que los puntos son equidistantes.
     \begin{enumerate}[label=\alph*]
     \item  Aproxime la integral de la función representada por los puntos en el intervalo \(\left[-2, 6\right]\), sin combinar métodos.
-    %\vspace{6cm}
     Acorde al criterio de mayor precisión y por la cantidad de puntos, se observa que al ser 4 subintervalos, el método compuesto no combinado aplicable es Simpson \(1/3\).
     \[
     \int\limits_{-2}^6 f(x)dx \approx \frac{h}{3}\left( f(x_0) + f(x_4) + 2\sum\limits_{i=1}^{1}f(x_{2i}) + 4\sum\limits_{i=0}^{1}f(x_{2i+1}) \right) = \frac{2}{3}(-5 + 5 + 2(4) + 4 ( 2 + 5)) = 24.00
     \]
     \item Aproxime la primera derivada de la función representada, en \(x = 0\).
-    %\vspace{4cm}
     Al tratarse de un punto que no es extremo, para la mayor precisión aplica una diferencia central.
     \[
     f^\prime(0) \approx \frac{f(2) - f(-2)}{2h} = \frac{4-(-5)}{2(2)} = \frac{9}{4} = 2.250

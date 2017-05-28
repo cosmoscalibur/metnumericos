@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -16,9 +15,9 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
@@ -68,13 +67,16 @@
 \textbf{Fin}\\
     \begin{enumerate}[label=\alph*]
     \item (\(0.7\)) ¿Cual es el valor de la variable \(b\) la segunda vez que es asignada?
-     \textbf{R/} \(b=2.1398\). La condición de ingreso se cumple al iniciar el pseudocódigo con el valor de \(a = 5\), por lo cual el valor de la variable pasa a ser \(a = a + \ln(a) = 6.6094\). A continuación se asigna en \(b\) el resultado de operarlo, pero este valor no influye en el próximo. Al volver a revisar la condición del ciclo, efectivamente se cumple, por lo cual el valor de \(a\) vuelve a cambiar conforme a \(a= a+\ln(a) =  8.4979\). En la siguiente linea \(b = \ln(a) = 2.1398 \).
+
+\textbf{R/} \(b=2.1398\). La condición de ingreso se cumple al iniciar el pseudocódigo con el valor de \(a = 5\), por lo cual el valor de la variable pasa a ser \(a = a + \ln(a) = 6.6094\). A continuación se asigna en \(b\) el resultado de operarlo, pero este valor no influye en el próximo. Al volver a revisar la condición del ciclo, efectivamente se cumple, por lo cual el valor de \(a\) vuelve a cambiar conforme a \(a= a+\ln(a) =  8.4979\). En la siguiente linea \(b = \ln(a) = 2.1398 \).
     \item (\(0.3\)) ¿Cuantas veces se ejecutará el ciclo indicado en el pseudocódigo? Justifique la respuesta.
-     \textbf{R/} Infinitas (\(\infty\)) veces. Este ciclo no tendrá terminación pues se observa que la función asociada a la iteración del valor de \(a\) es una función monotonamente creciente, el valor de \(a\) siempre será mayor que \(5\) y por ende la condición del ciclo se cumplirá indefinidamente.
+
+\textbf{R/} Infinitas (\(\infty\)) veces. Este ciclo no tendrá terminación pues se observa que la función asociada a la iteración del valor de \(a\) es una función monotonamente creciente, el valor de \(a\) siempre será mayor que \(5\) y por ende la condición del ciclo se cumplirá indefinidamente.
     \end{enumerate}
     \item La sumatoria del flujo de caja durante un periodo de tiempo medido en años para una inversión dada, puede ser modelada por \(f(x) = (x-5.5)^3 + x - 20\). Se denomina punto de equilibrio al tiempo para el cual la inversión realizada se recupera, siendo esto equivalente a que la sumatoria del flujo de caja sea cero. Use unidades si corresponde al reportar la respuesta final.
     \begin{enumerate}[label=\alph*]
     \item (\(0.7\)) Partiendo del intervalo [0, 10], determine a 3 iteraciones la aproximación del punto de equilibrio.
+
 \textbf{R/} \(f(x)\) es un polinomio, por lo cual es continuo en todos los reales, y ademas, \(f(0)f(10)= -15120 < 0\). Así es posible usar el método cerrado.
 \[
 \begin{array}{|c|c|c|c|c|}
@@ -91,8 +93,10 @@
 \]
 El punto de equilibrio se alcanza en aproximadamente \(8.7500\) años.
     \item (\(0.5\)) Sabiendo que una buena aproximación es \(7.8020\) años, determine el error absoluto de su aproximación.
+
 \textbf{R/} \(E_a = |7.8020 - 8.7500| \text{ años} = 0.94800 \text{ años}\)
     \item (\(0.7\)) Con la información del literal anterior, determine el número de cifras significativas de su aproximación de manera formal.
+
 \textbf{R/} Se requiere el error relativo para obtener las cifras significativas, para lo cual el literal anterior aporta los datos.
 \[E_r = \left| \frac{E_a}{p}\right| = \frac{0.94800}{7.8020} = 0.12151\]
 Ahora
@@ -101,13 +105,16 @@ Ahora
 \end{eqnarray*}
 Así, el numero de cifras significativas es 1.
 \item (\(0.5\)) Reporte su resultado aproximado acorde a las cifras significativas que determino en el literal anterior.
+
 \textbf{R/} = \(9 \cdot 10^0\) años.
 \end{enumerate}
    \item Sea \(f(x) = \left\vert x \right\vert\), se desea conocer una aproximación de primer orden de la función para \(x=-0.1\) usando como punto central \(x_0=0.1\).
    \begin{enumerate}[label=\alph*]
     \item (\(0.8\)) ¿Cumple el teorema de aproximación de Taylor el problema planteado?
-    \textbf{R/} No cumple el teorema. Se observa que la primera derivada de la función en el intervalo requerido es discontinua por lo cual no se cumple una condición necesaria del teorema.
+
+\textbf{R/} No cumple el teorema. Se observa que la primera derivada de la función en el intervalo requerido es discontinua por lo cual no se cumple una condición necesaria del teorema.
 \item (\(0.8\)) Realice la aproximación indicada.
+
 \textbf{R/} No es posible realizar la aproximación. Las aproximaciones de funciones por medio de expansiones de series de Taylor solo son posibles si cumplen las condiciones expuestas por el Teorema de Taylor, caso que no sucede aquí.
   \end{enumerate}
 \end{enumerate}

@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -58,13 +57,12 @@ Se permite usar calculadora de cualquier tipo. Todo valor reportado debe aproxim
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
 {\footnotesize
-%% Punto 1
     \item Es posible encontrar una aproximación al número \(\pi \) a partir de la expresión
     \[ \pi = \int\limits_0^1 \frac{4}{1+x^2}dx.\]
     \begin{enumerate}[label=\alph*]
     \item Obtenga una aproximación de \(\pi \) con una regla compuesta de su preferencia.
 
-    \textbf{R/} Por facilidad se escoge el método del trapecio con \(n=2\). De esta forma el tamaño de los intervalos será \( \frac{1-0}{2} = 0.50000\).
+\textbf{R/} Por facilidad se escoge el método del trapecio con \(n=2\). De esta forma el tamaño de los intervalos será \( \frac{1-0}{2} = 0.50000\).
     \[ \pi \approx \frac{0.50000}{2}\left(\frac{4}{1+0^2} + \frac{4}{1+1^2} + 2\frac{4}{1+0.50000^2}\right) = 3.1000 \]
     \item Calcule la cota de error máxima para su aproximación de \(\pi \) con la regla compuesta usada.
 
@@ -92,7 +90,6 @@ N = 1
 \end{eqnarray*}
 Así, el número de cifras significativas de la aproximación es 1, y la aproximación de \(\pi \) reescrita sería \(3\).
     \end{enumerate}
-%% Punto 2
     \item Un modelo para el crecimiento de la población (\(y(t)\)) en el tiempo (\(t\) en años) es la ecuación de Gompertz, resultante de solucionar la ecuación diferencial (caso particular)
     \[
 \diff{y(t)}{t}{} = \frac{0.05}{\text{año}}\ln \left( \frac{1000}{y(t)} \right) y(t), \qquad y(0 \text{ año}) = 723.
@@ -122,7 +119,6 @@ k_4 = &1 \cdot 0.05\ln \left( \frac{1000}{723 + 11.529} \right) (723 + 11.529) =
 y_1 = &723 + \frac{11.725 + 2(11.526+11.529)+11.331}{6} = 734.53
 \end{eqnarray*}
 \end{enumerate}
-        % Punto 3
    \item Al aplicar las leyes de Kirchhoff para la solución de las corrientes en un circuito, se encuentra el siguiente conjunto de ecuaciones adimensionales.
    \begin{align*}
    3I_1 + I_2 - I_3 & = 0 \\
@@ -132,7 +128,7 @@ y_1 = &723 + \frac{11.725 + 2(11.526+11.529)+11.331}{6} = 734.53
    \begin{enumerate}[label=\alph*]
    \item Determine la matriz \(T\) y el vector \(\vec{c}\) para el método de su preferencia, para el sistema \(A\vec{x}=\vec{b}\) equivalente al sistema de ecuaciones.
 
-   \textbf{R/} Por facilidad se escoge el método de Jacobi. Lo primero que es requerido, es llevar el sistema de ecuaciones a solucionar a su forma matricial equivalente.
+\textbf{R/} Por facilidad se escoge el método de Jacobi. Lo primero que es requerido, es llevar el sistema de ecuaciones a solucionar a su forma matricial equivalente.
    \[
 \begin{pmatrix} 3 & 1 & -1\\ 1 & -4 & 2\\ -2 & 3 & -7 \end{pmatrix}
 \begin{pmatrix} I_1 \\ I_2 \\ I_3 \end{pmatrix} = \begin{pmatrix} 0 \\ -2 \\ 5 \end{pmatrix}
@@ -142,7 +138,7 @@ y_1 = &723 + \frac{11.725 + 2(11.526+11.529)+11.331}{6} = 734.53
 \begin{pmatrix} 3 & 1 & -1\\ 1 & -4 & 2\\ -2 & 3 & -7 \end{pmatrix} = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix} -
 \begin{pmatrix} 0 & 0 & 0\\ -1 & 0 & 0\\ 2 & -3 & 0 \end{pmatrix} - \begin{pmatrix} 0 & -1 & 1\\ 0 & 0 & -2\\ 0 & 0 & 0 \end{pmatrix}
    \]
-   A continuación obtenemos la matriz \(T_J\) y el vector \(c_J\).
+   A continuación obtenemos la matriz \(T_J\) y el vector \(\vec{c_J}\).
    \[
 T_J = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix}^{-1}\begin{pmatrix} 0 & -1 & 1\\ -1 & 0 & -2\\ 2 & -3 & 0 \end{pmatrix} =
 \begin{pmatrix}0 & -0.33333 & 0.33333\\ 0.25000 & 0 & 0.50000\\ -0.28571 & 0.42857 & 0 \end{pmatrix}
@@ -153,7 +149,7 @@ T_J = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix}^{-1}\beg
    \]
    \item Valide que el método seleccionado será convergente a la solución única del problema.
 
-   \textbf{R/} Se verifica que en la matriz de coeficientes del sistema (\(A\)) los elementos de la diagonal son en valor absoluto mayores que la suma en valor absoluto de los demás elementos de la fila respectiva.
+\textbf{R/} Se verifica que en la matriz de coeficientes del sistema (\(A\)) los elementos de la diagonal son en valor absoluto mayores que la suma en valor absoluto de los demás elementos de la fila respectiva.
    \begin{eqnarray*}
    \vert 3 \vert > \vert 1 \vert + \vert -3 \vert \\
    \vert -4 \vert > \vert 1 \vert + \vert 2 \vert \\
@@ -162,14 +158,14 @@ T_J = \begin{pmatrix} 3 & 0 & 0\\ 0 & -4 & 0\\ 0 & 0 & -7 \end{pmatrix}^{-1}\beg
    Al cumplir esta condición, la matriz de coeficientes es una matriz estrictamente diagonal dominante, y por ende los métodos de Jacobi y de Gauss-Seidel serán convergentes a la solución única.
    \item Usando como aproximación inicial el vector \( \begin{pmatrix} -0.15000 & 0.15000 & -0.50000 \end{pmatrix}^T \), muestre la solución aproximada tras una iteración.
 
-   \textbf{R/}
+\textbf{R/}
    \[
 \vec{I}^{(1)} = \begin{pmatrix}0 & -0.33333 & 0.33333\\ 0.25000 & 0 & 0.50000\\ -0.28571 & 0.42857 & 0 \end{pmatrix}\begin{pmatrix} -0.15000\\ 0.15000\\ -0.50000 \end{pmatrix} + \begin{pmatrix} 0\\ 0.50000 \\ -0.71429 \end{pmatrix} = \begin{pmatrix}-0.21667\\0.21250\\-0.60715\end{pmatrix}
    \]
    \item Calcule el error absoluto de la aproximación usando la norma 5 con respecto a la solución exacta. La solución exacta es el vector
    \( \begin{pmatrix} -0.24324 & 0.14865 & -0.58108 \end{pmatrix}^T \).
 
-   \textbf{R/}
+\textbf{R/}
    \begin{eqnarray*}
 \left\Vert \begin{pmatrix}-0.21667\\0.21250\\-0.60715\end{pmatrix} - \begin{pmatrix} -0.24324 \\ 0.14865 \\ -0.58108 \end{pmatrix} \right\Vert_{(5)}= \\{\left(\vert -0.21667 - (-0.24324) \vert^5 + \vert 0.21250 - 0.14865 \vert^5 + \vert -0.60715 - (-0.58108) \vert^5\right)}^{1/5} = 0.064152
    \end{eqnarray*}

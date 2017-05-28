@@ -7,7 +7,6 @@
 \usepackage{tikz}
 \usepackage{graphicx,enumitem}
 \usepackage{multicol}
-\usepackage{hyperref}
 \setlength{\marginparsep}{12pt} \setlength{\marginparwidth}{0pt} \setlength{\headsep}{.8cm} \setlength{\headheight}{15pt} \setlength{\labelwidth}{0mm} \setlength{\parindent}{0mm} \renewcommand{\baselinestretch}{1.15} \setlength{\fboxsep}{5pt} \setlength{\parskip}{3mm} \setlength{\arraycolsep}{2pt}
 \renewcommand{\sin}{\operatorname{sen}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -16,9 +15,9 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}}
-\allowdisplaybreaks{}
-\raggedbottom{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
+\raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
@@ -62,33 +61,36 @@ En caso de reclamación solo cuenta lo que este en lapicero% {presencial}
 \vspace{-.5cm}
   \begin{enumerate}[leftmargin=*,widest=9]
     \item Dado el siguiente pseudocódigo
-\(a\gets 5\)\\
-\(b\gets 3\)\\
-\(c\gets a\)\\
-\(a\gets b\)\\
-\(b\gets c\)\\
-\textbf{Mientras} \(c < 10\)\\
-\hspace*{1cm}\textbf{Si} \((c > 5)\) \&\& \((c < 10)\)\\
-\hspace*{1cm}\hspace*{1cm}Imprima ''\textit{Esto no va}''\\
+\(a \gets 5 \) \\
+\(b \gets 3 \) \\
+\(c \gets a \) \\
+\(a \gets b \) \\
+\(b \gets c \) \\
+\textbf{Mientras} \(c < 10 \) \\
+\hspace*{1cm}\textbf{Si} \((c > 5)\) \&\& \((c < 10)\) \\
+\hspace*{1cm}\hspace*{1cm}Imprima ``\textit{Esto no va}'' \\
+\hspace*{1cm}\textbf{Fin Si} \\
+\hspace*{1cm}\textbf{Si} \(c == 6\) \\
+\hspace*{1cm}\hspace*{1cm}\(c \gets c + a \) \\
+\hspace*{1cm}\textbf{Sino} \\
+\hspace*{1cm}\hspace*{1cm}\(c \gets c + 1 \) \\
 \hspace*{1cm}\textbf{Fin Si}\\
-\hspace*{1cm}\textbf{Si} \(c == 6\)\\
-\hspace*{1cm}\hspace*{1cm}\(c \gets c + a\)\\
-\hspace*{1cm}\textbf{Sino}\\
-\hspace*{1cm}\hspace*{1cm}\(c \gets c + 1\)\\
-\hspace*{1cm}\textbf{Fin Si}\\
-\hspace*{1cm}\(a \gets a * b\)\\
+\hspace*{1cm}\(a \gets a * b \) \\
 \textbf{Fin Mientras}\\
 \textbf{Fin}\\
 \vspace{-.5cm}
     \begin{enumerate}[label=\alph*]
     \item (\(0.7\)) ¿Cual es el valor de las variablas \(a\), \(b\) y \(c\)?
-    \textbf{R/} \(a = 75, \qquad b=5, \qquad c=21. \)
-    \item (\(0.3\)) ¿La instrucción de 'Imprima' se ejecuta? Justifique la respuesta.
-    \textbf{R/} Si se ejecuta (una vez). En el primer ciclo \(c \gets 5\) no cumple la condición para imprimir, pero en el segundo ciclo \(c \gets 6\) al aumentar una unidad (indicado por ser distinto de \(6\) antes del cambio de valor) cumple la condición para imprimir (dado que debe ser un valor mayor que \(5\) y menor que \(10\)). Para el siguiente ciclo al ser \(c== 6\) este debe aumentar en un valor idéntico a \(a\) (\(a \gets 15\)) por lo que \(c \gets 21\) y ya estaría por fuera del ciclo.
+
+\textbf{R/} \(a = 75, \qquad b=5, \qquad c=21. \)
+    \item (\(0.3\)) ¿La instrucción de \verb-Imprima- se ejecuta? Justifique la respuesta.
+
+\textbf{R/} Si se ejecuta (una vez). En el primer ciclo \(c \gets 5\) no cumple la condición para imprimir, pero en el segundo ciclo \(c \gets 6\) al aumentar una unidad (indicado por ser distinto de \(6\) antes del cambio de valor) cumple la condición para imprimir (dado que debe ser un valor mayor que \(5\) y menor que \(10\)). Para el siguiente ciclo al ser \(c== 6\) este debe aumentar en un valor idéntico a \(a\) (\(a \gets 15\)) por lo que \(c \gets 21\) y ya estaría por fuera del ciclo.
     \end{enumerate}
-    \item La sumatoria del flujo de caja durante un periodo de tiempo medido en años para una inversión dada, puede ser modelada por \(f(x) = (x-5.5)^3 + x - 20\). Se denomina punto de equilibrio al tiempo para el cual la inversión realizada se recupera, siendo esto equivalente a que la sumatoria del flujo de caja sea cero. Use unidades si corresponde al reportar la respuesta final.
+    \item La sumatoria del flujo de caja durante un periodo de tiempo medido en años para una inversión dada, puede ser modelada por \(f(x) = {(x-5.5)}^3 + x - 20\). Se denomina punto de equilibrio al tiempo para el cual la inversión realizada se recupera, siendo esto equivalente a que la sumatoria del flujo de caja sea cero. Use unidades si corresponde al reportar la respuesta final.
     \begin{enumerate}[label=\alph*]
     \item (\(0.8\)) Partiendo del intervalo [0, 10], determine a 3 iteraciones la aproximación del punto de equilibrio.
+
 \textbf{R/} \(f(x)\) es un polinomio, por lo cual es continuo en todos los reales, y ademas, \(f(0)f(10)= -15120 < 0\). Así es posible usar el método cerrado.
 \[
 \begin{array}{|c|c|c|c|c|}
@@ -105,8 +107,10 @@ En caso de reclamación solo cuenta lo que este en lapicero% {presencial}
 \]
 El punto de equilibrio se alcanza en aproximadamente \(8.7500\) años.
     \item (\(0.5\)) Sabiendo que una buena aproximación es \(7.8020\) años, determine el error absoluto de su aproximación.
+
 \textbf{R/} \(E_a = |7.8020 - 8.7500| \text{ años} = 0.94800 \text{ años}\)
     \item (\(0.7\)) Con la información del literal anterior, determine el número de cifras significativas de su aproximación de manera formal
+
 \textbf{R/} Se requiere el error relativo para obtener las cifras significativas, para lo cual el literal anterior aporta los datos.
 \[E_r = \left| \frac{E_a}{p}\right| = \frac{0.94800}{7.8020} = 0.12151\]
 Ahora
@@ -118,12 +122,16 @@ Así, el numero de cifras significativas es 1.
    \item Sea \(g(x) \in C[0, 5]\) y sabiendo que \(g(0)= 1\) y \(g(5)=4\), responda y justifique:
    \begin{enumerate}[label=\alph*]
     \item (\(0.5\)) ¿Se puede afirmar que no existe raíz?
-    \textbf{R/} No es posible afirmar. Si la curva no es monótona podría cruzar el eje y volver a subir.
+
+\textbf{R/} No es posible afirmar. Si la curva no es monótona podría cruzar el eje y volver a subir.
 \item (\(0.5\)) ¿Se puede afirmar que la evaluación de la función nunca es \(5\)?
+
 \textbf{R/} No es posible afirmar. Si la función no es monótona, podría ascender hasta 5 y luego descender.
 \item (\(0.5\)) ¿Se puede afirmar que la evaluación de la función nunca es \(2\)?
+
 \textbf{R/} No es posible afirmar, ya que el teorema de valores extremos asegura que tomará el valor en el intervalo.
 \item (\(0.5\)) Si suponemos que \(g(5)=-4\) y ademas \(g(x)\) es discontinua en \(x=6\), ¿es posible usar el método de regla falsa para buscar su raíz?
+
 \textbf{R/} Dado que \(g(x) \) sería continua en el intervalo y presentaría cambio de signo, es posible aplicar el método.
   \end{enumerate}
 \end{enumerate}

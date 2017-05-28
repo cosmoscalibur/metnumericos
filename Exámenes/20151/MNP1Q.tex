@@ -15,11 +15,10 @@
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
-\graphicspath{{../imagenes/}}
-\allowdisplaybreaks{}
+\graphicspath{{../imagenes/}{imagenes/}{..}}
+\allowdisplaybreaks{}
 \raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
-%\spanishdecimal{.}
 \newcommand{\profesor}{Edward Y. Villegas}
 \newcommand{\asignatura}{M\'ETODOS NUM\'ERICOS}
 \begin{document}
@@ -27,7 +26,6 @@
   \begin{minipage}{\linewidth}
     \centering
     \begin{tikzpicture}[very thick,font=\small]
-%       \draw[help lines,step=5mm,red] (0,0) grid (18,7);
       \node at (2,6) {\includegraphics[width=3.5cm]{logoudem}};
       \node at (9.5,6) {\includegraphics[width=9cm]{cbudem}};
       \node[fill=white,draw=white,inner sep=1mm] at (9.5,5.05) {\bf Permanencia con calidad, Acompa\~nar para exigir};
@@ -50,7 +48,6 @@
     \end{tikzpicture}
   \end{minipage}
   \begin{enumerate}[leftmargin=*,widest=9]
-       %% Punto 1
     \item \textbf{Punto fijo} Para la relación recursiva de punto fijo \[x_{n+1} = \frac{x_n}{2} + \frac{1}{x_n},\]
     \begin{itemize}
     \item[$0.5$] ¿Cumple el criterio de punto fijo para todo $x_0 = 1$? Justifique.
@@ -58,7 +55,6 @@
     \item[$1.0$] ¿A que valor converge la relación recursiva?.
     \vspace{2cm}
     \end{itemize}
-    %% Punto 2
  \item Dados los puntos $P=\lbrace (-1, 4), (1, -6), (4, -3) \rbrace$ extraídos de una función continua en el intervalo $\left[-1, 4\right]$.
     \begin{itemize}
     \item[$0.5$] \textbf{Interpolación} Determine el polinomio interpolante de grado mínimo para el conjunto de puntos $P$.
@@ -71,7 +67,6 @@
     \item[$0.5$] \textbf{Raíces} Con el polinomio interpolante hallado, encuentre la aproximación de la raíz de la función al interior del intervalo con tolerancia de $0.1$ con el método de su preferencia.
     \vspace{5cm}
     \end{itemize}
-    %% Punto 3
     \item Dados los puntos de la forma $(x_i, f(x_i), f^\prime (x_i))$ de una función desconocida, $Q=\lbrace (0, 3, 1), (1, 4, 0) \rbrace$.
     \begin{itemize}
     \item[$1.0$] \textbf{Interpolación} Determine el polinomio interpolante de Hermite para la información dada.
@@ -97,23 +92,6 @@
   a = c, f(b)f(c)<0
   \end{array}
 \end{align*}
-  %\textit{Cerrados:} $f(a)f(b)<0$\\
-%  \textit{Incremental:}
-%  \begin{eqnarray*}
-%  h = \frac{b-a}{n} \\
-%  x_{i+1} = x_i + ih\\
-%  x_r = \frac{x_{i+1}-x_i}{2}
-%  \end{eqnarray*}
-%  \textit{Bisección:}
-%  \begin{eqnarray*}
-%  c = \frac{b-a}{2}\\
-%  b = c, f(a)f(c)<0\\
-%  a = c, f(b)f(c)<0
-%  \end{eqnarray*}
-%%  \begin{array}{c}
-%%  \text{Punto fijo:} \\
-%%  \end{array} & \\
-%%  \text{Newton} & \text{Secante} \\
 \begin{align*}
   \text{Abiertos - Punto fijo:}& \qquad \qquad |g^\prime (x)| < 1 & x_{i+1} = g(x_i) \\
   \text{Newton} & & \text{Secante} \\
