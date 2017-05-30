@@ -42,7 +42,7 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      \node at (4,0.5) {X}; % Variar segun el tipo de examen
+      \node at (4,0.5) {X};
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
@@ -61,7 +61,7 @@
     \vspace{5cm}
     \item[$0.5$] \textbf{Diferenciación} Usando diferencia central y con $\Delta x = 0.2$, determine el resultado aproximado de la primera iteración de M\"uller con semilla en $x_0=0$.
     \[
-    x_1 = -\frac{2f(x_0)}{f\prime(x_0)+\sqrt{f^\prime(x_0)^2 - 2f(x_0)f^{\prime\prime}(x_0)}}.
+    x_1 = -\frac{2f(x_0)}{f\prime(x_0)+\sqrt{f^\prime{(x_0)}^2 - 2f(x_0)f^{\prime\prime}(x_0)}}.
     \]
     \vspace{4cm}
     \item[$0.5$] \textbf{Raíces} Con el polinomio interpolante hallado, encuentre la aproximación de la raíz de la función al interior del intervalo con tolerancia de $0.1$ con el método de su preferencia.
@@ -93,7 +93,7 @@
   \end{array}
 \end{align*}
 \begin{align*}
-  \text{Abiertos - Punto fijo:}& \qquad \qquad |g^\prime (x)| < 1 & x_{i+1} = g(x_i) \\
+  \text{Punto fijo:}& \qquad \qquad |g^\prime (x)| < 1 & x_{i+1} = g(x_i) \\
   \text{Newton} & & \text{Secante} \\
   x_{i+1} = x_i - \frac{f(x_i)}{f^\prime(x)} & \qquad \qquad &
     x_{i+1} = x_i - \frac{f(x_i)\Delta x}{f(x_i+\Delta x)-f(x_i)}
