@@ -2,9 +2,7 @@
 ## Jupyter / IPython
 .ipynb_checkpoints/
 __pycache__/
-## Binary files and directories with those (shared with dropbox)
-Coordinación/
-Taller/
+## Binary files and directories shared with dropbox
 *.pdf
 *.odt
 *.zip
@@ -16,3 +14,5 @@ Taller/
 *.fdb_latexmk
 *.fls
 *.bak
+## Nano temp
+*.swp
