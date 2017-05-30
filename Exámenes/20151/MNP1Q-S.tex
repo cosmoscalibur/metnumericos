@@ -16,7 +16,6 @@
 \newcommand{\C}{\ensuremath{\mathbb{C}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
 \graphicspath{{../imagenes/}{imagenes/}{..}}
-%\allowdisplaybreaks
 \allowdisplaybreaks{}
 \raggedbottom{}
 \setlength{\topskip}{0pt plus 2pt}
@@ -43,7 +42,7 @@
       \draw (3.8,.2) rectangle (4.4,.6); \node[left] at (3.8,.4) {Previa:};
       \draw (7.4,.9) rectangle (8,1.3); \node[left] at (7.4,1.1) {Final:};
       \draw (7.4,.2) rectangle (8,.6); \node[left] at (7.4,.4) {Habilitaci\'on:};
-      \node at (4,1.1) {X}; % Variar segun el tipo de examen
+      \node at (4,1.1) {X};
       \node[right] at (8.4,1.05) {\bf Fecha:}; \node[right] at (8.4,.45) {\bf Grupo:};
       \node[align=center,text width=3cm,font=\footnotesize] at (16.5,.75) {\centering\bf Use solo tinta\\y escriba claro};
     \end{tikzpicture}
@@ -52,10 +51,44 @@
     \item \textbf{Punto fijo} Para la relación recursiva de punto fijo \[x_{n+1} = \frac{1}{2} \left(x_n + \frac{3}{x_n} \right),\]
     \begin{itemize}
     \item[$0.5$] ¿Cumple el criterio de punto fijo para $x_0 = 3$? Justifique.
-    \vspace{3.5cm}
+
+    \textbf{R/} Analizamos la función de punto fijo asociada \[g(x)= \frac{1}{2} \left(x_n + \frac{3}{x_n} \right),\] y observamos que la continuidad de la función se ve afectada en \(x=0\) donde presenta una asíntota vertical. Esto lleva a que el analísis deba realizarse en el intervalo \(x > 0\) en el cual se encuentra el punto solicitado.
+
+    Una vez verificado el intervalo continuo, debemos validar el criterio de existencia. Esto implica que debe existir un intervalo que sea al mismo tiempo el conjunto dominio y conjunto imagen para la función de punto fijo. Una posible estrategia es determinar inicialmente el rango de la función en el dominio seleccionado (el conjunto imagen más grande posible).
+
+    \( \min\limits_{x>0}\left\lbrace \frac{1}{2} \left(x_n + \frac{3}{x_n} \right)\right\lbrace = \sqrt{3}. \)
+
+    Como $x_0 = 3$ debe estar incluido, nos interesa conocer el máximo de la función de punto fijo a la derecha de \(x\) igual al mínimo. En particular, si el máximo en el intervalo comprendido por el mínimo asignado como \(x\) y \(x_0\), es un valor en dicho intervalo, cumpliría con la existencia. Así:
+
+    \( \max\limits_{\sqrt{3} \leq x \leq 3}\left\lbrace \frac{1}{2} \left(x_n + \frac{3}{x_n} \right)\right\lbrace = 2. \)
+
+    Como \(2 \in \left[\sqrt{3}, 3\right]\), se cumple con el criterio de existencia del punto fijo.
+
+    Finalmente, es necesario cumplir con el criterio de unicidad del punto fijo. Para esto, la derivada de la función de punto fijo en el intervalo abierto de interés debe ser en valor absoluto menor que la unidad. Nuestra estrategia en este caso es encontrar el máximo del valor absoluto de su derivada.
+
+    \begin{eqnarray*}
+    \max\limits_{\sqrt{3} < x < 3}\left\vert \frac{d}{dx} \frac{1}{2} \left(x + \frac{3}{x} \right) \right\vert & = & \max\limits_{\sqrt{3} < x < 3}\left\vert \frac{1}{2}- \frac{3}{2x} \right\vert \\
+    & = & \frac{1}{3} < 1.
+    \end{eqnarray*}
+
+    Como el máximo de la derivada en valor absoluto en el intervalo es menor que 1, sabemos que cumple con el criterio de unicidad.
+
     \item[$1.0$] ¿A que valor converge la relación recursiva?.
-    \vspace{2cm}
+
+    \textbf{R/} Dado que la convergencia se alcanza cuando \(x_{n+1}=x_{n}\) en \(n \rightarrow \infty \), el problema es equivalente a solucionar
+
+    \begin{eqnarray*}
+    x & = & \frac{1}{2} \left(x + \frac{3}{x} \right) \\
+    x - \frac{x}{2} & = & \frac{3}{2x} \\
+    \frac{x}{2} & = & \frac{3}{2x} \\
+    \frac{2x^2}{6} - 1 & = & 0 \\
+    x & = & \pm \sqrt{3}
+    \end{eqnarray*}
+
+    Entre las dos opciones, sabemos que corresponde a \(x=\sqrt{3}\) porque se encuentra en el intervalo que cumple la condición de existencia y unicidad para el \(x_0\) dado.
+
     \end{itemize}
+
  \item Dados los puntos $P=\lbrace (0, 1), (1, {-2}), (3, {-1}) \rbrace$ extraídos de una función continua en el intervalo $\left[0, 3\right]$.
     \begin{itemize}
     \item[$0.5$] \textbf{Interpolación} Determine el polinomio interpolante para el conjunto de puntos $P$.
@@ -68,12 +101,15 @@
     \item[$0.5$] \textbf{Raíces} Con el polinomio interpolante hallado, encuentre la aproximación de la raíz de la función al interior del intervalo con tolerancia de $0.1$ con el método de su preferencia.
     \vspace{5cm}
     \end{itemize}
+
+
     \item Dados los puntos de la forma $(x_i, f(x_i), f^\prime (x_i))$ de una función desconocida, $Q=\lbrace (0, 1, 2), (3, 2, 1) \rbrace$.
     \begin{itemize}
     \item[$1.0$] \textbf{Interpolación} Determine el polinomio interpolante de Hermite para la información dada.
     \vspace{5cm}
     \item[$1.0$] \textbf{Integración} Usando $\Delta x = 0.2$, estime la integral del polinomio interpolante hallado en el intervalo $\left[0.4, 1.0\right]$, $\int_{0.4}^{1.0} H_{3}(x)dx$.
     \end{itemize}
+    
   \end{enumerate}
   \clearpage
   \section*{Ecuaciones}
