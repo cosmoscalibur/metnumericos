@@ -11,20 +11,22 @@ Salvo que se indique lo contrario, toda referencia a los textos guías realizada
 
 También encontrará textos de referencia para programación en python3 y octave4.  
 
-Consulte los textos en la carpeta [libros](https://www.dropbox.com/sh/z5jw3xqjj45zmh8/AABjmAb6fewC8PlSEMk35PJla?dl=0 "Carpeta de dropbox para consulta de los textos de referencia.").  
+Consulte los textos en la carpeta [libros](https://www.dropbox.com/sh/5c908wmfhabjypg/AAA0FxfJqwVW5lJn4xoXFT-va?dl=0 "Carpeta de dropbox para consulta de los textos de referencia.").  
 
 ## Notas de clase
 
-+   Diapositivas de resumen se encuentran en formato PDF y ODP en el [directorio de dropbox Presentaciones](https://www.dropbox.com/sh/v56qk91ce7tyko3/AAAiMH-1R5UYtjgkCv92NTJva?dl=0).  
+Las notas de clase se encuentran en formato ODP de manera provisional, mientras son migradas a algún formato más amigable con el versionamiento (markdown, LaTeX o Notebook). Cuando la migración este lista el material podrá ser consultado en la sección de [notas del repositorio](https://github.com/cosmoscalibur/metnumericos/tree/master/Presentaciones/Notas "Notas en el repositorio.") o en [formato PDF en el directorio de dropbox][Dropbox].  
+
+[Dropbox]: https://www.dropbox.com/sh/ffanuxzmthea61t/AABAVbkWHTFfHSqeF5FQTxBEa?dl=0 "Directorio con notas de clase listas para descarga."
 
 ## Ejercicios recomendados
 
-Los ejercicios recomendados los puede consultar en [Sugeridos.pdf](https://www.dropbox.com/s/cg0wa76qmhsc9md/sugeridos.pdf?dl=0).  
-Los exámenes de semestres anteriores (con solucionario la mayoría) se encuentran en [Solucionarios](https://www.dropbox.com/sh/17wra3ydcswmouw/AABQ2I-taivYyFL-4wfECzVia?dl=0). En esta misma carpeta encontrará los solucionarios de las actividades evaluativas del semestre en curso.  
+Los ejercicios recomendados los puede consultar en el repositorio ([Exámenes/sugeridos.md](https://github.com/cosmoscalibur/metnumericos/blob/master/Exámenes/sugeridos.md)).  
+Los exámenes de semestres anteriores (con solucionario la mayoría) se encuentran en [Solucionarios](https://www.dropbox.com/sh/vmhd1p1zyxnrlv2/AABVkQf_baVTrMb_vYO1eJu3a?dl=0). En esta misma carpeta encontrará los solucionarios de las actividades evaluativas del semestre en curso.  
 
 ## Repositorio público
 
-[Repositorio github](https://github.com/cosmoscalibur/metnumericos) para disponer de manera pública el material de apoyo nuevo en códigos y notebooks.  
+[Repositorio github](https://github.com/cosmoscalibur/metnumericos) para disponer de manera pública el material de apoyo de códigos y notebooks.  
 
 ## Word
 

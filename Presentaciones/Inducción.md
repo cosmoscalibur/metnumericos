@@ -68,7 +68,7 @@ Bajo ningún motivo se autorizará la presentación individual de actividades co
 
 El docente podrá disponer de actividades espontaneas para dar bonificaciones al seguimiento, en las cuales intervengan aspectos de programación o elementos teóricos del curso para las deducciones de los métodos.  
 
-Se cuenta con los mecanismos de bonificación tradicionales acorde a la participación en semilleros, ser monitor y participación en el congreso del semestre en curso (congreso de simulación, 3 al 5 de mayo de 2017). Para más detalle, consulte el [documento de evaluación remitido por coordinación](https://www.dropbox.com/s/h23gajo655cb1lk/Evaluaci%C3%B3n%20Metodos%20Numericos%20semestre%202016%202.docx?dl=0).  
+Se cuenta con los mecanismos de bonificación tradicionales acorde a la participación en semilleros, ser monitor y participación en el congreso del semestre en curso.  
 
 ### Reclamaciones
 
