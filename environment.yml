@@ -1,0 +1,15 @@
+name: numericos
+channels:
+  - pkgw
+  - conda-forge
+dependencies:
+  - texlive-core
+  - texlive-selected
+  - pandoc
+  - nbconvert
+  - jupyter
+  - numpy
+  - sympy
+  - matplotlib
+  - pip:
+    - octave_kernel
